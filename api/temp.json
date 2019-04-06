@@ -1,0 +1,102 @@
+{
+    "info": {
+        "description": "RG Invitational API",
+        "title": "Swagger",
+        "version": "1.0.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "",
+    "produces": [
+        "application/json"
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "securityDefinitions": {
+        "JWT": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "Authorization",
+            "description": ""
+        }
+    },
+    "swagger": "2.0",
+    "paths": {
+        "/api/participants/": {
+            "get": {
+                "parameters": [],
+                "description": "Get all participants.",
+                "tags": [
+                    "default"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of participants",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ParticipantInfo"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error"
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "ParticipantInfo": {
+            "required": [
+                "name",
+                "team"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": ""
+                },
+                "name": {
+                    "type": "Name",
+                    "description": ""
+                },
+                "team": {
+                    "type": "string",
+                    "description": ""
+                }
+            }
+        },
+        "Name": {
+            "required": [
+                "first",
+                "last"
+            ],
+            "properties": {
+                "first": {
+                    "type": "string",
+                    "description": ""
+                },
+                "last": {
+                    "type": "string",
+                    "description": ""
+                }
+            }
+        }
+    },
+    "responses": {},
+    "parameters": {},
+    "tags": [
+        {
+            "name": "default",
+            "description": ""
+        }
+    ]
+}

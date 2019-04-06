@@ -2,21 +2,31 @@ import express from 'express';
 //import { participantInfo } from './participants';
 import ParticipantInfo from './participantInfoModel';
 import asyncHandler from 'express-async-handler';
-import { readdirSync } from 'fs';
+import checkJwt from '../../auth';
 
+console.log(`participants before creating express router`);
 const router = express.Router(); // eslint-disable-line
 
+/**
+ * Get all participants.
+ * @group  participants
+ * @route GET /
+ * @produces application/json
+ * @consumes application/json
+ * @returns {Array.<ParticipantInfo>} 200 - An array of participants
+ * @returns {Error}  default - Unexpected error
+ */
 router.get('/', asyncHandler(async (req, res) => {
   const participants = await ParticipantInfo.find();
   return res.send(participants);
 }));
 
-router.post('/', asyncHandler(async (req, res) => {
+router.post('/', checkJwt, asyncHandler(async (req, res) => {
   const participant = await ParticipantInfo.create(req.body);
   return res.status(201).send({ participant });
 }));
 
-router.put('/:id', asyncHandler(async (req, res) => {
+router.put('/:id', checkJwt, asyncHandler(async (req, res) => {
   if (req.body._id) delete req.body._id;
   const participant = await ParticipantInfo.updateOne({
     _id: req.params.id,

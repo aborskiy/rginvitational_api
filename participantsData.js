@@ -1,4 +1,5 @@
 import participantInfoModel from './api/participants/participantInfoModel';
+import './db';
 
 const participantInfo = [
     {
@@ -86,7 +87,9 @@ const participantInfo = [
 export default async function loadParticipants() {
     try {
       await participantInfoModel.deleteMany();
-      await participantInfoModel.collection.insertMany(participantInfo);
+      // insertMany & insertOne functions get around auto increment in mongoose-sequence, use create instead
+      //await participantInfoModel.collection.insertMany(participantInfo);
+      await participantInfoModel.create(participantInfo);
       console.info(`${participantInfo.length} participants were successfully stored.`);
     } catch (err) {
       console.error(`failed to Load Participant Info Data: ${err}`);

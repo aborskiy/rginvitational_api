@@ -1,0 +1,136 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-04-06T20:26:29.784Z",
+    "end": "2019-04-06T20:26:31.430Z",
+    "duration": 1646,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "000e9671-45ed-4a32-a334-8f952e25870d",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "2efb12f6-af13-44eb-a78a-9739eb2bba12",
+        "title": "participants",
+        "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/participants.js",
+        "file": "/test/participants.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [],
+        "suites": [
+          {
+            "uuid": "b7639a81-e662-45bc-bc04-ca67302cbffe",
+            "title": "GET participants",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/participants.js",
+            "file": "/test/participants.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should get all participants",
+                "fullTitle": "participants GET participants should get all participants",
+                "timedOut": false,
+                "duration": 296,
+                "state": "passed",
+                "speed": "slow",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).get('/api/participants').expect(200).then(function (res) {\n    // HTTP status should be 200\n    res.should.have.property('status').equal(200);\n    done();\n});;",
+                "err": {},
+                "isRoot": false,
+                "uuid": "3ab9ea06-1665-47fb-9f2d-b6e250f99772",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "3ab9ea06-1665-47fb-9f2d-b6e250f99772"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 296,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 2000
+          },
+          {
+            "uuid": "1b94722e-df17-4715-a130-22048abe43ce",
+            "title": "POST participants",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/participants.js",
+            "file": "/test/participants.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should POST one participant",
+                "fullTitle": "participants POST participants should POST one participant",
+                "timedOut": false,
+                "duration": 1144,
+                "state": "passed",
+                "speed": "slow",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).post('/api/participants').send(participant1).set('Accept', 'application/json').set('Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qWTFNVUkzTkVFMU16YzJNMFl6TURkRE1rUkNPREk1UkVKR00wSkNPVGN5TmpSR00wUkdPUSJ9.eyJpc3MiOiJodHRwczovL2Fib3Jza2l5LmF1dGgwLmNvbS8iLCJzdWIiOiJCWnI0V3pBTTZWbzBLSFY2YnlObDZZYlZqNVlXTTF5a0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9hYm9yc2tpeS5hdXRoMC5jb20vYXBpL3YyLyIsImlhdCI6MTU1NDU1NjMxNiwiZXhwIjoxNTU0NjQyNzE2LCJhenAiOiJCWnI0V3pBTTZWbzBLSFY2YnlObDZZYlZqNVlXTTF5ayIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.bRZIK7xfgTqHYCqQvNYBSzrJKH5t-oHF_ourJnwfA_MYRMI9nattFkJwi0Wv09lWWoc2oKUemV9Zhn04dSOhoszQMC-9cSYXEgILSJc9ZCVnff7ER9tQvacZv9wgwDAZSmYdFrZ2kZlNcaTDq5XyczfgAbRa_8CHjxh_OxD8_9ugi06YHYpzLQ03G7H2ILnJFyoZ4DVVNIdFErEol65jBhG9ZYD9YmrWYxLDSDhnprnUvB2wcfB6uHosxk7F4LVGmpzhrMXMx5AdlehOGVt1B8lduhF951FCgr3K3NDZ__n1Nvk-SIw1nWXn7yufIaadHijfVsg6v1wratydJDiN2Q').expect('Content-Type', /json/).expect(201).then(function (res) {\n    // HTTP status should be 201\n    res.should.have.property('status').equal(201);\n    done();\n});;",
+                "err": {},
+                "isRoot": false,
+                "uuid": "9f3da247-6e7e-49b4-99c2-17b0f8c46619",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "9f3da247-6e7e-49b4-99c2-17b0f8c46619"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 1144,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 2000
+          }
+        ],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 2000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 2000
+  },
+  "copyrightYear": 2019
+}
