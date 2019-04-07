@@ -1,9 +1,14 @@
 import { app } from './../index.js';
+import participantInfoModel from '../api/participants/participantInfoModel';
 const should = require('should');
 const request = require('supertest');
 
 describe('participants', () => {
-    //this.timeout(120000);
+
+    before(async () => {
+        await loadParticipants();
+    });
+
     describe('GET participants', () => {
         it('should get all participants', (done) => {
             request(app)
@@ -12,10 +17,28 @@ describe('participants', () => {
                 .then(res => {
                     // HTTP status should be 200
                     res.should.have.property('status').equal(200);
+                    //res.body.length.should.be.above(0);
+                    console.log(`GET participants test is completed response body: ${JSON.stringify(res.body)}`);
                     done();
                 });;
         });
     });
+
+    describe('GET participant by id', () => {
+        it('should NOT get one participant by id', (done) => {
+            request(app)
+                .get('/api/participants/1')
+                .expect(404)
+                .end((err, res) => {
+                    if (err) return done(err);
+                    // HTTP status should be 200
+                    res.should.have.property('status').equal(404);
+                    console.log(`should GET one participant is completed, response body: ${JSON.stringify(res.body)}`);
+                    done();
+                });
+        });
+    });
+
 
     describe('POST participants', () => {
         let participant1 = {
@@ -36,8 +59,106 @@ describe('participants', () => {
                 .then(res => {
                     // HTTP status should be 201
                     res.should.have.property('status').equal(201);
+                    res.body.participant.should.have.property('id');
+                    res.body.participant.name.first.should.equal('Carol');
+                    console.log(`should POST one participant is completed, response body: ${JSON.stringify(res.body)}`);
                     done();
                 });;
         });
     });
+
+    const participantInfo = [
+        {
+
+            "name": {
+                "first": "Carol",
+                "last": "MacDonald"
+            },
+            "team": "USA"
+        },
+        {
+
+            "name": {
+                "first": "Nicola",
+                "last": "Mills"
+            },
+            "team": "Canada"
+        },
+        {
+
+            "name": {
+                "first": "Sophie",
+                "last": "Carr"
+            },
+            "team": "Ireland"
+        },
+        {
+
+            "name": {
+                "first": "Elizabeth",
+                "last": "Terry"
+            },
+            "team": "France"
+        },
+        {
+
+            "name": {
+                "first": "Jasmine",
+                "last": "Parsons"
+            },
+            "team": "Japan"
+        },
+        {
+
+            "name": {
+                "first": "Sarah",
+                "last": "Taylor"
+            },
+            "team": "Italy"
+        },
+        {
+
+            "name": {
+                "first": "Anna",
+                "last": "Mitchell"
+            },
+            "team": "Ukraine"
+        },
+        {
+
+            "name": {
+                "first": "Julia",
+                "last": "Blake"
+            },
+            "team": "Russia"
+        },
+        {
+
+            "name": {
+                "first": "Leah",
+                "last": "Newman"
+            },
+            "team": "Israel"
+        },
+        {
+
+            "name": {
+                "first": "Alexandra",
+                "last": "Sharp"
+            },
+            "team": "Greece"
+        }
+    ];
+
+    async function loadParticipants() {
+        try {
+            await participantInfoModel.deleteMany();
+            // insertMany & insertOne functions get around auto increment in mongoose-sequence, use create instead
+            //await participantInfoModel.collection.insertMany(participantInfo);
+            await participantInfoModel.create(participantInfo);
+            console.info(`${participantInfo.length} participants were successfully stored.`);
+        } catch (err) {
+            console.error(`failed to Load Participant Info Data: ${err}`);
+        }
+    }
 });

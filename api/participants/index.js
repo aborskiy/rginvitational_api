@@ -18,12 +18,35 @@ const router = express.Router(); // eslint-disable-line
  */
 router.get('/', asyncHandler(async (req, res) => {
   const participants = await ParticipantInfo.find();
-  return res.send(participants);
+  return res.status(200).json(participants);
+}));
+
+router.get('/:id', asyncHandler(async (req, res) => {
+  try {
+    console.log(`participants.router.get by id`);
+    const participant = await ParticipantInfo.findOne({ id: req.params.id }, (err, participant) => {
+      if (err){
+        console.log(`participants.router.get by id err: ${err} err.message: ${err.message}`);
+        handleError(err, err.message);
+     } 
+      if (!participant) {
+        console.log(`participants.router.get by id participant not found - returning 404`);
+        return res.sendStatus(404);
+      }
+    }
+    );
+
+    return res.status(200).send(JSON.stringify(participant));
+  }
+  catch (error) {
+    handleError(res, error.message);
+  }
+
 }));
 
 router.post('/', checkJwt, asyncHandler(async (req, res) => {
   const participant = await ParticipantInfo.create(req.body);
-  return res.status(201).send({ participant });
+  return res.status(201).json({ participant });
 }));
 
 router.put('/:id', checkJwt, asyncHandler(async (req, res) => {
@@ -40,7 +63,18 @@ router.delete('/:id', asyncHandler(async (req, res) => {
   const participant = await ParticipantInfo.findById(req.params.id);
   if (!participant) return res.send(404);
   await participant.remove();
-  return res.status(204).send(participant);
+  return res.status(204).json(participant);
 }));
+
+/**
+ * Handle general errors.
+ * @param {object} res The response object
+ * @param {object} err The error object.
+ * @return {object} The response object
+ */
+function handleError(res, err) {
+  return res.status(500).send(err);
+};
+
 
 export default router;

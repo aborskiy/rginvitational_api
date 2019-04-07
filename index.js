@@ -15,7 +15,7 @@ const subpath = express();
 const port = process.env.PORT;
 
 if (process.env.seedDb) {
-  console.log(`index.js - will loadParticipants()`);
+  console.log(`index.js - will loadParticipants() process.env.seedDb: ${process.env.seedDb}`);
   loadParticipants();
 }
 
