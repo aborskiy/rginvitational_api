@@ -24,3 +24,12 @@ https://auth0.com/docs/quickstart/backend/nodejs
 https://auth0.com/docs/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow
 
 npm install --save express-jwt jwks-rsa express-jwt-authz
+
+express-validator 3rd party for API data validation.
+-------------------
+https://medium.freecodecamp.org/how-to-make-input-validation-simple-and-clean-in-your-express-js-app-ea9b5ff5a8a7
+
+sample of separarting routes and controllers and deploying app to heroku
+--------------------------------------------------------------------------
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes
+https://github.com/mdn/express-locallibrary-tutorial

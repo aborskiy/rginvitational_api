@@ -25,18 +25,19 @@ router.get('/:id', asyncHandler(async (req, res) => {
   try {
     console.log(`participants.router.get by id`);
     const participant = await ParticipantInfo.findOne({ id: req.params.id }, (err, participant) => {
-      if (err){
+      if (err) {
         console.log(`participants.router.get by id err: ${err} err.message: ${err.message}`);
         handleError(err, err.message);
-     } 
+      }
       if (!participant) {
         console.log(`participants.router.get by id participant not found - returning 404`);
         return res.sendStatus(404);
       }
+
     }
     );
 
-    return res.status(200).send(JSON.stringify(participant));
+    return res.status(200).json(participant);
   }
   catch (error) {
     handleError(res, error.message);
@@ -45,8 +46,15 @@ router.get('/:id', asyncHandler(async (req, res) => {
 }));
 
 router.post('/', checkJwt, asyncHandler(async (req, res) => {
-  const participant = await ParticipantInfo.create(req.body);
-  return res.status(201).json({ participant });
+  console.log(`participants.router.post starts`);
+  const participant = await ParticipantInfo.create(req.body, (err, participant) => {
+    if (err) {
+      console.log(`participants.router.post err: ${err} err.message: ${err.message}`);
+      handleError(err, err.message);
+    }
+    return res.status(201).json(participant);
+  });
+
 }));
 
 router.put('/:id', checkJwt, asyncHandler(async (req, res) => {
@@ -73,7 +81,7 @@ router.delete('/:id', asyncHandler(async (req, res) => {
  * @return {object} The response object
  */
 function handleError(res, err) {
-  return res.status(500).send(err);
+  return res.status(500).json(err);
 };
 
 

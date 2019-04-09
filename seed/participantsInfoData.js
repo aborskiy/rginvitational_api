@@ -1,9 +1,8 @@
-import participantInfoModel from './api/participants/participantInfoModel';
-import './db';
+import participantInfoModel from '../api/participants/participantInfoModel';
 
 const participantInfo = [
     {
-        
+
         "name": {
             "first": "Carol",
             "last": "MacDonald"
@@ -11,7 +10,7 @@ const participantInfo = [
         "team": "USA"
     },
     {
-        
+
         "name": {
             "first": "Nicola",
             "last": "Mills"
@@ -19,7 +18,7 @@ const participantInfo = [
         "team": "Canada"
     },
     {
-        
+
         "name": {
             "first": "Sophie",
             "last": "Carr"
@@ -27,7 +26,7 @@ const participantInfo = [
         "team": "Ireland"
     },
     {
-        
+
         "name": {
             "first": "Elizabeth",
             "last": "Terry"
@@ -35,7 +34,7 @@ const participantInfo = [
         "team": "France"
     },
     {
-        
+
         "name": {
             "first": "Jasmine",
             "last": "Parsons"
@@ -43,7 +42,7 @@ const participantInfo = [
         "team": "Japan"
     },
     {
-        
+
         "name": {
             "first": "Sarah",
             "last": "Taylor"
@@ -51,7 +50,7 @@ const participantInfo = [
         "team": "Italy"
     },
     {
-        
+
         "name": {
             "first": "Anna",
             "last": "Mitchell"
@@ -59,7 +58,7 @@ const participantInfo = [
         "team": "Ukraine"
     },
     {
-        
+
         "name": {
             "first": "Julia",
             "last": "Blake"
@@ -67,7 +66,7 @@ const participantInfo = [
         "team": "Russia"
     },
     {
-        
+
         "name": {
             "first": "Leah",
             "last": "Newman"
@@ -75,7 +74,7 @@ const participantInfo = [
         "team": "Israel"
     },
     {
-        
+
         "name": {
             "first": "Alexandra",
             "last": "Sharp"
@@ -86,12 +85,12 @@ const participantInfo = [
 
 export default async function loadParticipants() {
     try {
-      await participantInfoModel.deleteMany();
-      // insertMany & insertOne functions get around auto increment in mongoose-sequence, use create instead
-      //await participantInfoModel.collection.insertMany(participantInfo);
-      await participantInfoModel.create(participantInfo);
-      console.info(`${participantInfo.length} participants were successfully stored.`);
+        await participantInfoModel.deleteMany();
+        // insertMany & insertOne functions get around auto increment in mongoose-sequence, use create instead
+        //await participantInfoModel.collection.insertMany(participantInfo);
+        await participantInfoModel.create(participantInfo);
+        console.info(`Seed participantsInfoData ${participantInfo.length} participants were successfully stored.`);
     } catch (err) {
-      console.error(`failed to Load Participant Info Data: ${err}`);
+        console.error(`failed to Load Participant Info Data: ${err}`);
     }
-  }
+}
