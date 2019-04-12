@@ -33,3 +33,18 @@ sample of separarting routes and controllers and deploying app to heroku
 --------------------------------------------------------------------------
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes
 https://github.com/mdn/express-locallibrary-tutorial
+
+TODO: 
+-----
+2019/04/08 code router for participant, then controller and model in separate folders.
+https://www.codementor.io/olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes
+https://github.com/mdn/express-locallibrary-tutorial
+
+Then use express-validator to validate and sanitize.
+https://medium.freecodecamp.org/how-to-make-input-validation-simple-and-clean-in-your-express-js-app-ea9b5ff5a8a7
+https://express-validator.github.io/docs/check-api.html
+
+Deploying
+-----------
+https://auth0.com/blog/the-complete-guide-to-deploying-javascript-applications-part-1/

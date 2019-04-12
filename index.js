@@ -6,7 +6,8 @@ import './db';
 //import authRouter from './api/auth';
 import userRouter from './api/user';
 
-import participantRouter from './api/participants';
+//import participantRouter from './api/participants';
+import participantRouter from './api/routes/participants';
 
 dotenv.config();
 
@@ -22,8 +23,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 //app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
-app.use(expressValidator());
+// TODO: this works - before using routes, controllers, model
 app.use('/api/participants', participantRouter);
+
+// TODO: this is for validating api parms
+app.use(expressValidator());
 
 // swagger generator
 const expressSwagger = require('express-swagger-generator')(app);

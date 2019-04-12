@@ -21,7 +21,8 @@ router.get('/', asyncHandler(async (req, res) => {
   return res.status(200).json(participants);
 }));
 
-router.get('/:id', asyncHandler(async (req, res) => {
+//router.get('/:id', validate('createUser'), asyncHandler(async (req, res) => {
+router.get('/:id', asyncHandler(async (req, res) => {  
   try {
     console.log(`participants.router.get by id`);
     const participant = await ParticipantInfo.findOne({ id: req.params.id }, (err, participant) => {
