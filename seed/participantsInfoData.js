@@ -1,4 +1,4 @@
-import participantInfoModel from '../api/participants/participantInfoModel';
+import participantInfoModel from '../api/models/participantInfoModel';
 
 const participantInfo = [
     {

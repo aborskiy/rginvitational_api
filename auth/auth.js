@@ -23,5 +23,5 @@ const checkJwt = jwt({
     algorithms: [process.env.JWT_ALGORITHM]
 });
 
-console.log(`auth.checkJwt:  ${checkJwt}`);
+//console.log(`auth.checkJwt:  ${checkJwt}`);
 export default checkJwt;

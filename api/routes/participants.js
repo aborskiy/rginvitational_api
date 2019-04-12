@@ -1,7 +1,8 @@
 import express from 'express';
-const router = express.Router(); 
-//import checkJwt from '../../auth';
-import checkJwt from './tempJWT';
+const router = express.Router();
+import checkJwt from '../../auth/auth';
+import validate from '../../auth/checkAuthorized';
+//const checkAuthorized = require('../../auth/checkAuthorized');
 const controller = require('../controllers/participants');
 const validator = require('../validators/participants');
 
@@ -18,6 +19,7 @@ router.get('/', controller.readAll);
 
 router.get('/:id', controller.readById);
 
-router.post('/', validator.validate('create'), controller.create);
+router.post('/', checkJwt, validate
+    , validator.validate('create'), controller.create);
 
 export default router;

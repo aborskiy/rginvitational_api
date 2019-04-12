@@ -3,10 +3,6 @@ import dotenv from 'dotenv';
 import express from 'express';
 import expressValidator from 'express-validator';
 import './db';
-//import authRouter from './api/auth';
-import userRouter from './api/user';
-
-//import participantRouter from './api/participants';
 import participantRouter from './api/routes/participants';
 
 dotenv.config();
@@ -17,13 +13,10 @@ const port = process.env.PORT;
 
 //configure body-parser
 app.use(bodyParser.json());
-
-//app.use(bodyParser.urlencoded());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
-//app.use('/api/auth', authRouter);
-app.use('/api/user', userRouter);
-// TODO: this works - before using routes, controllers, model
+
+// routes 
 app.use('/api/participants', participantRouter);
 
 // TODO: this is for validating api parms
