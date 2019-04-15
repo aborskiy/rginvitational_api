@@ -3,6 +3,8 @@
 https://www.npmjs.com/package/mongoose-auto-increment
 
 swagger doc
+----------------
+https://www.npmjs.com/package/express-swagger-generator
 
 passport with google authentication
 ------------------------------------
@@ -48,3 +50,8 @@ https://express-validator.github.io/docs/check-api.html
 Deploying
 -----------
 https://auth0.com/blog/the-complete-guide-to-deploying-javascript-applications-part-1/
+
+
+Testing
+---------
+routes are tested with Authorization feature.  Access token for testing is obtained through Auth0 Authentication API.

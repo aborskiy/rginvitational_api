@@ -35,20 +35,9 @@ exports.readById = asyncHandler(async (req, res) => {
 
 exports.create = asyncHandler(async (req, res, next) => {
     console.log(`participants.controller.create starts`);
-    //const validationResults = await validationResult(req);
-    //console.log(`validationResults: ${validationResults}`);
     try {
-        const errors = await validationResult(req);
-        console.log(`errors: ${errors}`);
-        if (!errors.isEmpty()) {
-            console.log(`errors not empty!!!`);
-            return res.status(422).json(errors.array());
-        }
-        //req.getValidationResult()
-        //.then(validationHandler())
-
         console.log(`participants.controller.create before model.create`);
-        const participant = await model.create(req.body, (err, participant) => {
+        await model.create(req.body, (err, participant) => {
             if (err) {
                 console.log(`participants.controller.post err: ${err} err.message: ${err.message}`);
                 handleError(err, err.message);
@@ -63,28 +52,54 @@ exports.create = asyncHandler(async (req, res, next) => {
 }
 );
 
+exports.update = asyncHandler(async (req, res) => {
+    try {
+        console.log(`participants.controller.update by id: ${req.params.id} `);
+        const participant = await model.findOneAndUpdate({ id: req.params.id }, req.body, (err, participant) => {
+            if (err) {
+                console.log(`participants.controller.update by id err: ${err} err.message: ${err.message}`);
+                handleError(err, err.message);
+            }
+            if (!participant) {
+                console.log(`participants.controller.update by id participant not found - returning 404`);
+                return res.sendStatus(404);
+            }
 
+        }
+        );
 
-const validationHandler = next => result => {
-    const methodName = `participants.controller.validatorHandler`;
-    console.log(`${methodName} starts`);
-    if (result.isEmpty()) return;
-    console.log(`${methodName} result is not empty, result.length ${result.array()}`);
-    if (!next) {
-        console.log(`${methodName} !next`);
-        throw new Error(
-            result.array().map(i => `'${i.param}' has ${i.msg}`).join(' ')
-        );
+        return res.status(200).json(participant);
     }
-    else {
-        console.log(`${methodName} next`);
-        return next(
-            new Error(
-                result.array().map(i => `'${i.param}' has ${i.msg}`).join('')
-            )
-        );
+    catch (error) {
+        handleError(res, error.message);
     }
-};
+
+});
+
+exports.delete = asyncHandler(async (req, res) => {
+    try {
+        console.log(`participants.controller.delete by id: ${req.params.id} `);
+        let deleted;
+        await model.findOneAndDelete({ id: req.params.id }, (err, participant) => {
+            if (err) {
+                console.log(`participants.controller.delete by id err: ${err} err.message: ${err.message}`);
+                handleError(err, err.message);
+            }
+            if (!participant) {
+                console.log(`participants.controller.delete by id participant not found - returning 404`);
+                return res.sendStatus(404);
+            }
+            deleted = participant;
+        }
+        );
+
+        return res.status(200).json(deleted);
+    }
+    catch (error) {
+        handleError(res, error.message);
+    }
+
+});
 
 
 /**

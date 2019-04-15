@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development nodemon --exec babel-node index.js",
-    "test": "cross-env NODE_ENV=test mocha './test/api/**/index.js' --timeout 60000 --require babel-core/register --require babel-polyfill --reporter mochawesome --exit",
-    "unit-test": "cross-env NODE_ENV=test mocha './test/api/**/*Model.js' --require babel-core/register --require babel-polyfill --exit",
+    "testRoutes": "cross-env NODE_ENV=test mocha './test/api/routes/**/*.js' --timeout 60000 --require babel-core/register --require babel-polyfill --reporter mochawesome --exit",
+    "unit-test": "cross-env NODE_ENV=test mocha './test/api/models/*.js' --require babel-core/register --require babel-polyfill --exit",
     "pretest": "eslint ./api/**/*.js ./test/api/**/*.js"
   },
   "author": "aborskiy",

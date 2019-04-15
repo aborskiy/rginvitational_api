@@ -16,11 +16,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+app.use(expressValidator());
 // routes 
 app.use('/api/participants', participantRouter);
-
-// TODO: this is for validating api parms
-app.use(expressValidator());
 
 // swagger generator
 const expressSwagger = require('express-swagger-generator')(app);
@@ -48,7 +46,7 @@ let options = {
   },
   basedir: __dirname, //app absolute path
   //files: ['./api/**/*.js'] //Path to the API handle folder
-  files: ['./api/**/*.js'] //Path to the API handle folder
+  files: ['./api/**/*.js', './api/**/**/*.js' ] //Path to the API handle folder
 };
 
 expressSwagger(options);
