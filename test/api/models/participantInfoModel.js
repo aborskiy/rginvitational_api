@@ -1,5 +1,5 @@
 import should from 'should';
-import participantInfoModel from '../../../api/participants/participantInfoModel';
+import participantInfoModel from '../../../api/models/participantInfoModel';
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 

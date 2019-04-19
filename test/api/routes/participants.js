@@ -1,8 +1,8 @@
-import seed from '../../../../seed';
-import { app } from '../../../../index.js';
+import seed from '../../../seed';
+import { app } from '../../../index.js';
 const should = require('should');
 const request = require('supertest');
-const requestTestAccessToken = require('../../../getTestAccessToken');
+const requestTestAccessToken = require('../../getTestAccessToken');
 
 
 let testAccessToken;
