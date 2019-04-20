@@ -1,7 +1,7 @@
 const { check, body, param } = require('express-validator/check');
 
 exports.validate = (method) => {
-    console.log(`participants.validator validate method`);
+    //console.log(`participants.validator validate method`);
     switch (method) {
         case 'create': {
             return [

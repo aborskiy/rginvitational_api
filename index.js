@@ -5,6 +5,7 @@ import expressValidator from 'express-validator';
 import './db';
 import participantRouter from './api/routes/participants';
 import scoresRouter from './api/routes/scores';
+import rotationentriesRouter from './api/routes/rotationentries';
 
 dotenv.config();
 
@@ -21,6 +22,8 @@ app.use(expressValidator());
 // routes 
 app.use('/api/participants', participantRouter);
 app.use('/api/scores', scoresRouter);
+app.use('/api/rotationentries', rotationentriesRouter);
+
 
 // swagger generator
 const expressSwagger = require('express-swagger-generator')(app);

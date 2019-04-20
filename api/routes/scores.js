@@ -22,7 +22,7 @@ router.get('/',
  * Post score.
  * @group scores
  * @route POST /api/scores
- * @param {partiicpantScore.model} participantScore.body.required - the new Score entry for score
+ * @param {participantScore.model} participantScore.body.required - the new Score entry for score
  * @produces application/json
  * @consumes application/json
  * @returns {scoreScore} 201 - scoreScore
