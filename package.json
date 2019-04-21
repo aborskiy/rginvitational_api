@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development nodemon --exec babel-node index.js",
-    "testRoutes": "cross-env NODE_ENV=test mocha './test/api/routes/*.js' --timeout 60000 --require babel-core/register --require babel-polyfill --reporter mochawesome --exit",
-    "testParticipantRoute": "cross-env NODE_ENV=test mocha './test/api/routes/participants.js' --timeout 60000 --require babel-core/register --require babel-polyfill --reporter mochawesome --exit",
-    "testScoresRoute": "cross-env NODE_ENV=test mocha './test/api/routes/scores.js' --timeout 60000 --require babel-core/register --require babel-polyfill --reporter mochawesome --exit",
-    "testRotationEntriesRoute": "cross-env NODE_ENV=test mocha './test/api/routes/rotationentries.js' --timeout 60000 --require babel-core/register --require babel-polyfill --reporter mochawesome --exit",
+    "testRoutes": "cross-env NODE_ENV=test mocha './test/api/routes/*.js' --timeout 10000 --require babel-core/register --require babel-polyfill --reporter mochawesome --exit",
+    "testParticipantRoute": "cross-env NODE_ENV=test mocha './test/api/routes/participants.js' --timeout 10000 --require babel-core/register --require babel-polyfill --reporter mochawesome --exit",
+    "testScoresRoute": "cross-env NODE_ENV=test mocha './test/api/routes/scores.js' --timeout 10000 --require babel-core/register --require babel-polyfill --reporter mochawesome --exit",
+    "testRotationEntriesRoute": "cross-env NODE_ENV=test mocha './test/api/routes/rotationentries.js' --timeout 10000 --require babel-core/register --require babel-polyfill --reporter mochawesome --exit",
+    "testRotationSessionRoute": "cross-env NODE_ENV=test mocha './test/api/routes/rotationsession.js' --timeout 10000 --require babel-core/register --require babel-polyfill --reporter mochawesome --exit",
     "unit-test": "cross-env NODE_ENV=test mocha './test/api/models/*.js' --require babel-core/register --require babel-polyfill --exit",
     "pretest": "eslint ./api/**/*.js ./test/api/**/*.js"
   },

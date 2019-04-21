@@ -6,6 +6,7 @@ import './db';
 import participantRouter from './api/routes/participants';
 import scoresRouter from './api/routes/scores';
 import rotationentriesRouter from './api/routes/rotationentries';
+import rotationsessionRouter from './api/routes/rotationsession';
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.use(expressValidator());
 app.use('/api/participants', participantRouter);
 app.use('/api/scores', scoresRouter);
 app.use('/api/rotationentries', rotationentriesRouter);
+app.use('/api/rotationsession', rotationsessionRouter);
 
 
 // swagger generator

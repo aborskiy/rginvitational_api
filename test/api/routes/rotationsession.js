@@ -22,10 +22,7 @@ describe('rotationsession', () => {
         try {
             console.log(`test rotationsession before starts`);
             await requestTestAccessToken.getTestToken(callback);
-            await seed();
-            //console.log(`testaccesstoken: ${testAccessToken.token_type} ${testAccessToken.access_token}`);
             console.log(`test rotationsession before ends`);
-
         }
         catch (e) {
             console.log(`test rotationsession before exception is caught: ${e} `);
@@ -33,59 +30,16 @@ describe('rotationsession', () => {
     });
 
     let rotationSession = {};
-    let invalidrotationSession = {};
+    let rotationSessionMissingParms = {};
+    let sessionId;
     beforeEach(() => {
         rotationSession = {
-            "rotaId": 1,
-            "participantId": 908,
-            "name": "Julia B",
-            "team": "RUS",
-            "apparatus": {
-                "id": "floor",
-                "imageurl": "images/floor-min-2.png"
-            },
-            "score": {
-                "id": "floor",
-                "diff": 9.3,
-                "exec": 9,
-                "deduct": 0.1,
-                "total": 18.2
-            }
+            "onFloorParticipantId": 3,
+            "scoreParticipantId": 1
         };
-        invalidrotationSession = {
-            "rotaId": 1,
-            "participantId": 908,
-            "team": "RUS",
-            "apparatus": {
-                "id": "dummy",
-                "imageurl": "images/floor-min-2.png"
-            },
-            "score": {
-                "id": "floor",
-                "diff": 9.3,
-                "exec": 9,
-                "deduct": 0.1,
-                "total": 18.2
-            }
+        rotationSessionMissingParms = {
         };
     });
-    describe('GET rotationsession', () => {
-        it('should get all rotationsession', (done) => {
-            request(app)
-                .get('/api/rotationsession')
-                //.expect(200)
-                .then(res => {
-                    console.log(`GET rotationsession test is before assertions response body: ${JSON.stringify(res.body)}`);
-                    // HTTP status should be 200
-                    res.should.have.property('status').equal(200);
-                    res.body.length.should.be.above(0);
-                    //res.body.length.should.be.above(0);
-                    console.log(`GET rotationsession test is completed response body: ${JSON.stringify(res.body)}`);
-                    done();
-                });;
-        });
-    });
-
 
     describe('POST rotationsession', () => {
 
@@ -107,10 +61,12 @@ describe('rotationsession', () => {
                 });
 
         });
-        it('should fail validation before POSTing rotationsession with \'apparatus id is invalid\' error', (done) => {
+
+        it('should fail validation before POSTing rotationsession - missing parameters', (done) => {
+            console.log(`about to send post request to /api/rotationsession with rotationSessionMissingParms `)
             request(app)
                 .post('/api/rotationsession')
-                .send(invalidrotationSession)
+                .send(rotationSessionMissingParms)
                 .set('Accept', 'application/json')
                 .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)
                 //.expect('Content-Type', /json/)
@@ -123,9 +79,8 @@ describe('rotationsession', () => {
                     console.log(`should POST one rotationSession before assertions, response body: ${JSON.stringify(res.body)}`);
                     res.should.have.property('status').equal(422);
                     res.body.length.should.be.above(0);
-                    res.body[0].msg.should.equal('name does not exist');
-                    res.body[1].msg.should.equal('apparatus id is invalid, should be floor, hoop, rope, ribbon');
-
+                    res.body[0].msg.should.equal('onFloorParticipantId does not exist');
+                    res.body[1].msg.should.equal('scoreParticipantId does not exist');
                     done();
                 });
 
@@ -147,18 +102,41 @@ describe('rotationsession', () => {
                     console.log(`should POST one rotationSession before assertions, response info: ${res.info}`);
                     console.log(`should POST one rotationSession before assertions, response body: ${JSON.stringify(res.body)}`);
                     res.should.have.property('status').equal(201);
-                    res.body.should.have.property('rotaId');
-                    res.body.name.should.equal(rotationSession.name);
+                    res.body.should.have.property('onFloorParticipantId');
+                    res.body.should.have.property('scoreParticipantId');
+                    res.body.onFloorParticipantId.should.equal(rotationSession.onFloorParticipantId);
+                    res.body.scoreParticipantId.should.equal(rotationSession.scoreParticipantId);
+                    sessionId = res.body._id;
                     done();
                 });
 
         });
     });
 
+    describe('GET rotationsession', () => {
+        it('should get rotationsession', (done) => {
+            request(app)
+                .get('/api/rotationsession')
+                //.expect(200)
+                .end((err, res) => {
+                    console.log(`GET rotationsession test is before assertions response body: ${JSON.stringify(res.body)}`);
+                    if (err) return done(err);
+                    // HTTP status should be 200
+                    res.should.have.property('status').equal(200);
+                    res.body.length.should.be.above(0);
+                    //res.body.length.should.be.above(0);
+                    console.log(`GET rotationsession test is completed response body: ${JSON.stringify(res.body)}`);
+                    sessionId = res.body._id;
+                    done();
+                });;
+        });
+    });
+
+
     describe('PUT rotationSession', () => {
         it('should PUT one rotationSession', (done) => {
             request(app)
-                .put('/api/rotationsession/1')
+                .put(`/api/rotationsession/${sessionId}`)
                 .send(rotationSession)
                 .set('Accept', 'application/json')
                 .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)
@@ -169,9 +147,10 @@ describe('rotationsession', () => {
                     console.log(`should PUT one rotationSession before assertions, response info: ${res.info}`);
                     console.log(`should PUT one rotationSession before assertions, response body: ${JSON.stringify(res.body)}`);
                     res.should.have.property('status').equal(200);
-                    res.body.should.have.property('rotaId');
-                    res.body.rotaId.should.equal(rotationSession.rotaId);
-                    res.body.name.should.equal(rotationSession.name);
+                    res.body.should.have.property('onFloorParticipantId');
+                    res.body.should.have.property('scoreParticipantId');
+                    res.body.onFloorParticipantId.should.equal(rotationSession.onFloorParticipantId);
+                    res.body.scoreParticipantId.should.equal(rotationSession.scoreParticipantId);
                     done();
                 });
 
@@ -222,9 +201,10 @@ describe('rotationsession', () => {
                     console.log(`should DELETE one rotationSession before assertions, response info: ${res.info}`);
                     console.log(`should DELETE one rotationSession before assertions, response body: ${JSON.stringify(res.body)}`);
                     res.should.have.property('status').equal(200);
-                    res.body.should.have.property('rotaId');
-                    res.body.rotaId.should.equal(rotationSession.rotaId);
-                    res.body.name.should.equal(rotationSession.name);
+                    res.body.should.have.property('onFloorParticipantId');
+                    res.body.should.have.property('scoreParticipantId');
+                    res.body.onFloorParticipantId.should.equal(rotationSession.onFloorParticipantId);
+                    res.body.scoreParticipantId.should.equal(rotationSession.scoreParticipantId);
                     done();
                 });
 
