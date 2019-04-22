@@ -31,7 +31,7 @@ router.get('/',
 router.post('/', 
             checkJwt, 
             checkAuthorized, 
-            validator.validate('create'), 
+            validator.validate('create'),
             commonValidator.checkValidationResults, 
             controller.create);
 

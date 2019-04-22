@@ -30,7 +30,7 @@ exports.create = asyncHandler(async (req, res, next) => {
 exports.update = asyncHandler(async (req, res) => {
     try {
         console.log(`rotationsession.controller.update by id: ${req.params.id} `);
-        const participant = await model.findOneAndUpdate({ rotaId: req.params.id }, req.body, (err, rotationSession) => {
+        const participant = await model.findOneAndUpdate({ _id: req.params.id }, req.body, (err, rotationSession) => {
             if (err) {
                 console.log(`rotationsession.controller.update by id err: ${err} err.message: ${err.message}`);
                 handleError(err, err.message);
@@ -55,7 +55,7 @@ exports.delete = asyncHandler(async (req, res) => {
     try {
         console.log(`rotationsession.controller.delete by id: ${req.params.id} `);
         let deleted;
-        await model.findOneAndDelete({ rotaId: req.params.id }, (err, rotationSession) => {
+        await model.findOneAndDelete({ _id: req.params.id }, (err, rotationSession) => {
             if (err) {
                 console.log(`rotationsession.controller.delete by id err: ${err} err.message: ${err.message}`);
                 handleError(err, err.message);

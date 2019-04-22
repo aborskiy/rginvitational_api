@@ -23,7 +23,9 @@ app.use(expressValidator());
 // routes 
 app.use('/api/participants', participantRouter);
 app.use('/api/scores', scoresRouter);
-app.use('/api/rotationentries', rotationentriesRouter);
+app.use('/api/rotationentries', (req, res, next) => {if (req.header['X-ACTION'] !== 'bulk') rotationentriesRouter; } );
+app.use('/api/rotationentries', (req, res, next) => {if (req.header['X-ACTION'] === 'bulk') rotationentriesBulkRouter; } );
+//app.use('/api/rotationentries', rotationentriesRouter);
 app.use('/api/rotationsession', rotationsessionRouter);
 
 

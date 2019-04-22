@@ -107,6 +107,7 @@ describe('rotationsession', () => {
                     res.body.onFloorParticipantId.should.equal(rotationSession.onFloorParticipantId);
                     res.body.scoreParticipantId.should.equal(rotationSession.scoreParticipantId);
                     sessionId = res.body._id;
+                    console.log(`sessionId is assigned after POSt: ${sessionId}` );
                     done();
                 });
 
@@ -126,7 +127,6 @@ describe('rotationsession', () => {
                     res.body.length.should.be.above(0);
                     //res.body.length.should.be.above(0);
                     console.log(`GET rotationsession test is completed response body: ${JSON.stringify(res.body)}`);
-                    sessionId = res.body._id;
                     done();
                 });;
         });
@@ -135,6 +135,7 @@ describe('rotationsession', () => {
 
     describe('PUT rotationSession', () => {
         it('should PUT one rotationSession', (done) => {
+            console.log(`checking if sessionId present: ${sessionId}`);
             request(app)
                 .put(`/api/rotationsession/${sessionId}`)
                 .send(rotationSession)
@@ -170,7 +171,7 @@ describe('rotationsession', () => {
                     done();
                 });
         });
-        it('should fail PUT request validation with not numeric id parameter', (done) => {
+        it('should fail PUT request validation with not invalid id parameter', (done) => {
             request(app)
                 .put('/api/rotationsession/fake')
                 .send(rotationSession)
@@ -191,7 +192,7 @@ describe('rotationsession', () => {
     describe('DELETE rotationSession', () => {
         it('should DELETE one rotationSession', (done) => {
             request(app)
-                .delete('/api/rotationsession/1')
+                .delete(`/api/rotationsession/${sessionId}`)
                 .set('Accept', 'application/json')
                 .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)
                 //.expect('Content-Type', /json/)

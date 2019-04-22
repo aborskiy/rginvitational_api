@@ -1,10 +1,11 @@
-const { check, body, param } = require('express-validator/check');
+const { check, body, header, param } = require('express-validator/check');
 
 exports.validate = (method) => {
     //console.log(`rotationentries.validator validate method`);
     switch (method) {
         case 'create': {
             return [
+                header('X-Action').isIn([undefined, 'bulk']).withMessage('invalid value in X-Action header'),
                 body('rotaId', 'rotaId does not exist').exists(),
                 body('participantId', 'participant id does not exist').exists(),
                 body('name', 'name does not exist').exists(),

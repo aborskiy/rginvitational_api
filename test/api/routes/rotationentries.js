@@ -86,7 +86,6 @@ describe('rotationentries', () => {
         });
     });
 
-
     describe('POST rotationentries', () => {
 
         it('should fail with 401 UnauthorizedError when POSTing rotation entry', (done) => {
@@ -230,4 +229,63 @@ describe('rotationentries', () => {
 
         });
     });
+});
+
+
+describe('rotationentries bulk', () => {
+    describe('POST rotationentries BULK', () => {
+        it('should POST BULK rotationentries', (done) => {
+            request(app)
+                .post('/api/rotationentries')
+                .send(rotationEntry)
+                .set('Accept', 'application/json')
+                .set('X-Action', 'bulk')
+                .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)
+
+                //.expect('Content-Type', /json/)
+                //.expect(201)
+                .end((err, res) => {
+                    if (err) return done(err);
+                    // HTTP status should be 201
+                    console.log(`should POST one rotationentry before assertions, response header: ${res.header}`);
+                    console.log(`should POST one rotationentry before assertions, response info: ${res.info}`);
+                    console.log(`should POST one rotationentry before assertions, response body: ${JSON.stringify(res.body)}`);
+                    res.should.have.property('status').equal(201);
+                    //res.body.should.have.property('rotaId');
+                    //res.body.name.should.equal(rotationEntry.name);
+                    done();
+                });
+
+        });
+
+    });
+
+    describe('DELETE rotationentries BULK', () => {
+        it('should DELETE BULK rotationentries', (done) => {
+            request(app)
+                .delete('/api/rotationentries')
+                .send(rotationEntry)
+                .set('Accept', 'application/json')
+                .set('X-Action', 'bulk')
+                .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)
+
+                //.expect('Content-Type', /json/)
+                //.expect(201)
+                .end((err, res) => {
+                    if (err) return done(err);
+                    // HTTP status should be 200
+                    console.log(`should POST one rotationentry before assertions, response header: ${res.header}`);
+                    console.log(`should POST one rotationentry before assertions, response info: ${res.info}`);
+                    console.log(`should POST one rotationentry before assertions, response body: ${JSON.stringify(res.body)}`);
+                    res.should.have.property('status').equal(200);
+                    //res.body.should.have.property('rotaId');
+                    //res.body.name.should.equal(rotationEntry.name);
+                    done();
+                });
+
+        });
+
+    });
+
+
 });
