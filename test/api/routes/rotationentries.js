@@ -177,7 +177,7 @@ describe('rotationentries', () => {
         });
         it('should fail finding PUT request without param id with 404', (done) => {
             request(app)
-                .put('/api/rotationentries')
+                .put('/api/rotationentries/0102039848')
                 .send(rotationEntry)
                 .set('Accept', 'application/json')
                 .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)
@@ -233,11 +233,49 @@ describe('rotationentries', () => {
 
 
 describe('rotationentries bulk', () => {
+    let rotationEntries = [];
+    beforeEach(() => {
+        rotationEntries = [{
+            "rotaId": 1,
+            "participantId": 908,
+            "name": "Julia B",
+            "team": "RUS",
+            "apparatus": {
+                "id": "floor",
+                "imageurl": "images/floor-min-2.png"
+            },
+            "score": {
+                "id": "floor",
+                "diff": 9.3,
+                "exec": 9,
+                "deduct": 0.1,
+                "total": 18.2
+            }
+        },
+        {
+            "rotaId": 2,
+            "participantId": 909,
+            "name": "Second T",
+            "team": "UKR",
+            "apparatus": {
+                "id": "rope",
+                "imageurl": "images/rope-min-2.png"
+            },
+            "score": {
+                "id": "rope",
+                "diff": 9.3,
+                "exec": 9,
+                "deduct": 0.1,
+                "total": 18.2
+            }
+        }];
+    });
+
     describe('POST rotationentries BULK', () => {
         it('should POST BULK rotationentries', (done) => {
             request(app)
                 .post('/api/rotationentries')
-                .send(rotationEntry)
+                .send(rotationEntries)
                 .set('Accept', 'application/json')
                 .set('X-Action', 'bulk')
                 .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)
@@ -264,25 +302,20 @@ describe('rotationentries bulk', () => {
         it('should DELETE BULK rotationentries', (done) => {
             request(app)
                 .delete('/api/rotationentries')
-                .send(rotationEntry)
+                .send(rotationEntries)
                 .set('Accept', 'application/json')
                 .set('X-Action', 'bulk')
                 .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)
-
-                //.expect('Content-Type', /json/)
-                //.expect(201)
                 .end((err, res) => {
                     if (err) return done(err);
                     // HTTP status should be 200
-                    console.log(`should POST one rotationentry before assertions, response header: ${res.header}`);
-                    console.log(`should POST one rotationentry before assertions, response info: ${res.info}`);
-                    console.log(`should POST one rotationentry before assertions, response body: ${JSON.stringify(res.body)}`);
+                    console.log(`in end after should DELETE BULK rotationentries`);
+                    //console.log(`should POST one rotationentry before assertions, response header: ${res.header}`);
+                    //console.log(`should POST one rotationentry before assertions, response info: ${res.info}`);
+                    //console.log(`should POST one rotationentry before assertions, response body: ${JSON.stringify(res.body)}`);
                     res.should.have.property('status').equal(200);
-                    //res.body.should.have.property('rotaId');
-                    //res.body.name.should.equal(rotationEntry.name);
                     done();
                 });
-
         });
 
     });

@@ -5,7 +5,7 @@ exports.validate = (method) => {
     switch (method) {
         case 'create': {
             return [
-                header('X-Action').isIn([undefined, 'bulk']).withMessage('invalid value in X-Action header'),
+                header('X-Action').isIn([undefined], '').withMessage('invalid value in X-Action header'),
                 body('rotaId', 'rotaId does not exist').exists(),
                 body('participantId', 'participant id does not exist').exists(),
                 body('name', 'name does not exist').exists(),
@@ -18,12 +18,12 @@ exports.validate = (method) => {
         }
         case 'delete': {
             return [
-                check('id', 'parameter id must be integer').isInt(),
+                check('id', 'parameter id must be integer').exists().isInt(),
             ];
         }
         case 'update': {
             return [
-                check('id', 'parameter id must be integer').isInt(),
+                check('id', 'parameter id must be integer').exists().isInt(),
                 body('rotaId', 'rotaId does not exist').exists(),
                 body('participantId', 'participant id does not exist').exists(),
                 body('name', 'name does not exist').exists(),

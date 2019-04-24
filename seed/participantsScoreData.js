@@ -365,7 +365,7 @@ const participantScores = [
 
 export default async function loadParticipantsScores() {
     try {
-        console.log(`loadParticipantsScores starts!`)
+        console.log(`loadParticipantsScores starts!`);
         await participantScoreModel.deleteMany();
         // insertMany & insertOne functions get around auto increment in mongoose-sequence, use create instead
         //await participantInfoModel.collection.insertMany(participantInfo);

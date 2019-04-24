@@ -4,7 +4,7 @@ import loadRotationEntries from './RotationEntriesData';
 
 export default async () => {
     console.log(`seed function starts`);
-    //await loadParticipants();
-    //await loadParticipantsScores();
+    await loadParticipants();
+    await loadParticipantsScores();
     await loadRotationEntries();
 };

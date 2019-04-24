@@ -6,6 +6,7 @@ import './db';
 import participantRouter from './api/routes/participants';
 import scoresRouter from './api/routes/scores';
 import rotationentriesRouter from './api/routes/rotationentries';
+import rotationentriesBulkRouter from './api/routes/rotationentriesBulk';
 import rotationsessionRouter from './api/routes/rotationsession';
 
 dotenv.config();
@@ -13,6 +14,7 @@ dotenv.config();
 export const app = express();
 //const subpath = express();
 const port = process.env.PORT;
+
 
 //configure body-parser
 app.use(bodyParser.json());
@@ -23,9 +25,7 @@ app.use(expressValidator());
 // routes 
 app.use('/api/participants', participantRouter);
 app.use('/api/scores', scoresRouter);
-app.use('/api/rotationentries', (req, res, next) => {if (req.header['X-ACTION'] !== 'bulk') rotationentriesRouter; } );
-app.use('/api/rotationentries', (req, res, next) => {if (req.header['X-ACTION'] === 'bulk') rotationentriesBulkRouter; } );
-//app.use('/api/rotationentries', rotationentriesRouter);
+app.use('/api/rotationentries', rotationentriesRouter);
 app.use('/api/rotationsession', rotationsessionRouter);
 
 
@@ -63,3 +63,4 @@ expressSwagger(options);
 app.listen(port, () => {
   console.info(`Server running at ${port}`);
 });
+
