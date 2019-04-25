@@ -1,0 +1,13 @@
+{
+    "host": "localhost:8080",
+    "connection": "keep-alive",
+    "content-length": "70",
+    "authorization": "Bearer ULH2JAjTeH7SxHN8j9Mid1sxPGTinCbB",
+    "origin": "http://localhost:3000",
+    "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36",
+    "content-type": "application/json",
+    "accept": "*/*",
+    "referer": "http://localhost:3000/participants",
+    "accept-encoding": "gzip, deflate, br",
+    "accept-language": "en-US,en;q=0.9"
+}

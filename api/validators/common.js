@@ -4,10 +4,11 @@ const { validationResult } = require('express-validator/check');
 
 exports.printRequest = asyncHandler(async (req, res, next) => {
     await console.log(`common printRequest starts`);
-    await console.log(`req.headers: ${req.headers}`);
-    await console.log(`req.header['X-Action']: ${req.header['X-Action']}`);
-    await console.log(`req.headers['X-Action']: ${req.headers['X-Action']}`);
+    await console.log(`req.headers: ${JSON.stringify(req.headers)}`);
     await console.log(`req.body: ${JSON.stringify(req.body)}`);
+    //await console.log(`req.header['X-Action']: ${req.header['X-Action']}`);
+    //await console.log(`req.headers['X-Action']: ${req.headers['X-Action']}`);
+    //await console.log(`req.body: ${JSON.stringify(req.body)}`);
     next();
 }
 );
@@ -16,7 +17,7 @@ exports.checkValidationResults = asyncHandler(async (req, res, next) => {
     console.log(`common checkValidationResults starts`);
     try {
         const errors = await validationResult(req);
-        console.log(`errors: ${errors}`);
+        console.log(`errors: ${JSON.stringify(errors)}`);
         if (!errors.isEmpty()) {
             console.log(`errors not empty!!!`);
             return res.status(422).json(errors.array());

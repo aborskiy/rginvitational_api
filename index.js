@@ -9,13 +9,21 @@ import rotationentriesRouter from './api/routes/rotationentries';
 import rotationentriesBulkRouter from './api/routes/rotationentriesBulk';
 import rotationsessionRouter from './api/routes/rotationsession';
 
+var cors = require('cors');
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 
+  };
+
+
 dotenv.config();
 
 export const app = express();
 //const subpath = express();
 const port = process.env.PORT;
 
-
+// allow cors
+app.use(cors(corsOptions));
 //configure body-parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

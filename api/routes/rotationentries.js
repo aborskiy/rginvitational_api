@@ -17,7 +17,7 @@ function X_ACTION_NOT_BULK (req, res, next) {
     //console.log(`req.headers['x-action'].trim() !== 'bulk' ? next() : next("route") ${req.headers['x-action'].trim() !== 'bulk' ? next() : next("route")}`)
     return req.headers['x-action'] === undefined || req.headers['x-action'].trim() !== 'bulk' ? next() : next("route"); 
 }
-function X_ACTION_IS_BULK (req, res, next) { return req.headers['x-action'].trim() === 'bulk' ? next() : next("route"); }
+function X_ACTION_IS_BULK (req, res, next) { return req.headers['x-action'] !== undefined && req.headers['x-action'].trim() === 'bulk' ? next() : next("route"); }
 
 
 /**

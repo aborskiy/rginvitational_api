@@ -61,6 +61,7 @@ router.post('/',
  * @security JWT
  */
 router.put('/:id', 
+            commonValidator.printRequest,
             checkJwt, 
             checkAuthorized, 
             validator.validate('update'), 
