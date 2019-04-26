@@ -41,3 +41,5 @@ function handleError(res, err) {
     console.log(`validators common.handleError`);
     return res.status(500).json(err);
 };
+
+export default this;

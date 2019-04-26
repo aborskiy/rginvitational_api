@@ -21,4 +21,5 @@ const ParticipantScoreSchema = new Schema({
     updated: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('scores', ParticipantScoreSchema);
+//module.exports = mongoose.model('scores', ParticipantScoreSchema);
+export default mongoose.model('scores', ParticipantScoreSchema);

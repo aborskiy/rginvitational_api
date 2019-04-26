@@ -13,5 +13,6 @@ const ParticipantInfoSchema = new Schema({
 
 ParticipantInfoSchema.plugin(AutoIncrement, {inc_field: 'id'});
 
-module.exports = mongoose.model('participants', ParticipantInfoSchema);
+//module.exports = mongoose.model('participants', ParticipantInfoSchema);
 
+export default mongoose.model('participants', ParticipantInfoSchema);

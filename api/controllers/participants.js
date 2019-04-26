@@ -112,3 +112,5 @@ function handleError(res, err) {
     console.log(`participant controller.handleError`);
     return res.status(500).json(err);
 };
+
+export default this;

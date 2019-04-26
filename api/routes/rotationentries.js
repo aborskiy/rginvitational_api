@@ -3,10 +3,13 @@ const router = express.Router();
 
 import checkJwt from '../../auth/auth';
 import checkAuthorized from '../../auth/checkAuthorized';
-const controller = require('../controllers/rotationentries.js');
+//const controller = require('../controllers/rotationentries.js');
+import controller from '../controllers/rotationentries.js';
 const validator = require('../validators/rotationentries');
-const commonValidator = require('../validators/common');
-const bulkController = require('../controllers/rotationentriesBulk.js');
+//const commonValidator = require('../validators/common');
+import commonValidator from '../validators/common';
+//const bulkController = require('../controllers/rotationentriesBulk.js');
+import  bulkController from '../controllers/rotationentriesBulk.js';
 const bulkValidator = require('../validators/rotationentriesBulk');
 
 function X_ACTION_NOT_BULK (req, res, next) { 

@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import { Mockgoose } from 'mockgoose';
+import mockgoose from 'mockgoose';
+const {Mockgoose} = mockgoose;
 import seed from './seed';
 
 dotenv.config();

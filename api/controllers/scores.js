@@ -88,4 +88,6 @@ function handleError(res, err) {
     return res.status(500).json(err);
 };
 
+export default this;
+
 

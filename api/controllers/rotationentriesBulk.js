@@ -48,3 +48,5 @@ function handleError(res, err) {
     console.log(`rotationentriesBulk controller.handleError`);
     return res.status(500).json(err);
 };
+
+export default this;

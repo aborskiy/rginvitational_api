@@ -87,3 +87,5 @@ function handleError(res, err) {
     console.log(`rotationentries controller.handleError`);
     return res.status(500).json(err);
 };
+
+export default this;

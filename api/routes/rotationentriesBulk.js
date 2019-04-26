@@ -3,9 +3,11 @@ const router = express.Router();
 
 import checkJwt from '../../auth/auth';
 import checkAuthorized from '../../auth/checkAuthorized';
-const controller = require('../controllers/rotationentriesBulk.js');
+//const controller = require('../controllers/rotationentriesBulk.js');
+import controller from '../controllers/rotationentriesBulk.js';
 const validator = require('../validators/rotationentriesBulk');
-const commonValidator = require('../validators/common');
+//const commonValidator = require('../validators/common');
+import commonValidator from '../validators/common';
 
 /**
  * Post multiple rotation entries.

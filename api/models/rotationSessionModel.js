@@ -7,4 +7,6 @@ const RotationSessionSchema = new Schema({
     updated: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('rotationsession', RotationSessionSchema);
+// module.exports = mongoose.model('rotationsession', RotationSessionSchema);
+
+export default mongoose.model('rotationsession', RotationSessionSchema);

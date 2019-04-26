@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "API for RG Invitational Web site",
   "main": "index.js",
-  "esm": "auto",
   "scripts": {
-    "start": "node -r esm index.js",
+    "start": "cross-env NODE_ENV=development nodemon --exec babel-node index.js",
     "testRoutes": "cross-env NODE_ENV=test mocha './test/api/routes/*.js' --timeout 10000 --require babel-core/register --require babel-polyfill --reporter mochawesome --reporter-options reportFilename=testRoutes --exit",
     "testParticipantRoute": "cross-env NODE_ENV=test mocha './test/api/routes/participants.js' --timeout 10000 --require babel-core/register --require babel-polyfill --reporter mochawesome --reporter-options reportFilename=testParticipantRoute --exit",
     "testScoresRoute": "cross-env NODE_ENV=test mocha './test/api/routes/scores.js' --timeout 10000 --require babel-core/register --require babel-polyfill --reporter mochawesome --reporter-options reportFilename=testScoresRoute --exit",
@@ -38,7 +37,6 @@
     "cors": "^2.8.5",
     "cross-env": "^5.2.0",
     "dotenv": "^7.0.0",
-    "esm": "^3.2.22",
     "express": "^4.16.4",
     "express-async-handler": "^1.1.4",
     "express-jwt": "^5.3.1",

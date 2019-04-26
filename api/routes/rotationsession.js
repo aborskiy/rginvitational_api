@@ -3,9 +3,11 @@ const router = express.Router();
 
 import checkJwt from '../../auth/auth';
 import checkAuthorized from '../../auth/checkAuthorized';
-const controller = require('../controllers/rotationsession.js');
+//const controller = require('../controllers/rotationsession.js');
+import  controller from '../controllers/rotationsession.js';
 const validator = require('../validators/rotationsession');
-const commonValidator = require('../validators/common');
+//const commonValidator = require('../validators/common');
+import commonValidator  from '../validators/common';
 
 /**
  * Get all rotation session.

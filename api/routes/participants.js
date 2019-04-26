@@ -4,9 +4,11 @@ const router = express.Router();
 import checkJwt from '../../auth/auth';
 import checkAuthorized from '../../auth/checkAuthorized';
 //const checkAuthorized = require('../../auth/checkAuthorized');
-const controller = require('../controllers/participants');
+import controller from '../controllers/participants';
+//const controller = require('../controllers/participants');
 const validator = require('../validators/participants');
-const commonValidator = require('../validators/common');
+import commonValidator from '../validators/common'
+//const commonValidator = require('../validators/common');
 
 /**
  * Get all participants.

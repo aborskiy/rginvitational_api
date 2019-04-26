@@ -3,9 +3,11 @@ const router = express.Router();
 
 import checkJwt from '../../auth/auth';
 import checkAuthorized from '../../auth/checkAuthorized';
-const controller = require('../controllers/scores');
+//const controller = require('../controllers/scores');
+import controller from '../controllers/scores';
 const validator = require('../validators/scores');
-const commonValidator = require('../validators/common');
+//const commonValidator = require('../validators/common');
+import commonValidator from '../validators/common';
 
 /**
  * Get all scores.

@@ -28,4 +28,5 @@ const RotationEntrySchema = new Schema({
 
 RotationEntrySchema.plugin(AutoIncrement, { inc_field: 'rotaId' });
 
-module.exports = mongoose.model('rotationentries', RotationEntrySchema);
+//module.exports = mongoose.model('rotationentries', RotationEntrySchema);
+export default mongoose.model('rotationentries', RotationEntrySchema);
