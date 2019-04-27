@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import mockgoose from 'mockgoose';
-const {Mockgoose} = mockgoose;
+//import {Mockgoose} from 'mockgoose';
+//const {Mockgoose} = mockgoose;
 import seed from './seed';
 
 dotenv.config();
@@ -9,16 +9,17 @@ dotenv.config();
 // Connect to database
 mongoose.connect(process.env.mongoDB, { useNewUrlParser: true });
 // Connect to database
-if (process.env.NODE_ENV === 'test') {
+//if (process.env.NODE_ENV === 'test') {
     // use mockgoose for testing
-    const mockgoose = new Mockgoose(mongoose);
-    mockgoose.prepareStorage().then(() => {
-        mongoose.connect(process.env.mongoDB);
-    });
-} else {
+    // todo: ab - comment out mockgoose references to deploy on aws beanstalk
+    //const mockgoose = new Mockgoose(mongoose);
+    //mockgoose.prepareStorage().then(() => {
+    //    mongoose.connect(process.env.mongoDB);
+    //});
+//} else {
     // use the real deal for everything else
     mongoose.connect(process.env.mongoDB, { useNewUrlParser: true });
-}
+//}
 
 console.log(`db - after connecting to db`);
 const db = mongoose.connection;
