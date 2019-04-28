@@ -68,3 +68,4 @@ rginvitational_api.zip
 # dev work files
 .vscode
 .DS_Store
+mochawesome-report/

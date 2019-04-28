@@ -3,7 +3,7 @@ import { app } from '../../../index.js';
 import rotationSessionModel from '../../../api/models/rotationSessionModel';
 const should = require('should');
 const request = require('supertest');
-const requestTestAccessToken = require('../../getTestAccessToken');
+import requestTestAccessToken from '../../getTestAccessToken';
 
 console.log(`test rotationsession is starting!!! `);
 

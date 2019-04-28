@@ -2,7 +2,7 @@ import seed from '../../../seed';
 import { app } from '../../../index.js';
 const should = require('should');
 const request = require('supertest');
-const requestTestAccessToken = require('../../getTestAccessToken');
+import requestTestAccessToken from '../../getTestAccessToken';
 
 
 let testAccessToken;

@@ -21,5 +21,6 @@ exports.getTestToken = asyncHandler(async (callback) => {
     console.log(`getTestToken is done` );
 });
 
+export default this;
 
 
