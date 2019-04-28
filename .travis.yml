@@ -8,7 +8,7 @@ before_deploy:
 - rm -rf .DS_Store
 - rm -rf node_modules
 - export ELASTIC_BEANSTALK_ENV=rginvitational-api-${TRAVIS_BRANCH}
-- zip -r rginvitational_api.zip . -x "*node_modules*" -x ".env*" -x "*.git*" -x ".vscode*" -x ".DS_Store" -x ".*" 
+- zip -r rginvitational_api.zip . -x "*node_modules*" -x ".env*" -x "*.git*" -x ".vscode*" -x ".DS_Store" -x ".*" -x "*mochawesome-report*"
 - export ELASTIC_BEANSTALK_LABEL=rginvitational-api-$(git rev-parse --verify HEAD --short)
 - export ELASTIC_BEANSTALK_DESCRIPTION=https://github.com/aborskiy/rginvitational_api/tree/$(gitrev-parse HEAD)
 after_deploy:
@@ -24,3 +24,12 @@ deploy:
   app: "RGInvitational_API"
   env: "RginvitationalApi-env"
   bucket_name: "rginvitationalapitravisdeployment"
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  target_branch: mochawesome
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  on:
+    branch: master
