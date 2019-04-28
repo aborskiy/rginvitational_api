@@ -50,6 +50,7 @@
     "jwks-rsa": "^1.4.0",
     "lodash": "^4.17.11",
     "minimist": "^1.2.0",
+    "mockgoose": "^8.0.1",
     "mongoose": "^5.4.19",
     "mongoose-auto-increment": "^5.0.1",
     "mongoose-sequence": "^5.0.1",
