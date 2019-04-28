@@ -42,6 +42,10 @@ app.use('/api/rotationsession', rotationsessionRouter);
 
 // swagger generator
 const expressSwagger = require('express-swagger-generator')(app);
+let host = `${process.env.HOST}:${process.env.PORT}`;
+if (typeof process.env.PRODHOST !== 'undefined') {
+  host = process.env.PRODHOST;
+}
 let options = {
   swaggerDefinition: {
       info: {
@@ -49,7 +53,8 @@ let options = {
           title: 'Swagger',
           version: '1.0.0',
       },
-      host: `${process.env.HOST}${process.env.PORT ? ':' + process.env.PORT : ''}`,
+      //host: `${process.env.HOST}${process.env.PORT ? ':' + process.env.PORT : ''}`,
+      host: host,
       basePath: '',
       produces: [
           "application/json"

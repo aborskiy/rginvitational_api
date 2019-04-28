@@ -63,7 +63,7 @@ describe('rotationsession', () => {
         });
 
         it('should fail validation before POSTing rotationsession - missing parameters', (done) => {
-            console.log(`about to send post request to /api/rotationsession with rotationSessionMissingParms `)
+            console.log(`about to send post request to /api/rotationsession with rotationSessionMissingParms `);
             request(app)
                 .post('/api/rotationsession')
                 .send(rotationSessionMissingParms)
