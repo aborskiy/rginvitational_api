@@ -1,3 +1,19 @@
+language: node_js
+node_js:
+- stable
+before_script:
+script:
+before_deploy:
+- rm -rf .tmp
+- rm -rf .DS_Store
+- rm -rf node_modules
+- export ELASTIC_BEANSTALK_ENV=rginvitational-api-${TRAVIS_BRANCH}
+- zip -r rginvitational_api.zip . -x "*node_modules*" -x ".env*" -x "*.git*" -x ".vscode*" -x ".DS_Store" -x ".*" 
+- export ELASTIC_BEANSTALK_LABEL=git-$(git rev-parse --verify HEAD --short)
+- export ELASTIC_BEANSTALK_DESCRIPTION=https://github.com/aborskiy/rginvitational_api/tree/$(gitrev-parse HEAD)
+after_deploy:
+- rm rginvitational-api.zip
+
 deploy:
   provider: elasticbeanstalk
   access_key_id: 
@@ -8,5 +24,3 @@ deploy:
   app: "RGInvitational_API"
   env: "RginvitationalApi-env"
   bucket_name: "rginvitationalapitravisdeployment"
-  zip_file: "rginvitation-api"
-  skip_cleanup: true
