@@ -28,7 +28,7 @@ function X_ACTION_IS_BULK (req, res, next) { return req.headers['x-action'] !== 
  * @group  rotationentries
  * @route GET /api/rotationentries
  * @produces application/json
- * @returns {Array.<rotationEntry>} 200 - An array of rotation entries
+ * @returns {Array.<RotationEntry>} 200 - An array of rotation entries
  * @returns {Error}  default - Unexpected error
  */
 router.get('/',
@@ -38,7 +38,7 @@ router.get('/',
  * Post rotation entry.
  * @group rotationentries
  * @route POST /api/rotationentries
- * @param {rotationEntry.model} rotationEntry.body.required - the new Rotation entry
+ * @param {RotationEntry.model} rotationEntry.body.required - the new Rotation entry
  * @produces application/json
  * @consumes application/json
  * @returns {rotationEntry} 201 - rotationEntry
@@ -58,7 +58,7 @@ router.post('/',
  * @group rotationentries bulk
  * @route POST /api/rotationentries
  * @headers {string} X-Action - bulk, when posting multiple entries.
- * @param {Array.<rotationEntry>} Array.<rotationEntry>.body.required - Array of new Rotation Entries
+ * @param {Array.<RotationEntry>} Array.<rotationEntry>.body.required - Array of new Rotation Entries
  * @produces application/json
  * @consumes application/json
  * @returns {Array.<rotationEntry>} 201 - rotationEntry
@@ -78,7 +78,7 @@ router.post('/',
  * PUT rotation entry.
  * @group rotationentries
  * @route PUT /api/rotationentries/{id}
- * @param {rotationEntry.model} rotationEntry.body.required - the updating rotation Entry
+ * @param {RotationEntry.model} rotationEntry.body.required - the updating rotation Entry
  * @param {integer} id.path.required - application id of rotation Entry
  * @produces application/json
  * @consumes application/json

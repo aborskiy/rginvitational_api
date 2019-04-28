@@ -14,7 +14,7 @@ import commonValidator  from '../validators/common';
  * @group  rotationsession
  * @route GET /api/rotationsession
  * @produces application/json
- * @returns {rotationSession.model} 200 - An array of rotation session
+ * @returns {RotationSession.model} 200 - Rotation session
  * @returns {Error}  default - Unexpected error
  */
 router.get('/',
@@ -27,7 +27,7 @@ router.get('/',
  * @param {rotationSession.model} rotationSession.body.required - the new rotation session
  * @produces application/json
  * @consumes application/json
- * @returns {rotationSession} 201 - rotationSession
+ * @returns {RotationSession} 201 - rotationSession
  * @security JWT
  */
 router.post('/', 
@@ -45,7 +45,7 @@ router.post('/',
  * @param {integer} id.path.required - application id of rotation session
  * @produces application/json
  * @consumes application/json
- * @returns {rotationSession} 200 - rotation session
+ * @returns {RotationSession} 200 - rotation session
  * @security JWT
  */
 router.put('/:id', 
@@ -62,7 +62,7 @@ router.put('/:id',
  * @param {integer} id.path.required - application id of rotation session
  * @produces application/json
  * @consumes application/json
- * @returns {rotationSession} 200 - rotation session
+ * @returns {RotationSession} 200 - rotation session
  * @security JWT
  */
 router.delete('/:id', 

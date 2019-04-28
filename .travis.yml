@@ -9,7 +9,7 @@ before_deploy:
 - rm -rf node_modules
 - export ELASTIC_BEANSTALK_ENV=rginvitational-api-${TRAVIS_BRANCH}
 - zip -r rginvitational_api.zip . -x "*node_modules*" -x ".env*" -x "*.git*" -x ".vscode*" -x ".DS_Store" -x ".*" 
-- export ELASTIC_BEANSTALK_LABEL=git-$(git rev-parse --verify HEAD --short)
+- export ELASTIC_BEANSTALK_LABEL=rginvitational-api-$(git rev-parse --verify HEAD --short)
 - export ELASTIC_BEANSTALK_DESCRIPTION=https://github.com/aborskiy/rginvitational_api/tree/$(gitrev-parse HEAD)
 after_deploy:
 - rm rginvitational-api.zip

@@ -7,7 +7,7 @@ import checkAuthorized from '../../auth/checkAuthorized';
 import controller from '../controllers/participants';
 //const controller = require('../controllers/participants');
 const validator = require('../validators/participants');
-import commonValidator from '../validators/common'
+import commonValidator from '../validators/common';
 //const commonValidator = require('../validators/common');
 
 /**

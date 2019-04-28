@@ -14,7 +14,7 @@ import commonValidator from '../validators/common';
  * @group  scores
  * @route GET /api/scores
  * @produces application/json
- * @returns {Array.<scoreScore>} 200 - An array of scores
+ * @returns {Array.<ParticipantScore>} 200 - An array of scores
  * @returns {Error}  default - Unexpected error
  */
 router.get('/', 
@@ -24,7 +24,7 @@ router.get('/',
  * Post score.
  * @group scores
  * @route POST /api/scores
- * @param {participantScore.model} participantScore.body.required - the new Score entry for score
+ * @param {ParticipantScore.model} participantScore.body.required - the new Score entry for score
  * @produces application/json
  * @consumes application/json
  * @returns {scoreScore} 201 - scoreScore
@@ -42,7 +42,7 @@ router.post('/',
  * PUT score.
  * @group scores
  * @route PUT /api/scores/{id}
- * @param {participantScore.model} score.body.required - the updating score
+ * @param {ParticipantScore.model} score.body.required - the updating score
  * @param {integer} id.path.required - application id of score
  * @produces application/json
  * @consumes application/json
@@ -64,7 +64,7 @@ router.put('/:id',
  * @param {integer} id.path.required - application id of score
  * @produces application/json
  * @consumes application/json
- * @returns {participantScore} 200 - score
+ * @returns {ParticipantScore} 200 - score
  * @security JWT
  */
 router.delete('/:id', 
