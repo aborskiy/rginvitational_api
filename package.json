@@ -8,7 +8,7 @@
     "start": "nodemon -r esm index.js",
     "test" : "npm run unit-test && npm run testParticipantsRoute && npm run testScoresRoute && npm run testRotationEntriesRoute && npm run testRotationSessionRoute",
     "testRoutes": "cross-env NODE_ENV=test mocha './test/api/routes/*.js' --timeout 10000 --require esm --reporter mochawesome --reporter-options reportFilename=testRoutes --exit",
-    "testParticipantsRoute": "cross-env NODE_ENV=test mocha './test/api/routes/participants.js' --timeout 10000 --require esm --reporter mochawesome --reporter-options reportFilename=testScoresRoute --exit",
+    "testParticipantsRoute": "cross-env NODE_ENV=test mocha './test/api/routes/participants.js' --timeout 30000 --require esm --reporter mochawesome --reporter-options reportFilename=testScoresRoute --exit",
     "testScoresRoute": "cross-env NODE_ENV=test mocha './test/api/routes/scores.js' --timeout 10000 --require esm --reporter mochawesome --reporter-options reportFilename=testScoresRoute --exit",
     "testRotationEntriesRoute": "cross-env NODE_ENV=test mocha './test/api/routes/rotationentries.js' --timeout 10000 --require esm --reporter mochawesome --reporter-options reportFilename=testRotationEntriesRoute --exit",
     "testRotationSessionRoute": "cross-env NODE_ENV=test mocha './test/api/routes/rotationsession.js' --timeout 10000 --require esm --reporter mochawesome --reporter-options reportFilename=testRotationSessionRoute --exit",
