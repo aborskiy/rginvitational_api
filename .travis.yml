@@ -27,6 +27,7 @@ deploy:
 
 deploy:
   provider: pages
+  local_dir: mochawesome-report
   skip_cleanup: true
   target_branch: mochawesome
   github_token: $GITHUB_TOKEN
