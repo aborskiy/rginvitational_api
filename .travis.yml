@@ -8,3 +8,5 @@ deploy:
   app: "RGInvitational_API"
   env: "RginvitationalApi-env"
   bucket_name: "rginvitationalapitravisdeployment"
+  zip_file: "rginvitation-api"
+  skip_cleanup: true
