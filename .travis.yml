@@ -1,0 +1,10 @@
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: 
+    secure: "AKIAJ7U2SORRNZ4BDT7Q"
+  secret_access_key:
+    secure: "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"
+  region: "eu-west-1"  
+  app: "RGInvitational_API"
+  env: "RginvitationalApi-env"
+  bucket_name: "rginvitationalapitravisdeployment"

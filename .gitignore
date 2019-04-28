@@ -61,3 +61,10 @@ typings/
 
 # next.js build output
 .next
+
+# rginvitational_api.zip
+rginvitational_api.zip
+
+# dev work files
+.vscode
+.DS_Store
