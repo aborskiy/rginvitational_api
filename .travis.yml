@@ -17,9 +17,9 @@ after_deploy:
 deploy:
   provider: elasticbeanstalk
   access_key_id: 
-    secure: "AKIAJ7U2SORRNZ4BDT7Q"
+    secure: $ACCESS_KEY_ID
   secret_access_key:
-    secure: "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"
+    secure: $SECRET_ACCESS_KEY
   region: "eu-west-1"  
   app: "RGInvitational_API"
   env: "RginvitationalApi-env"
