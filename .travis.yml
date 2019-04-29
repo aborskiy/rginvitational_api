@@ -29,7 +29,7 @@ deploy:
   provider: pages
   local_dir: mochawesome-report
   skip_cleanup: true
-  target_branch: mochawesome
+  target_branch: gh-pages
   github_token: $GITHUB_TOKEN
   keep_history: true
   on:
