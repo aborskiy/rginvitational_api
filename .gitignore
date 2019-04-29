@@ -66,6 +66,6 @@ typings/
 rginvitational_api.zip
 
 # dev work files
-.vscode
+.vscode/
 .DS_Store
 mochawesome-report
