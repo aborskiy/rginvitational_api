@@ -1,0 +1,1319 @@
+{
+  "stats": {
+    "suites": 24,
+    "tests": 36,
+    "passes": 15,
+    "pending": 0,
+    "failures": 21,
+    "start": "2019-04-24T02:19:00.746Z",
+    "end": "2019-04-24T02:19:03.688Z",
+    "duration": 2942,
+    "testsRegistered": 36,
+    "passPercent": 41.7,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "danger",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "02a22867-2e57-42b1-99a4-fb0e944bf6c0",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "1ff42863-9388-429d-8e15-aa13df8c30a8",
+        "title": "participants",
+        "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/participants.js",
+        "file": "/test/api/routes/participants.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook",
+            "fullTitle": "participants \"before all\" hook",
+            "timedOut": false,
+            "duration": 1194,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "de9ec20f-9012-44b2-99b2-b525bcaece0d",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [],
+        "tests": [],
+        "suites": [
+          {
+            "uuid": "80c00089-a928-426a-88be-2af54372d705",
+            "title": "GET participants",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/participants.js",
+            "file": "/test/api/routes/participants.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should get all participants",
+                "fullTitle": "participants GET participants should get all participants",
+                "timedOut": false,
+                "duration": 69,
+                "state": "passed",
+                "speed": "medium",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).get('/api/participants')\n//.expect(200)\n.then(function (res) {\n    console.log('GET participants test is before assertions response body: ' + JSON.stringify(res.body));\n    // HTTP status should be 200\n    res.should.have.property('status').equal(200);\n    //res.body.length.should.be.above(0);\n    console.log('GET participants test is completed response body: ' + JSON.stringify(res.body));\n    done();\n});;",
+                "err": {},
+                "isRoot": false,
+                "uuid": "c5fb7737-a52c-459b-ad79-16d38a28e3f1",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "c5fb7737-a52c-459b-ad79-16d38a28e3f1"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 69,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          },
+          {
+            "uuid": "6a2a6fd2-b77c-424c-8d85-552ca1e52e71",
+            "title": "GET participant by id",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/participants.js",
+            "file": "/test/api/routes/participants.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should get one participant by id",
+                "fullTitle": "participants GET participant by id should get one participant by id",
+                "timedOut": false,
+                "duration": 41,
+                "state": "passed",
+                "speed": "medium",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).get('/api/participants/1').expect(200).end(function (err, res) {\n    if (err) return done(err);\n    // HTTP status should be 200\n    res.should.have.property('status').equal(200);\n    res.body.should.have.property('id');\n    res.body.id.should.equal(1);\n    console.log('should GET one participant is completed, response body: ' + JSON.stringify(res.body));\n    done();\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "2b21595d-ec1b-4902-861a-da6fd6906f86",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should NOT get one participant by id",
+                "fullTitle": "participants GET participant by id should NOT get one participant by id",
+                "timedOut": false,
+                "duration": 70,
+                "state": "passed",
+                "speed": "medium",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).get('/api/participants/-1').expect(404).end(function (err, res) {\n    if (err) return done(err);\n    res.should.have.property('status').equal(404);\n    console.log('should GET one participant is completed, response body: ' + JSON.stringify(res.body));\n    done();\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "d9332677-2ef2-477a-acc3-77e768cf1d82",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "2b21595d-ec1b-4902-861a-da6fd6906f86",
+              "d9332677-2ef2-477a-acc3-77e768cf1d82"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 111,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          },
+          {
+            "uuid": "17f4a273-1c14-4e61-bf00-a61a29158e51",
+            "title": "POST participants",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/participants.js",
+            "file": "/test/api/routes/participants.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should POST one participant",
+                "fullTitle": "participants POST participants should POST one participant",
+                "timedOut": false,
+                "duration": 477,
+                "state": "passed",
+                "speed": "slow",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).post('/api/participants').send(participant1).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n//.expect(201)\n.end(function (err, res) {\n    if (err) return done(err);\n    // HTTP status should be 201\n    console.log('should POST one participant before assertions, response header: ' + res.header);\n    console.log('should POST one participant before assertions, response info: ' + res.info);\n    console.log('should POST one participant before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(201);\n    res.body.should.have.property('id');\n    res.body.name.first.should.equal('Carol');\n    done();\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "5f2a9ffd-a43b-48af-a780-4bdc1921d34f",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should fail with 401 UnauthorizedError when POSTing participant",
+                "fullTitle": "participants POST participants should fail with 401 UnauthorizedError when POSTing participant",
+                "timedOut": false,
+                "duration": 17,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).post('/api/participants').send(participant1).set('Accept', 'application/json').set('Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qWTFNVUkzTkVFMU16YzJNMFl6TURkRE1rUkNPREk1UkVKR00wSkNPVGN5TmpSR00wUkdPUSJ9.eyJpc3MiOiJodHRwczovL2Fib3Jza2l5LmF1dGgwLmNvbS8iLCJzdWIiOiJCWnI0V3pBTTZWbzBLSFY2YnlObDZZYlZqNVlXTTF5a0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9hYm9yc2tpeS5hdXRoMC5jb20vYXBpL3YyLyIsImlhdCI6MTU1NDk0OTM5OCwiZXhwIjoxNTU1MDM1Nzk4LCJhenAiOiJCWnI0V3pBTTZWbzBLSFY2YnlObDZZYlZqNVlXTTF5ayIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.fvhiPoafkCYU_aEaQH1D7PJFVzNc7A3bVCyhrx_qjWUEnhHwBYll8hKWiU1A5xLV_8xktGtBJ1BFxeOrKdXJssjbSCHodShOxRzqbORDGE_Eppds1yS4WSH4ecwZ0YMovnPT_j99iP0Zcw9VB9MrMmxZLHkqtbl2ObPXvwb53eJ9Tps_Il-fwSUfV-aGyO7qqRPE5k3Qk75Q9s9RelXU9xNtpdnnrK9q2mqTaXlpVlQPsg_wbaNqBpgh9RDE9smXIsQE5NH79EbZZg4YAlVOAnSzW5R1V1K-pxSXvKjUaq6asGCIqA1Q4HgYImfj-N_4J6dHffLNMgIpnXm3EYaXkg')\n//.expect('Content-Type', /json/)\n//.expect(201)\n.end(function (err, res) {\n    if (err) return done(err);\n    // HTTP status should be 401\n    console.log('should POST one participant before assertions, response header: ' + res.header);\n    console.log('should POST one participant before assertions, response info: ' + res.info);\n    console.log('should POST one participant before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(401);\n    //res.body.should.have.property('id');\n    res.body.should.equal('UnauthorizedError');\n    done();\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "11aeaf2f-c4a4-4259-84cb-a38bf4d49876",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should fail validation before POSTing participant with 'first name does not exist' error",
+                "fullTitle": "participants POST participants should fail validation before POSTing participant with 'first name does not exist' error",
+                "timedOut": false,
+                "duration": 22,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).post('/api/participants').send(invalidParticipantNoFirstName).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n//.expect(201)\n.end(function (err, res) {\n    if (err) return done(err);\n    // HTTP status should be 201\n    console.log('should POST one participant before assertions, response header: ' + res.header);\n    console.log('should POST one participant before assertions, response info: ' + res.info);\n    console.log('should POST one participant before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(422);\n    res.body.should.be.instanceof(Array).and.have.lengthOf(1);\n    //res.body.should.have.property('param');\n    //res.body.param.should.equal('name.first');\n    //res.body.should.have.property('msg');\n    //res.body.msg.should.equal('first name does not exist');\n    //res.body.name.first.should.equal('Carol');\n    done();\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "5484f12d-a62f-4b32-ae45-355fbe7718f8",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "5f2a9ffd-a43b-48af-a780-4bdc1921d34f",
+              "11aeaf2f-c4a4-4259-84cb-a38bf4d49876",
+              "5484f12d-a62f-4b32-ae45-355fbe7718f8"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 516,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          },
+          {
+            "uuid": "c31e2851-d8e0-464c-b31a-f3f95e06d416",
+            "title": "PUT participant",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/participants.js",
+            "file": "/test/api/routes/participants.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should PUT one participant",
+                "fullTitle": "participants PUT participant should PUT one participant",
+                "timedOut": false,
+                "duration": 18,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).put('/api/participants/1').send(participant1).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n.end(function (err, res) {\n    if (err) return done(err);\n    console.log('should PUT one participant before assertions, response header: ' + res.header);\n    console.log('should PUT one participant before assertions, response info: ' + res.info);\n    console.log('should PUT one participant before assertions, response body: ' + JSON.stringify(res.body));\n    console.log('should PUT one participant before assertions, response body name first: ' + res.body.name.first);\n    res.should.have.property('status').equal(200);\n    res.body.should.have.property('id');\n    res.body.name.first.should.equal('Carol');\n    done();\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "3e8ad553-8d07-4ad4-8950-428b8273e703",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should fail finding PUT request without param id with 404",
+                "fullTitle": "participants PUT participant should fail finding PUT request without param id with 404",
+                "timedOut": false,
+                "duration": 7,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).put('/api/participants').send(participant1).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token).end(function (err, res) {\n    if (err) return done(err);\n    console.log('should POST one participant before assertions, response header: ' + res.header);\n    console.log('should POST one participant before assertions, response info: ' + res.info);\n    console.log('should POST one participant before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(404);\n    done();\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "90f70d43-0096-47f4-ac1f-148576b2e242",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should fail PUT request validation with not numeric id parameter",
+                "fullTitle": "participants PUT participant should fail PUT request validation with not numeric id parameter",
+                "timedOut": false,
+                "duration": 14,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).put('/api/participants/fake').send(participant1).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token).end(function (err, res) {\n    if (err) return done(err);\n    console.log('should POST one participant before assertions, response header: ' + res.header);\n    console.log('should POST one participant before assertions, response info: ' + res.info);\n    console.log('should POST one participant before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(422);\n    res.body.should.be.instanceof(Array).and.have.lengthOf(1);\n    done();\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "8982e850-d5c4-4abe-b19d-8abba5339c68",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "3e8ad553-8d07-4ad4-8950-428b8273e703",
+              "90f70d43-0096-47f4-ac1f-148576b2e242",
+              "8982e850-d5c4-4abe-b19d-8abba5339c68"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 39,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          },
+          {
+            "uuid": "59408b3c-677d-4b9f-874f-274bc9b7287f",
+            "title": "DELETE participant",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/participants.js",
+            "file": "/test/api/routes/participants.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should DELETE one participant",
+                "fullTitle": "participants DELETE participant should DELETE one participant",
+                "timedOut": false,
+                "duration": 31,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).delete('/api/participants/1').set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n.end(function (err, res) {\n    if (err) return done(err);\n    console.log('should DELETE one participant before assertions, response header: ' + res.header);\n    console.log('should DELETE one participant before assertions, response info: ' + res.info);\n    console.log('should DELETE one participant before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(200);\n    res.body.should.have.property('id');\n    res.body.name.first.should.equal('Carol');\n    done();\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "0dd4f7d0-974b-452a-b135-3b56cf328b35",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "0dd4f7d0-974b-452a-b135-3b56cf328b35"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 31,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          }
+        ],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 10000
+      },
+      {
+        "uuid": "0c95293e-621e-4b5a-944a-621d403ed4a4",
+        "title": "rotationentries",
+        "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/rotationentries.js",
+        "file": "/test/api/routes/rotationentries.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook",
+            "fullTitle": "rotationentries \"before all\" hook",
+            "timedOut": false,
+            "duration": 243,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "3df47cf2-c249-4664-bb91-9a50e0a99e54",
+            "isHook": true,
+            "skipped": false
+          },
+          {
+            "title": "\"before each\" hook",
+            "fullTitle": "rotationentries \"before each\" hook",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "rotationEntry = {\n    \"rotaId\": 1,\n    \"participantId\": 908,\n    \"name\": \"Julia B\",\n    \"team\": \"RUS\",\n    \"apparatus\": {\n        \"id\": \"floor\",\n        \"imageurl\": \"images/floor-min-2.png\"\n    },\n    \"score\": {\n        \"id\": \"floor\",\n        \"diff\": 9.3,\n        \"exec\": 9,\n        \"deduct\": 0.1,\n        \"total\": 18.2\n    }\n};\ninvalidRotationEntry = {\n    \"rotaId\": 1,\n    \"participantId\": 908,\n    \"team\": \"RUS\",\n    \"apparatus\": {\n        \"id\": \"dummy\",\n        \"imageurl\": \"images/floor-min-2.png\"\n    },\n    \"score\": {\n        \"id\": \"floor\",\n        \"diff\": 9.3,\n        \"exec\": 9,\n        \"deduct\": 0.1,\n        \"total\": 18.2\n    }\n};",
+            "err": {},
+            "isRoot": false,
+            "uuid": "4550b899-5286-4347-ba4d-cdfa2cd55ee2",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [],
+        "tests": [],
+        "suites": [
+          {
+            "uuid": "3d0b9680-2bc4-41d1-bb85-9dbe27092012",
+            "title": "GET rotationentries",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/rotationentries.js",
+            "file": "/test/api/routes/rotationentries.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should get all rotationentries",
+                "fullTitle": "rotationentries GET rotationentries should get all rotationentries",
+                "timedOut": false,
+                "duration": 66,
+                "state": "passed",
+                "speed": "medium",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).get('/api/rotationentries')\n//.expect(200)\n.then(function (res) {\n    console.log('GET rotationentries test is before assertions response body: ' + JSON.stringify(res.body));\n    // HTTP status should be 200\n    res.should.have.property('status').equal(200);\n    res.body.length.should.be.above(0);\n    //res.body.length.should.be.above(0);\n    console.log('GET rotationentries test is completed response body: ' + JSON.stringify(res.body));\n    done();\n});;",
+                "err": {},
+                "isRoot": false,
+                "uuid": "f78e7d94-1ba8-4dbb-bc68-12076d7c62df",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "f78e7d94-1ba8-4dbb-bc68-12076d7c62df"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 66,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          },
+          {
+            "uuid": "eb9d9e33-d898-40a2-b935-e9784466ef25",
+            "title": "POST rotationentries",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/rotationentries.js",
+            "file": "/test/api/routes/rotationentries.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should fail with 401 UnauthorizedError when POSTing rotation entry",
+                "fullTitle": "rotationentries POST rotationentries should fail with 401 UnauthorizedError when POSTing rotation entry",
+                "timedOut": false,
+                "duration": 7,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).post('/api/rotationentries').send(rotationEntry).set('Accept', 'application/json').set('Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qWTFNVUkzTkVFMU16YzJNMFl6TURkRE1rUkNPREk1UkVKR00wSkNPVGN5TmpSR00wUkdPUSJ9.eyJpc3MiOiJodHRwczovL2Fib3Jza2l5LmF1dGgwLmNvbS8iLCJzdWIiOiJCWnI0V3pBTTZWbzBLSFY2YnlObDZZYlZqNVlXTTF5a0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9hYm9yc2tpeS5hdXRoMC5jb20vYXBpL3YyLyIsImlhdCI6MTU1NDk0OTM5OCwiZXhwIjoxNTU1MDM1Nzk4LCJhenAiOiJCWnI0V3pBTTZWbzBLSFY2YnlObDZZYlZqNVlXTTF5ayIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.fvhiPoafkCYU_aEaQH1D7PJFVzNc7A3bVCyhrx_qjWUEnhHwBYll8hKWiU1A5xLV_8xktGtBJ1BFxeOrKdXJssjbSCHodShOxRzqbORDGE_Eppds1yS4WSH4ecwZ0YMovnPT_j99iP0Zcw9VB9MrMmxZLHkqtbl2ObPXvwb53eJ9Tps_Il-fwSUfV-aGyO7qqRPE5k3Qk75Q9s9RelXU9xNtpdnnrK9q2mqTaXlpVlQPsg_wbaNqBpgh9RDE9smXIsQE5NH79EbZZg4YAlVOAnSzW5R1V1K-pxSXvKjUaq6asGCIqA1Q4HgYImfj-N_4J6dHffLNMgIpnXm3EYaXkg').end(function (err, res) {\n    if (err) return done(err);\n    // HTTP status should be 401\n    console.log('should POST one rotationentry before assertions, response header: ' + res.header);\n    console.log('should POST one rotationentry before assertions, response info: ' + res.info);\n    console.log('should POST one rotationentry before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(401);\n    res.body.should.equal('UnauthorizedError');\n    done();\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "b09560fa-279c-4376-a722-26bf518887fd",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should fail validation before POSTing rotationentries with 'apparatus id is invalid' error",
+                "fullTitle": "rotationentries POST rotationentries should fail validation before POSTing rotationentries with 'apparatus id is invalid' error",
+                "timedOut": false,
+                "duration": 0,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).post('/api/rotationentries').send(invalidRotationEntry).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n//.expect(201)\n.end(function (err, res) {\n    if (err) return done(err);\n    // HTTP status should be 201\n    console.log('should POST one rotationentry before assertions, response header: ' + res.header);\n    console.log('should POST one rotationentry before assertions, response info: ' + res.info);\n    console.log('should POST one rotationentry before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(422);\n    res.body.length.should.be.above(0);\n    res.body[0].msg.should.equal('name does not exist');\n    res.body[1].msg.should.equal('apparatus id is invalid, should be floor, hoop, rope, ribbon');\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/rotationentries.js:114:58)"
+                },
+                "isRoot": false,
+                "uuid": "58623aa6-e434-4376-a50d-d55cb73ec053",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should POST one rotationentry",
+                "fullTitle": "rotationentries POST rotationentries should POST one rotationentry",
+                "timedOut": false,
+                "duration": 1,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).post('/api/rotationentries').send(rotationEntry).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n//.expect(201)\n.end(function (err, res) {\n    if (err) return done(err);\n    // HTTP status should be 201\n    console.log('should POST one rotationentry before assertions, response header: ' + res.header);\n    console.log('should POST one rotationentry before assertions, response info: ' + res.info);\n    console.log('should POST one rotationentry before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(201);\n    res.body.should.have.property('rotaId');\n    res.body.name.should.equal(rotationEntry.name);\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/rotationentries.js:138:58)"
+                },
+                "isRoot": false,
+                "uuid": "19e677ef-ebe5-4baf-a27d-1d7df997a340",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "b09560fa-279c-4376-a722-26bf518887fd"
+            ],
+            "failures": [
+              "58623aa6-e434-4376-a50d-d55cb73ec053",
+              "19e677ef-ebe5-4baf-a27d-1d7df997a340"
+            ],
+            "pending": [],
+            "skipped": [],
+            "duration": 8,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          },
+          {
+            "uuid": "f9aa770e-1899-4ce4-9e32-3f101b3adbab",
+            "title": "PUT rotationentry",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/rotationentries.js",
+            "file": "/test/api/routes/rotationentries.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should PUT one rotationentry",
+                "fullTitle": "rotationentries PUT rotationentry should PUT one rotationentry",
+                "timedOut": false,
+                "duration": 0,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).put('/api/rotationentries/1').send(rotationEntry).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n.end(function (err, res) {\n    if (err) return done(err);\n    console.log('should PUT one rotationentry before assertions, response header: ' + res.header);\n    console.log('should PUT one rotationentry before assertions, response info: ' + res.info);\n    console.log('should PUT one rotationentry before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(200);\n    res.body.should.have.property('rotaId');\n    res.body.rotaId.should.equal(rotationEntry.rotaId);\n    res.body.name.should.equal(rotationEntry.name);\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/rotationentries.js:163:58)"
+                },
+                "isRoot": false,
+                "uuid": "8f7df8a3-a212-4fbb-80aa-2ad52af027e5",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should fail finding PUT request without param id with 404",
+                "fullTitle": "rotationentries PUT rotationentry should fail finding PUT request without param id with 404",
+                "timedOut": false,
+                "duration": 1,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).put('/api/rotationentries/0102039848').send(rotationEntry).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token).end(function (err, res) {\n    if (err) return done(err);\n    console.log('should PUT one rotationentry before assertions, response header: ' + res.header);\n    console.log('should PUT one rotationentry before assertions, response info: ' + res.info);\n    console.log('should PUT one rotationentry before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(404);\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/rotationentries.js:183:58)"
+                },
+                "isRoot": false,
+                "uuid": "80679d51-e943-4fb2-b6a8-872313746411",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should fail PUT request validation with not numeric id parameter",
+                "fullTitle": "rotationentries PUT rotationentry should fail PUT request validation with not numeric id parameter",
+                "timedOut": false,
+                "duration": 1,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).put('/api/rotationentries/fake').send(rotationEntry).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token).end(function (err, res) {\n    if (err) return done(err);\n    console.log('should PUT one rotationentry before assertions, response header: ' + res.header);\n    console.log('should PUT one rotationentry before assertions, response info: ' + res.info);\n    console.log('should PUT one rotationentry before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(422);\n    res.body.should.be.instanceof(Array).and.have.lengthOf(1);\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/rotationentries.js:198:58)"
+                },
+                "isRoot": false,
+                "uuid": "c09cbd1e-fa2a-4447-b591-a107be520322",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [],
+            "failures": [
+              "8f7df8a3-a212-4fbb-80aa-2ad52af027e5",
+              "80679d51-e943-4fb2-b6a8-872313746411",
+              "c09cbd1e-fa2a-4447-b591-a107be520322"
+            ],
+            "pending": [],
+            "skipped": [],
+            "duration": 2,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          },
+          {
+            "uuid": "d330d1c3-31d1-4c3a-b036-dcdc46ad2a46",
+            "title": "DELETE rotationentry",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/rotationentries.js",
+            "file": "/test/api/routes/rotationentries.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should DELETE one rotationentry",
+                "fullTitle": "rotationentries DELETE rotationentry should DELETE one rotationentry",
+                "timedOut": false,
+                "duration": 4,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).delete('/api/rotationentries/1').set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n.end(function (err, res) {\n    if (err) return done(err);\n    console.log('should DELETE one rotationentry before assertions, response header: ' + res.header);\n    console.log('should DELETE one rotationentry before assertions, response info: ' + res.info);\n    console.log('should DELETE one rotationentry before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(200);\n    res.body.should.have.property('rotaId');\n    res.body.rotaId.should.equal(rotationEntry.rotaId);\n    res.body.name.should.equal(rotationEntry.name);\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/rotationentries.js:216:58)"
+                },
+                "isRoot": false,
+                "uuid": "d8db1d0c-2d8c-45c4-be39-4b999fbfd963",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [],
+            "failures": [
+              "d8db1d0c-2d8c-45c4-be39-4b999fbfd963"
+            ],
+            "pending": [],
+            "skipped": [],
+            "duration": 4,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          }
+        ],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 10000
+      },
+      {
+        "uuid": "cc07120b-f9af-40fc-9ae3-b56cf1e17005",
+        "title": "rotationentries bulk",
+        "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/rotationentries.js",
+        "file": "/test/api/routes/rotationentries.js",
+        "beforeHooks": [
+          {
+            "title": "\"before each\" hook",
+            "fullTitle": "rotationentries bulk \"before each\" hook",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "rotationEntries = [{\n    \"rotaId\": 1,\n    \"participantId\": 908,\n    \"name\": \"Julia B\",\n    \"team\": \"RUS\",\n    \"apparatus\": {\n        \"id\": \"floor\",\n        \"imageurl\": \"images/floor-min-2.png\"\n    },\n    \"score\": {\n        \"id\": \"floor\",\n        \"diff\": 9.3,\n        \"exec\": 9,\n        \"deduct\": 0.1,\n        \"total\": 18.2\n    }\n}, {\n    \"rotaId\": 2,\n    \"participantId\": 909,\n    \"name\": \"Second T\",\n    \"team\": \"UKR\",\n    \"apparatus\": {\n        \"id\": \"rope\",\n        \"imageurl\": \"images/rope-min-2.png\"\n    },\n    \"score\": {\n        \"id\": \"rope\",\n        \"diff\": 9.3,\n        \"exec\": 9,\n        \"deduct\": 0.1,\n        \"total\": 18.2\n    }\n}];",
+            "err": {},
+            "isRoot": false,
+            "uuid": "fa9066d6-48a7-45e6-99d6-26ad060da7ef",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [],
+        "tests": [],
+        "suites": [
+          {
+            "uuid": "3c14f4ee-5d65-4c05-a4d1-7012b62d36f7",
+            "title": "POST rotationentries BULK",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/rotationentries.js",
+            "file": "/test/api/routes/rotationentries.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should POST BULK rotationentries",
+                "fullTitle": "rotationentries bulk POST rotationentries BULK should POST BULK rotationentries",
+                "timedOut": false,
+                "duration": 0,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).post('/api/rotationentries').send(rotationEntries).set('Accept', 'application/json').set('X-Action', 'bulk').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n//.expect(201)\n.end(function (err, res) {\n    if (err) return done(err);\n    // HTTP status should be 201\n    console.log('should POST one rotationentry before assertions, response header: ' + res.header);\n    console.log('should POST one rotationentry before assertions, response info: ' + res.info);\n    console.log('should POST one rotationentry before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(201);\n    //res.body.should.have.property('rotaId');\n    //res.body.name.should.equal(rotationEntry.name);\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/rotationentries.js:281:58)"
+                },
+                "isRoot": false,
+                "uuid": "c6e52325-ce9a-47f5-9f33-308d57ebcded",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [],
+            "failures": [
+              "c6e52325-ce9a-47f5-9f33-308d57ebcded"
+            ],
+            "pending": [],
+            "skipped": [],
+            "duration": 0,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          },
+          {
+            "uuid": "0e8e8faf-5386-43e4-8e5b-2fd4834d4494",
+            "title": "DELETE rotationentries BULK",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/rotationentries.js",
+            "file": "/test/api/routes/rotationentries.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should DELETE BULK rotationentries",
+                "fullTitle": "rotationentries bulk DELETE rotationentries BULK should DELETE BULK rotationentries",
+                "timedOut": false,
+                "duration": 1,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).delete('/api/rotationentries').send(rotationEntries).set('Accept', 'application/json').set('X-Action', 'bulk').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token).end(function (err, res) {\n    if (err) return done(err);\n    // HTTP status should be 200\n    console.log('in end after should DELETE BULK rotationentries');\n    //console.log(`should POST one rotationentry before assertions, response header: ${res.header}`);\n    //console.log(`should POST one rotationentry before assertions, response info: ${res.info}`);\n    //console.log(`should POST one rotationentry before assertions, response body: ${JSON.stringify(res.body)}`);\n    res.should.have.property('status').equal(200);\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/rotationentries.js:308:58)"
+                },
+                "isRoot": false,
+                "uuid": "2426cb8f-1dcc-45d5-94b4-6c81711c4248",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [],
+            "failures": [
+              "2426cb8f-1dcc-45d5-94b4-6c81711c4248"
+            ],
+            "pending": [],
+            "skipped": [],
+            "duration": 1,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          }
+        ],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 10000
+      },
+      {
+        "uuid": "8c67b734-b367-4572-8276-b8825f9a776d",
+        "title": "rotationsession",
+        "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/rotationsession.js",
+        "file": "/test/api/routes/rotationsession.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook",
+            "fullTitle": "rotationsession \"before all\" hook",
+            "timedOut": false,
+            "duration": 2,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "7686b964-86b0-47dd-b91a-0b24f509a02d",
+            "isHook": true,
+            "skipped": false
+          },
+          {
+            "title": "\"before each\" hook",
+            "fullTitle": "rotationsession \"before each\" hook",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "rotationSession = {\n    \"onFloorParticipantId\": 3,\n    \"scoreParticipantId\": 1\n};\nrotationSessionMissingParms = {};",
+            "err": {},
+            "isRoot": false,
+            "uuid": "756025a2-055a-4337-aaab-34c18bc3a486",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [],
+        "tests": [],
+        "suites": [
+          {
+            "uuid": "36b99050-a4cd-4551-b831-0fb8017274e3",
+            "title": "POST rotationsession",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/rotationsession.js",
+            "file": "/test/api/routes/rotationsession.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should fail with 401 UnauthorizedError when POSTing rotation entry",
+                "fullTitle": "rotationsession POST rotationsession should fail with 401 UnauthorizedError when POSTing rotation entry",
+                "timedOut": false,
+                "duration": 13,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).post('/api/rotationsession').send(rotationSession).set('Accept', 'application/json').set('Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qWTFNVUkzTkVFMU16YzJNMFl6TURkRE1rUkNPREk1UkVKR00wSkNPVGN5TmpSR00wUkdPUSJ9.eyJpc3MiOiJodHRwczovL2Fib3Jza2l5LmF1dGgwLmNvbS8iLCJzdWIiOiJCWnI0V3pBTTZWbzBLSFY2YnlObDZZYlZqNVlXTTF5a0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9hYm9yc2tpeS5hdXRoMC5jb20vYXBpL3YyLyIsImlhdCI6MTU1NDk0OTM5OCwiZXhwIjoxNTU1MDM1Nzk4LCJhenAiOiJCWnI0V3pBTTZWbzBLSFY2YnlObDZZYlZqNVlXTTF5ayIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.fvhiPoafkCYU_aEaQH1D7PJFVzNc7A3bVCyhrx_qjWUEnhHwBYll8hKWiU1A5xLV_8xktGtBJ1BFxeOrKdXJssjbSCHodShOxRzqbORDGE_Eppds1yS4WSH4ecwZ0YMovnPT_j99iP0Zcw9VB9MrMmxZLHkqtbl2ObPXvwb53eJ9Tps_Il-fwSUfV-aGyO7qqRPE5k3Qk75Q9s9RelXU9xNtpdnnrK9q2mqTaXlpVlQPsg_wbaNqBpgh9RDE9smXIsQE5NH79EbZZg4YAlVOAnSzW5R1V1K-pxSXvKjUaq6asGCIqA1Q4HgYImfj-N_4J6dHffLNMgIpnXm3EYaXkg').end(function (err, res) {\n    if (err) return done(err);\n    // HTTP status should be 401\n    console.log('should POST one rotationSession before assertions, response header: ' + res.header);\n    console.log('should POST one rotationSession before assertions, response info: ' + res.info);\n    console.log('should POST one rotationSession before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(401);\n    res.body.should.equal('UnauthorizedError');\n    done();\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "ad8d7e35-2c2f-4df2-81e5-5f4551953106",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should fail validation before POSTing rotationsession - missing parameters",
+                "fullTitle": "rotationsession POST rotationsession should fail validation before POSTing rotationsession - missing parameters",
+                "timedOut": false,
+                "duration": 2,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "console.log('about to send post request to /api/rotationsession with rotationSessionMissingParms ');\nrequest(_index.app).post('/api/rotationsession').send(rotationSessionMissingParms).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n//.expect(201)\n.end(function (err, res) {\n    if (err) return done(err);\n    // HTTP status should be 201\n    console.log('should POST one rotationSession before assertions, response header: ' + res.header);\n    console.log('should POST one rotationSession before assertions, response info: ' + res.info);\n    console.log('should POST one rotationSession before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(422);\n    res.body.length.should.be.above(0);\n    res.body[0].msg.should.equal('onFloorParticipantId does not exist');\n    res.body[1].msg.should.equal('scoreParticipantId does not exist');\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/rotationsession.js:71:58)"
+                },
+                "isRoot": false,
+                "uuid": "f0e30542-b72a-461f-a209-caf07cf05093",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should POST one rotationSession",
+                "fullTitle": "rotationsession POST rotationsession should POST one rotationSession",
+                "timedOut": false,
+                "duration": 1,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).post('/api/rotationsession').send(rotationSession).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n//.expect(201)\n.end(function (err, res) {\n    if (err) return done(err);\n    // HTTP status should be 201\n    console.log('should POST one rotationSession before assertions, response header: ' + res.header);\n    console.log('should POST one rotationSession before assertions, response info: ' + res.info);\n    console.log('should POST one rotationSession before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(201);\n    res.body.should.have.property('onFloorParticipantId');\n    res.body.should.have.property('scoreParticipantId');\n    res.body.onFloorParticipantId.should.equal(rotationSession.onFloorParticipantId);\n    res.body.scoreParticipantId.should.equal(rotationSession.scoreParticipantId);\n    sessionId = res.body._id;\n    console.log('sessionId is assigned after POSt: ' + sessionId);\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/rotationsession.js:94:58)"
+                },
+                "isRoot": false,
+                "uuid": "e561bd3c-8544-423a-9516-86ae87f4b73f",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "ad8d7e35-2c2f-4df2-81e5-5f4551953106"
+            ],
+            "failures": [
+              "f0e30542-b72a-461f-a209-caf07cf05093",
+              "e561bd3c-8544-423a-9516-86ae87f4b73f"
+            ],
+            "pending": [],
+            "skipped": [],
+            "duration": 16,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          },
+          {
+            "uuid": "870cdfb7-9571-41b3-a82e-64abc9746e66",
+            "title": "GET rotationsession",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/rotationsession.js",
+            "file": "/test/api/routes/rotationsession.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should get rotationsession",
+                "fullTitle": "rotationsession GET rotationsession should get rotationsession",
+                "timedOut": false,
+                "duration": 0,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).get('/api/rotationsession')\n//.expect(200)\n.end(function (err, res) {\n    console.log('GET rotationsession test is before assertions response body: ' + JSON.stringify(res.body));\n    if (err) return done(err);\n    // HTTP status should be 200\n    res.should.have.property('status').equal(200);\n    res.body.length.should.be.above(0);\n    //res.body.length.should.be.above(0);\n    console.log('GET rotationsession test is completed response body: ' + JSON.stringify(res.body));\n    done();\n});;",
+                "err": {
+                  "message": "AssertionError: expected 0 to be above 0",
+                  "estack": "AssertionError: expected 0 to be above 0\n    at Assertion.fail (node_modules/should/cjs/should.js:275:17)\n    at Assertion.value (node_modules/should/cjs/should.js:356:19)\n    at Test.<anonymous> (test/api/routes/rotationsession.js:127:47)\n    at Test.assert (node_modules/supertest/lib/test.js:181:6)\n    at Server.localAssert (node_modules/supertest/lib/test.js:131:12)\n    at emitCloseNT (net.js:1629:8)\n    at process._tickCallback (internal/process/next_tick.js:63:19)"
+                },
+                "isRoot": false,
+                "uuid": "bdc73696-64bb-475a-aa07-4655c33d22ba",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [],
+            "failures": [
+              "bdc73696-64bb-475a-aa07-4655c33d22ba"
+            ],
+            "pending": [],
+            "skipped": [],
+            "duration": null,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          },
+          {
+            "uuid": "2062b054-953a-4660-860e-e3c72bb32d57",
+            "title": "PUT rotationSession",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/rotationsession.js",
+            "file": "/test/api/routes/rotationsession.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should PUT one rotationSession",
+                "fullTitle": "rotationsession PUT rotationSession should PUT one rotationSession",
+                "timedOut": false,
+                "duration": 3,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "console.log('checking if sessionId present: ' + sessionId);\nrequest(_index.app).put('/api/rotationsession/' + sessionId).send(rotationSession).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n.end(function (err, res) {\n    if (err) return done(err);\n    console.log('should PUT one rotationSession before assertions, response header: ' + res.header);\n    console.log('should PUT one rotationSession before assertions, response info: ' + res.info);\n    console.log('should PUT one rotationSession before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(200);\n    res.body.should.have.property('onFloorParticipantId');\n    res.body.should.have.property('scoreParticipantId');\n    res.body.onFloorParticipantId.should.equal(rotationSession.onFloorParticipantId);\n    res.body.scoreParticipantId.should.equal(rotationSession.scoreParticipantId);\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/rotationsession.js:143:58)"
+                },
+                "isRoot": false,
+                "uuid": "86caa9f9-b9c0-4151-b590-769f3c6285b6",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should fail finding PUT request without param id with 404",
+                "fullTitle": "rotationsession PUT rotationSession should fail finding PUT request without param id with 404",
+                "timedOut": false,
+                "duration": 3,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).put('/api/rotationsession').send(rotationSession).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token).end(function (err, res) {\n    if (err) return done(err);\n    console.log('should PUT one rotationSession before assertions, response header: ' + res.header);\n    console.log('should PUT one rotationSession before assertions, response info: ' + res.info);\n    console.log('should PUT one rotationSession before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(404);\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/rotationsession.js:164:58)"
+                },
+                "isRoot": false,
+                "uuid": "bbd3627c-6498-4f37-b403-26f4c3f668e0",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should fail PUT request validation with not invalid id parameter",
+                "fullTitle": "rotationsession PUT rotationSession should fail PUT request validation with not invalid id parameter",
+                "timedOut": false,
+                "duration": 0,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).put('/api/rotationsession/fake').send(rotationSession).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token).end(function (err, res) {\n    if (err) return done(err);\n    console.log('should PUT one rotationSession before assertions, response header: ' + res.header);\n    console.log('should PUT one rotationSession before assertions, response info: ' + res.info);\n    console.log('should PUT one rotationSession before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(422);\n    res.body.should.be.instanceof(Array).and.have.lengthOf(1);\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/rotationsession.js:179:58)"
+                },
+                "isRoot": false,
+                "uuid": "aa52bd29-6642-4756-9872-530172543a66",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [],
+            "failures": [
+              "86caa9f9-b9c0-4151-b590-769f3c6285b6",
+              "bbd3627c-6498-4f37-b403-26f4c3f668e0",
+              "aa52bd29-6642-4756-9872-530172543a66"
+            ],
+            "pending": [],
+            "skipped": [],
+            "duration": 6,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          },
+          {
+            "uuid": "b212adcd-80c5-47ac-983f-af0c14b4fef2",
+            "title": "DELETE rotationSession",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/rotationsession.js",
+            "file": "/test/api/routes/rotationsession.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should DELETE one rotationSession",
+                "fullTitle": "rotationsession DELETE rotationSession should DELETE one rotationSession",
+                "timedOut": false,
+                "duration": 1,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).delete('/api/rotationsession/' + sessionId).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n.end(function (err, res) {\n    if (err) return done(err);\n    console.log('should DELETE one rotationSession before assertions, response header: ' + res.header);\n    console.log('should DELETE one rotationSession before assertions, response info: ' + res.info);\n    console.log('should DELETE one rotationSession before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(200);\n    res.body.should.have.property('onFloorParticipantId');\n    res.body.should.have.property('scoreParticipantId');\n    res.body.onFloorParticipantId.should.equal(rotationSession.onFloorParticipantId);\n    res.body.scoreParticipantId.should.equal(rotationSession.scoreParticipantId);\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/rotationsession.js:197:58)"
+                },
+                "isRoot": false,
+                "uuid": "f5bc042f-8b1e-4ac8-9c5b-ca3d1dd3a149",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [],
+            "failures": [
+              "f5bc042f-8b1e-4ac8-9c5b-ca3d1dd3a149"
+            ],
+            "pending": [],
+            "skipped": [],
+            "duration": 1,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          }
+        ],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 10000
+      },
+      {
+        "uuid": "6fc1be4c-988f-4945-8c06-9886359a9357",
+        "title": "scores",
+        "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/scores.js",
+        "file": "/test/api/routes/scores.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook",
+            "fullTitle": "scores \"before all\" hook",
+            "timedOut": false,
+            "duration": 231,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "8480c3ad-c675-47d9-843c-96d3899c2ad7",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [],
+        "tests": [],
+        "suites": [
+          {
+            "uuid": "49099cc0-3d2c-4965-b7e7-004209d9b8ae",
+            "title": "GET scores",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/scores.js",
+            "file": "/test/api/routes/scores.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should get all scores",
+                "fullTitle": "scores GET scores should get all scores",
+                "timedOut": false,
+                "duration": 53,
+                "state": "passed",
+                "speed": "medium",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).get('/api/scores')\n//.expect(200)\n.then(function (res) {\n    console.log('GET scores test is before assertions response body: ' + JSON.stringify(res.body));\n    // HTTP status should be 200\n    res.should.have.property('status').equal(200);\n    res.body.length.should.be.above(0);\n    //res.body.length.should.be.above(0);\n    console.log('GET scores test is completed response body: ' + JSON.stringify(res.body));\n    done();\n});;",
+                "err": {},
+                "isRoot": false,
+                "uuid": "582474ee-6707-4eb3-95ee-660c09b1f715",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "582474ee-6707-4eb3-95ee-660c09b1f715"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 53,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          },
+          {
+            "uuid": "6d209100-c170-4b38-b052-ba268ec4c5cc",
+            "title": "POST scores",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/scores.js",
+            "file": "/test/api/routes/scores.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should fail with 401 UnauthorizedError when POSTing participant",
+                "fullTitle": "scores POST scores should fail with 401 UnauthorizedError when POSTing participant",
+                "timedOut": false,
+                "duration": 9,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request(_index.app).post('/api/scores').send(score1).set('Accept', 'application/json').set('Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qWTFNVUkzTkVFMU16YzJNMFl6TURkRE1rUkNPREk1UkVKR00wSkNPVGN5TmpSR00wUkdPUSJ9.eyJpc3MiOiJodHRwczovL2Fib3Jza2l5LmF1dGgwLmNvbS8iLCJzdWIiOiJCWnI0V3pBTTZWbzBLSFY2YnlObDZZYlZqNVlXTTF5a0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9hYm9yc2tpeS5hdXRoMC5jb20vYXBpL3YyLyIsImlhdCI6MTU1NDk0OTM5OCwiZXhwIjoxNTU1MDM1Nzk4LCJhenAiOiJCWnI0V3pBTTZWbzBLSFY2YnlObDZZYlZqNVlXTTF5ayIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.fvhiPoafkCYU_aEaQH1D7PJFVzNc7A3bVCyhrx_qjWUEnhHwBYll8hKWiU1A5xLV_8xktGtBJ1BFxeOrKdXJssjbSCHodShOxRzqbORDGE_Eppds1yS4WSH4ecwZ0YMovnPT_j99iP0Zcw9VB9MrMmxZLHkqtbl2ObPXvwb53eJ9Tps_Il-fwSUfV-aGyO7qqRPE5k3Qk75Q9s9RelXU9xNtpdnnrK9q2mqTaXlpVlQPsg_wbaNqBpgh9RDE9smXIsQE5NH79EbZZg4YAlVOAnSzW5R1V1K-pxSXvKjUaq6asGCIqA1Q4HgYImfj-N_4J6dHffLNMgIpnXm3EYaXkg')\n//.expect('Content-Type', /json/)\n//.expect(201)\n.end(function (err, res) {\n    if (err) return done(err);\n    // HTTP status should be 401\n    console.log('should POST one score before assertions, response header: ' + res.header);\n    console.log('should POST one score before assertions, response info: ' + res.info);\n    console.log('should POST one score before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(401);\n    res.body.should.equal('UnauthorizedError');\n    done();\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "f322f6cd-ff2e-461d-93dc-166f2ed831fb",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should fail validation before POSTing score with '4 scores must be present' error",
+                "fullTitle": "scores POST scores should fail validation before POSTing score with '4 scores must be present' error",
+                "timedOut": false,
+                "duration": 0,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).post('/api/scores').send(invalidScoreNoScores).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n//.expect(201)\n.end(function (err, res) {\n    if (err) return done(err);\n    // HTTP status should be 201\n    console.log('should POST one score before assertions, response header: ' + res.header);\n    console.log('should POST one score before assertions, response info: ' + res.info);\n    console.log('should POST one score before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(422);\n    res.body[0].msg.should.equal('name does not exist');\n    res.body[3].msg.should.equal('4 scores must be present');\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/scores.js:95:58)"
+                },
+                "isRoot": false,
+                "uuid": "0eb55d9a-4615-4de9-9bfd-0c15b4290774",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should POST one score",
+                "fullTitle": "scores POST scores should POST one score",
+                "timedOut": false,
+                "duration": 8,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).post('/api/scores').send(score1).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n//.expect(201)\n.end(function (err, res) {\n    if (err) return done(err);\n    // HTTP status should be 201\n    console.log('should POST one score before assertions, response header: ' + res.header);\n    console.log('should POST one score before assertions, response info: ' + res.info);\n    console.log('should POST one score before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(201);\n    res.body.should.have.property('id');\n    res.body.scores.should.be.instanceof(Array).and.have.lengthOf(4);\n    res.body.name.should.equal('Carol MacDonald');\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/scores.js:118:58)"
+                },
+                "isRoot": false,
+                "uuid": "2722bf73-0a31-49d7-ac3a-295675242646",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "f322f6cd-ff2e-461d-93dc-166f2ed831fb"
+            ],
+            "failures": [
+              "0eb55d9a-4615-4de9-9bfd-0c15b4290774",
+              "2722bf73-0a31-49d7-ac3a-295675242646"
+            ],
+            "pending": [],
+            "skipped": [],
+            "duration": 17,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          },
+          {
+            "uuid": "13323816-c85e-4d79-bd32-d440ef3ac57b",
+            "title": "PUT participant",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/scores.js",
+            "file": "/test/api/routes/scores.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should PUT one score",
+                "fullTitle": "scores PUT participant should PUT one score",
+                "timedOut": false,
+                "duration": 1,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).put('/api/scores/901').send(score1).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n.end(function (err, res) {\n    if (err) return done(err);\n    console.log('should PUT one score before assertions, response header: ' + res.header);\n    console.log('should PUT one score before assertions, response info: ' + res.info);\n    console.log('should PUT one score before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(200);\n    res.body.should.have.property('id');\n    res.body.scores.should.be.instanceof(Array).and.have.lengthOf(4);\n    res.body.name.should.equal('Carol MacDonald');\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/scores.js:157:58)"
+                },
+                "isRoot": false,
+                "uuid": "5dca43b9-4ea2-48d0-8343-24212d027a00",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should fail finding PUT request without param id with 404",
+                "fullTitle": "scores PUT participant should fail finding PUT request without param id with 404",
+                "timedOut": false,
+                "duration": 0,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).put('/api/scores').send(score1).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token).end(function (err, res) {\n    if (err) return done(err);\n    console.log('should POST one score before assertions, response header: ' + res.header);\n    console.log('should POST one score before assertions, response info: ' + res.info);\n    console.log('should POST one score before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(404);\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/scores.js:177:58)"
+                },
+                "isRoot": false,
+                "uuid": "e6b54682-0ab0-4dcb-8c00-cf3840a3c5fd",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "should fail PUT request validation with not numeric id parameter",
+                "fullTitle": "scores PUT participant should fail PUT request validation with not numeric id parameter",
+                "timedOut": false,
+                "duration": 1,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).put('/api/scores/fake').send(score1).set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token).end(function (err, res) {\n    if (err) return done(err);\n    console.log('should POST one score before assertions, response header: ' + res.header);\n    console.log('should POST one score before assertions, response info: ' + res.info);\n    console.log('should POST one score before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(422);\n    res.body.should.be.instanceof(Array).and.have.lengthOf(1);\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/scores.js:192:58)"
+                },
+                "isRoot": false,
+                "uuid": "0c4354da-c291-40e2-85a1-b3d0d962bb00",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [],
+            "failures": [
+              "5dca43b9-4ea2-48d0-8343-24212d027a00",
+              "e6b54682-0ab0-4dcb-8c00-cf3840a3c5fd",
+              "0c4354da-c291-40e2-85a1-b3d0d962bb00"
+            ],
+            "pending": [],
+            "skipped": [],
+            "duration": 2,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          },
+          {
+            "uuid": "17198f60-f6fb-4fb0-a9fc-b0f80e05f807",
+            "title": "DELETE score",
+            "fullFile": "/Users/aborskiy/WIT_EntWebDev/RGInvitational_API/test/api/routes/scores.js",
+            "file": "/test/api/routes/scores.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "should DELETE one score",
+                "fullTitle": "scores DELETE score should DELETE one score",
+                "timedOut": false,
+                "duration": 0,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "request(_index.app).delete('/api/scores/901').set('Accept', 'application/json').set('Authorization', testAccessToken.token_type + ' ' + testAccessToken.access_token)\n//.expect('Content-Type', /json/)\n.end(function (err, res) {\n    if (err) return done(err);\n    console.log('should DELETE one score before assertions, response header: ' + res.header);\n    console.log('should DELETE one score before assertions, response info: ' + res.info);\n    console.log('should DELETE one score before assertions, response body: ' + JSON.stringify(res.body));\n    res.should.have.property('status').equal(200);\n    res.body.should.have.property('id');\n    res.body.scores.should.be.instanceof(Array).and.have.lengthOf(4);\n    res.body.name.should.equal('Carol MacDonald');\n    done();\n});",
+                "err": {
+                  "message": "TypeError: Cannot read property 'token_type' of undefined",
+                  "estack": "TypeError: Cannot read property 'token_type' of undefined\n    at Context.<anonymous> (test/api/routes/scores.js:210:58)"
+                },
+                "isRoot": false,
+                "uuid": "9bf8d791-029c-424f-913d-2644a4d5fd7c",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [],
+            "failures": [
+              "9bf8d791-029c-424f-913d-2644a4d5fd7c"
+            ],
+            "pending": [],
+            "skipped": [],
+            "duration": 0,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 10000
+          }
+        ],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 10000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 10000
+  },
+  "copyrightYear": 2019
+}
