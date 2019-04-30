@@ -11,16 +11,16 @@ let callback = (error, response, body) => {
     if (error) throw new Error(error);
 
     testAccessToken = body;
-    console.log(testAccessToken);
+    //console.log(testAccessToken);
 };
 
 describe('participants', () => {
     before(async () => {
-        console.log(`test participants.index before starts`);
+        //console.log(`test participants.index before starts`);
         await requestTestAccessToken.getTestToken(callback);
         await seed();
         //console.log(`testaccesstoken: ${testAccessToken.token_type} ${testAccessToken.access_token}`);
-        console.log(`test participants.index before ends`);
+        //console.log(`test participants.index before ends`);
     });
 
     describe('GET participants', () => {

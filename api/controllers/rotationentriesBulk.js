@@ -6,7 +6,7 @@ var mongoose = require('mongoose'), rotationentries = require('../models/rotatio
 
 
 exports.create = asyncHandler(async (req, res, next) => {
-    console.log(`rotationentries.controller.create starts`);
+    //console.log(`rotationentries.controller.create starts`);
     try {
         await model.insertMany(req.body, (err, rotationEntries) => {
             if (err) {

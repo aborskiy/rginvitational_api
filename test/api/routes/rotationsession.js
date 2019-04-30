@@ -13,7 +13,7 @@ let callback = (error, response, body) => {
     if (error) throw new Error(error);
 
     testAccessToken = body;
-    console.log(testAccessToken);
+    //console.log(testAccessToken);
 };
 
 describe('rotationsession', () => {

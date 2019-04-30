@@ -11,7 +11,7 @@ exports.readAll = asyncHandler(async (req, res) => {
 
 exports.readById = asyncHandler(async (req, res) => {
     try {
-        console.log(`participants.controller.get by id`);
+        //console.log(`participants.controller.get by id`);
         const participant = await model.findOne({ id: req.params.id }, (err, participant) => {
             if (err) {
                 console.log(`participants.controller.get by id err: ${err} err.message: ${err.message}`);
@@ -34,7 +34,7 @@ exports.readById = asyncHandler(async (req, res) => {
 });
 
 exports.create = asyncHandler(async (req, res, next) => {
-    console.log(`participants.controller.create starts`);
+    //console.log(`participants.controller.create starts`);
     try {
         console.log(`participants.controller.create before model.create`);
         await model.create(req.body, (err, participant) => {
@@ -54,7 +54,7 @@ exports.create = asyncHandler(async (req, res, next) => {
 
 exports.update = asyncHandler(async (req, res) => {
     try {
-        console.log(`participants.controller.update by id: ${req.params.id} `);
+        //console.log(`participants.controller.update by id: ${req.params.id} `);
         const participant = await model.findOneAndUpdate({ id: req.params.id }, req.body, (err, participant) => {
             if (err) {
                 console.log(`participants.controller.update by id err: ${err} err.message: ${err.message}`);
@@ -78,7 +78,7 @@ exports.update = asyncHandler(async (req, res) => {
 
 exports.delete = asyncHandler(async (req, res) => {
     try {
-        console.log(`participants.controller.delete by id: ${req.params.id} `);
+        //console.log(`participants.controller.delete by id: ${req.params.id} `);
         let deleted;
         await model.findOneAndDelete({ id: req.params.id }, (err, participant) => {
             if (err) {
