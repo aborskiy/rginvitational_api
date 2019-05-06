@@ -98,7 +98,6 @@ exports.delete = asyncHandler(async (req, res) => {
     catch (error) {
         handleError(res, error.message);
     }
-
 });
 
 
