@@ -67,3 +67,7 @@ zip -r rginvitational_api.zip RGInvitational_API -x "*node_modules*" -x ".env*" 
 cd RGInvitational_API
 zip -r rginvitational_api.zip . -x "*node_modules*" -x ".env*" -x "*.git*" -x ".vscode*" -x "*\.DS_Store" -x "*/\.*" 
 zip -r rginvitational_api.zip . -x "*node_modules*" -x ".env*" -x "*.git*" -x ".vscode*" -x ".DS_Store" -x ".*" 
+
+Front-End CI
+---------------
+https://docs.cypress.io/guides/guides/continuous-integration.html#Setting-up-CI
