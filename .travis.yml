@@ -15,7 +15,7 @@ after_deploy:
 - rm rginvitational-api.zip
 
 deploy:
-  provider: elasticbeanstalk
+- provider: elasticbeanstalk
   access_key_id: 
     secure: $ACCESS_KEY_ID
   secret_access_key:
@@ -24,9 +24,7 @@ deploy:
   app: "RGInvitational_API"
   env: "RginvitationalApi-env"
   bucket_name: "rginvitationalapitravisdeployment"
-
-deploy:
-  provider: pages
+-  provider: pages
   local_dir: mochawesome-report
   skip_cleanup: true
   target_branch: gh-pages
