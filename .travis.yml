@@ -24,7 +24,7 @@ deploy:
   app: "RGInvitational_API"
   env: "RginvitationalApi-env"
   bucket_name: "rginvitationalapitravisdeployment"
--  provider: pages
+- provider: pages
   local_dir: mochawesome-report
   skip_cleanup: true
   target_branch: gh-pages
