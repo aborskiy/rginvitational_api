@@ -5,9 +5,9 @@
     "passes": 8,
     "pending": 0,
     "failures": 0,
-    "start": "2019-05-07T01:09:35.388Z",
-    "end": "2019-05-07T01:09:36.174Z",
-    "duration": 786,
+    "start": "2019-05-09T20:10:46.155Z",
+    "end": "2019-05-09T20:10:46.952Z",
+    "duration": 797,
     "testsRegistered": 8,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "2c5a9797-c9ad-4984-b516-95b1b074a0cc",
+    "uuid": "0015b972-6797-4de2-8277-cc3d8b60f5bc",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -28,7 +28,7 @@
     "tests": [],
     "suites": [
       {
-        "uuid": "ff3e3d8b-a9d2-4c38-b205-a81a71a27872",
+        "uuid": "1cfa598b-f47e-407f-9aab-280266cf679d",
         "title": "rotationsession",
         "fullFile": "/home/travis/build/aborskiy/rginvitational_api/test/api/routes/rotationsession.js",
         "file": "/test/api/routes/rotationsession.js",
@@ -44,7 +44,7 @@
             "code": "try {\n    console.log(`test rotationsession before starts`);\n    await requestTestAccessToken.getTestToken(callback);\n    console.log(`test rotationsession before ends`);\n}\ncatch (e) {\n    console.log(`test rotationsession before exception is caught: ${e} `);\n}",
             "err": {},
             "isRoot": false,
-            "uuid": "12a4d97b-2293-4f8b-8d50-708a25602778",
+            "uuid": "4817fc11-13cf-4871-88fd-77ce597cc109",
             "isHook": true,
             "skipped": false
           },
@@ -59,7 +59,7 @@
             "code": "rotationSession = {\n    \"onFloorParticipantId\": 3,\n    \"scoreParticipantId\": 1\n};\nrotationSessionMissingParms = {\n};",
             "err": {},
             "isRoot": false,
-            "uuid": "2501ca69-3685-4cb2-a937-f049ac2f9199",
+            "uuid": "f3800b36-aadd-4db7-93cb-769891ea0638",
             "isHook": true,
             "skipped": false
           }
@@ -68,7 +68,7 @@
         "tests": [],
         "suites": [
           {
-            "uuid": "c04697f9-0647-466b-9c4a-53710b4eaaf7",
+            "uuid": "eca35f23-19ab-41cc-98c1-ab0258d8f83e",
             "title": "POST rotationsession",
             "fullFile": "/home/travis/build/aborskiy/rginvitational_api/test/api/routes/rotationsession.js",
             "file": "/test/api/routes/rotationsession.js",
@@ -79,7 +79,7 @@
                 "title": "should fail with 401 UnauthorizedError when POSTing rotation entry",
                 "fullTitle": "rotationsession POST rotationsession should fail with 401 UnauthorizedError when POSTing rotation entry",
                 "timedOut": false,
-                "duration": 288,
+                "duration": 285,
                 "state": "passed",
                 "speed": "slow",
                 "pass": true,
@@ -88,7 +88,7 @@
                 "code": "request(app)\n    .post('/api/rotationsession')\n    .send(rotationSession)\n    .set('Accept', 'application/json')\n    .set('Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qWTFNVUkzTkVFMU16YzJNMFl6TURkRE1rUkNPREk1UkVKR00wSkNPVGN5TmpSR00wUkdPUSJ9.eyJpc3MiOiJodHRwczovL2Fib3Jza2l5LmF1dGgwLmNvbS8iLCJzdWIiOiJCWnI0V3pBTTZWbzBLSFY2YnlObDZZYlZqNVlXTTF5a0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9hYm9yc2tpeS5hdXRoMC5jb20vYXBpL3YyLyIsImlhdCI6MTU1NDk0OTM5OCwiZXhwIjoxNTU1MDM1Nzk4LCJhenAiOiJCWnI0V3pBTTZWbzBLSFY2YnlObDZZYlZqNVlXTTF5ayIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.fvhiPoafkCYU_aEaQH1D7PJFVzNc7A3bVCyhrx_qjWUEnhHwBYll8hKWiU1A5xLV_8xktGtBJ1BFxeOrKdXJssjbSCHodShOxRzqbORDGE_Eppds1yS4WSH4ecwZ0YMovnPT_j99iP0Zcw9VB9MrMmxZLHkqtbl2ObPXvwb53eJ9Tps_Il-fwSUfV-aGyO7qqRPE5k3Qk75Q9s9RelXU9xNtpdnnrK9q2mqTaXlpVlQPsg_wbaNqBpgh9RDE9smXIsQE5NH79EbZZg4YAlVOAnSzW5R1V1K-pxSXvKjUaq6asGCIqA1Q4HgYImfj-N_4J6dHffLNMgIpnXm3EYaXkg')\n    .end((err, res) => {\n        if (err) return done(err);\n        // HTTP status should be 401\n        console.log(`should POST one rotationSession before assertions, response header: ${res.header}`);\n        console.log(`should POST one rotationSession before assertions, response info: ${res.info}`);\n        console.log(`should POST one rotationSession before assertions, response body: ${JSON.stringify(res.body)}`);\n        res.should.have.property('status').equal(401);\n        res.body.should.equal('UnauthorizedError');\n        done();\n    });",
                 "err": {},
                 "isRoot": false,
-                "uuid": "79d27055-b099-47cb-8a5e-44d0c7be7b0e",
+                "uuid": "10e98f1d-53ad-4ebf-867c-f225bd561d52",
                 "isHook": false,
                 "skipped": false
               },
@@ -96,7 +96,7 @@
                 "title": "should fail validation before POSTing rotationsession - missing parameters",
                 "fullTitle": "rotationsession POST rotationsession should fail validation before POSTing rotationsession - missing parameters",
                 "timedOut": false,
-                "duration": 28,
+                "duration": 30,
                 "state": "passed",
                 "speed": "fast",
                 "pass": true,
@@ -105,7 +105,7 @@
                 "code": "console.log(`about to send post request to /api/rotationsession with rotationSessionMissingParms `);\nrequest(app)\n    .post('/api/rotationsession')\n    .send(rotationSessionMissingParms)\n    .set('Accept', 'application/json')\n    .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)\n    //.expect('Content-Type', /json/)\n    //.expect(201)\n    .end((err, res) => {\n        if (err) return done(err);\n        // HTTP status should be 201\n        console.log(`should POST one rotationSession before assertions, response header: ${res.header}`);\n        console.log(`should POST one rotationSession before assertions, response info: ${res.info}`);\n        console.log(`should POST one rotationSession before assertions, response body: ${JSON.stringify(res.body)}`);\n        res.should.have.property('status').equal(422);\n        res.body.length.should.be.above(0);\n        res.body[0].msg.should.equal('onFloorParticipantId does not exist');\n        res.body[1].msg.should.equal('scoreParticipantId does not exist');\n        done();\n    });",
                 "err": {},
                 "isRoot": false,
-                "uuid": "ba9792e9-a10d-4985-8a6d-2bdab6d00f9c",
+                "uuid": "76ddd531-e0a3-4257-95e8-e2e6fd76074b",
                 "isHook": false,
                 "skipped": false
               },
@@ -113,7 +113,7 @@
                 "title": "should POST one rotationSession",
                 "fullTitle": "rotationsession POST rotationsession should POST one rotationSession",
                 "timedOut": false,
-                "duration": 359,
+                "duration": 371,
                 "state": "passed",
                 "speed": "slow",
                 "pass": true,
@@ -122,27 +122,27 @@
                 "code": "request(app)\n    .post('/api/rotationsession')\n    .send(rotationSession)\n    .set('Accept', 'application/json')\n    .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)\n    //.expect('Content-Type', /json/)\n    //.expect(201)\n    .end((err, res) => {\n        if (err) return done(err);\n        // HTTP status should be 201\n        console.log(`should POST one rotationSession before assertions, response header: ${res.header}`);\n        console.log(`should POST one rotationSession before assertions, response info: ${res.info}`);\n        console.log(`should POST one rotationSession before assertions, response body: ${JSON.stringify(res.body)}`);\n        res.should.have.property('status').equal(201);\n        res.body.should.have.property('onFloorParticipantId');\n        res.body.should.have.property('scoreParticipantId');\n        res.body.onFloorParticipantId.should.equal(rotationSession.onFloorParticipantId);\n        res.body.scoreParticipantId.should.equal(rotationSession.scoreParticipantId);\n        sessionId = res.body._id;\n        console.log(`sessionId is assigned after POSt: ${sessionId}` );\n        done();\n    });",
                 "err": {},
                 "isRoot": false,
-                "uuid": "0fa8c75b-78fa-46e7-9783-f6a5467dcb32",
+                "uuid": "b0e5af88-8c2f-4902-a408-49b1589e18ef",
                 "isHook": false,
                 "skipped": false
               }
             ],
             "suites": [],
             "passes": [
-              "79d27055-b099-47cb-8a5e-44d0c7be7b0e",
-              "ba9792e9-a10d-4985-8a6d-2bdab6d00f9c",
-              "0fa8c75b-78fa-46e7-9783-f6a5467dcb32"
+              "10e98f1d-53ad-4ebf-867c-f225bd561d52",
+              "76ddd531-e0a3-4257-95e8-e2e6fd76074b",
+              "b0e5af88-8c2f-4902-a408-49b1589e18ef"
             ],
             "failures": [],
             "pending": [],
             "skipped": [],
-            "duration": 675,
+            "duration": 686,
             "root": false,
             "rootEmpty": false,
             "_timeout": 10000
           },
           {
-            "uuid": "52857db7-10ba-4fb9-aa48-5f2e70d5d4f8",
+            "uuid": "7f2460d0-4f4d-4fb1-99dc-e977a4f3e2ce",
             "title": "GET rotationsession",
             "fullFile": "/home/travis/build/aborskiy/rginvitational_api/test/api/routes/rotationsession.js",
             "file": "/test/api/routes/rotationsession.js",
@@ -153,7 +153,7 @@
                 "title": "should get rotationsession",
                 "fullTitle": "rotationsession GET rotationsession should get rotationsession",
                 "timedOut": false,
-                "duration": 11,
+                "duration": 21,
                 "state": "passed",
                 "speed": "fast",
                 "pass": true,
@@ -162,25 +162,25 @@
                 "code": "request(app)\n    .get('/api/rotationsession')\n    //.expect(200)\n    .end((err, res) => {\n        console.log(`GET rotationsession test is before assertions response body: ${JSON.stringify(res.body)}`);\n        if (err) return done(err);\n        // HTTP status should be 200\n        res.should.have.property('status').equal(200);\n        res.body.length.should.be.above(0);\n        //res.body.length.should.be.above(0);\n        console.log(`GET rotationsession test is completed response body: ${JSON.stringify(res.body)}`);\n        done();\n    });;",
                 "err": {},
                 "isRoot": false,
-                "uuid": "6845dba1-d95e-4937-bed7-57c7ddd6466f",
+                "uuid": "aa205390-cbeb-41c8-8bbe-7d0eb0db9be0",
                 "isHook": false,
                 "skipped": false
               }
             ],
             "suites": [],
             "passes": [
-              "6845dba1-d95e-4937-bed7-57c7ddd6466f"
+              "aa205390-cbeb-41c8-8bbe-7d0eb0db9be0"
             ],
             "failures": [],
             "pending": [],
             "skipped": [],
-            "duration": 11,
+            "duration": 21,
             "root": false,
             "rootEmpty": false,
             "_timeout": 10000
           },
           {
-            "uuid": "3e22b226-b5a0-4c91-b9d6-f30632070af6",
+            "uuid": "7cf8a934-5df0-4391-a0ac-2b1d4727c629",
             "title": "PUT rotationSession",
             "fullFile": "/home/travis/build/aborskiy/rginvitational_api/test/api/routes/rotationsession.js",
             "file": "/test/api/routes/rotationsession.js",
@@ -191,7 +191,7 @@
                 "title": "should PUT one rotationSession",
                 "fullTitle": "rotationsession PUT rotationSession should PUT one rotationSession",
                 "timedOut": false,
-                "duration": 23,
+                "duration": 19,
                 "state": "passed",
                 "speed": "fast",
                 "pass": true,
@@ -200,7 +200,7 @@
                 "code": "console.log(`checking if sessionId present: ${sessionId}`);\nrequest(app)\n    .put(`/api/rotationsession/${sessionId}`)\n    .send(rotationSession)\n    .set('Accept', 'application/json')\n    .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)\n    //.expect('Content-Type', /json/)\n    .end((err, res) => {\n        if (err) return done(err);\n        console.log(`should PUT one rotationSession before assertions, response header: ${res.header}`);\n        console.log(`should PUT one rotationSession before assertions, response info: ${res.info}`);\n        console.log(`should PUT one rotationSession before assertions, response body: ${JSON.stringify(res.body)}`);\n        res.should.have.property('status').equal(200);\n        res.body.should.have.property('onFloorParticipantId');\n        res.body.should.have.property('scoreParticipantId');\n        res.body.onFloorParticipantId.should.equal(rotationSession.onFloorParticipantId);\n        res.body.scoreParticipantId.should.equal(rotationSession.scoreParticipantId);\n        done();\n    });",
                 "err": {},
                 "isRoot": false,
-                "uuid": "2d622b73-ae43-45dd-abe1-6701e2991a58",
+                "uuid": "dadb9877-10d1-4956-a63a-7a32bce2b9d0",
                 "isHook": false,
                 "skipped": false
               },
@@ -217,7 +217,7 @@
                 "code": "request(app)\n    .put('/api/rotationsession')\n    .send(rotationSession)\n    .set('Accept', 'application/json')\n    .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)\n    .end((err, res) => {\n        if (err) return done(err);\n        console.log(`should PUT one rotationSession before assertions, response header: ${res.header}`);\n        console.log(`should PUT one rotationSession before assertions, response info: ${res.info}`);\n        console.log(`should PUT one rotationSession before assertions, response body: ${JSON.stringify(res.body)}`);\n        res.should.have.property('status').equal(404);\n        done();\n    });",
                 "err": {},
                 "isRoot": false,
-                "uuid": "d7802285-289f-47b4-ad66-aafa2255aaaa",
+                "uuid": "a1bd53f1-4900-46a5-9447-2ec76040a2ab",
                 "isHook": false,
                 "skipped": false
               },
@@ -225,7 +225,7 @@
                 "title": "should fail PUT request validation with not invalid id parameter",
                 "fullTitle": "rotationsession PUT rotationSession should fail PUT request validation with not invalid id parameter",
                 "timedOut": false,
-                "duration": 8,
+                "duration": 6,
                 "state": "passed",
                 "speed": "fast",
                 "pass": true,
@@ -234,27 +234,27 @@
                 "code": "request(app)\n    .put('/api/rotationsession/fake')\n    .send(rotationSession)\n    .set('Accept', 'application/json')\n    .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)\n    .end((err, res) => {\n        if (err) return done(err);\n        console.log(`should PUT one rotationSession before assertions, response header: ${res.header}`);\n        console.log(`should PUT one rotationSession before assertions, response info: ${res.info}`);\n        console.log(`should PUT one rotationSession before assertions, response body: ${JSON.stringify(res.body)}`);\n        res.should.have.property('status').equal(422);\n        res.body.should.be.instanceof(Array).and.have.lengthOf(1);\n        done();\n    });",
                 "err": {},
                 "isRoot": false,
-                "uuid": "49c55b27-69f7-4c87-820b-75a25eb7d4b5",
+                "uuid": "e7dbe053-a652-4b47-953b-b3c6f13c1374",
                 "isHook": false,
                 "skipped": false
               }
             ],
             "suites": [],
             "passes": [
-              "2d622b73-ae43-45dd-abe1-6701e2991a58",
-              "d7802285-289f-47b4-ad66-aafa2255aaaa",
-              "49c55b27-69f7-4c87-820b-75a25eb7d4b5"
+              "dadb9877-10d1-4956-a63a-7a32bce2b9d0",
+              "a1bd53f1-4900-46a5-9447-2ec76040a2ab",
+              "e7dbe053-a652-4b47-953b-b3c6f13c1374"
             ],
             "failures": [],
             "pending": [],
             "skipped": [],
-            "duration": 36,
+            "duration": 30,
             "root": false,
             "rootEmpty": false,
             "_timeout": 10000
           },
           {
-            "uuid": "f92ef887-aa1a-4b1b-85a6-02b9c20a5c37",
+            "uuid": "ef61e12e-eeea-41cf-a1e5-5da4cf7947c3",
             "title": "DELETE rotationSession",
             "fullFile": "/home/travis/build/aborskiy/rginvitational_api/test/api/routes/rotationsession.js",
             "file": "/test/api/routes/rotationsession.js",
@@ -265,7 +265,7 @@
                 "title": "should DELETE one rotationSession",
                 "fullTitle": "rotationsession DELETE rotationSession should DELETE one rotationSession",
                 "timedOut": false,
-                "duration": 11,
+                "duration": 9,
                 "state": "passed",
                 "speed": "fast",
                 "pass": true,
@@ -274,19 +274,19 @@
                 "code": "request(app)\n    .delete(`/api/rotationsession/${sessionId}`)\n    .set('Accept', 'application/json')\n    .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)\n    //.expect('Content-Type', /json/)\n    .end((err, res) => {\n        if (err) return done(err);\n        console.log(`should DELETE one rotationSession before assertions, response header: ${res.header}`);\n        console.log(`should DELETE one rotationSession before assertions, response info: ${res.info}`);\n        console.log(`should DELETE one rotationSession before assertions, response body: ${JSON.stringify(res.body)}`);\n        res.should.have.property('status').equal(200);\n        res.body.should.have.property('onFloorParticipantId');\n        res.body.should.have.property('scoreParticipantId');\n        res.body.onFloorParticipantId.should.equal(rotationSession.onFloorParticipantId);\n        res.body.scoreParticipantId.should.equal(rotationSession.scoreParticipantId);\n        done();\n    });",
                 "err": {},
                 "isRoot": false,
-                "uuid": "9822f82a-fbde-43bb-b5ee-42f1ef77d71b",
+                "uuid": "1510f6a3-6fe8-417a-9ef5-53392b925e9a",
                 "isHook": false,
                 "skipped": false
               }
             ],
             "suites": [],
             "passes": [
-              "9822f82a-fbde-43bb-b5ee-42f1ef77d71b"
+              "1510f6a3-6fe8-417a-9ef5-53392b925e9a"
             ],
             "failures": [],
             "pending": [],
             "skipped": [],
-            "duration": 11,
+            "duration": 9,
             "root": false,
             "rootEmpty": false,
             "_timeout": 10000
