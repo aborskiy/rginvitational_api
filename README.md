@@ -30,12 +30,12 @@ The application is a web API for resources needed to support administrative func
     The routing, data validations, db interactions and data representations are separated in the different layers in the code. 
     There are separate folders in the code for different layer: routes, controllers, validators, models.  
     The routers programs use express router and chain necessary middleware on REST url path.
-    The middleware used to perform the following functions:
-    1. Authentication - checks Access Token existance and verifies it against
+    The middleware is used to perform the following functions:
+    1. Authentication - checks Access Token existence and verifies it against
         the Auth0 JSON Web Key Set.  This middleware uses 3rd party npm packages
-        express-jwt, express-jwt-authz, jwks-rsa
+        express-jwt, express-jwt-authz, jwks-rsa.
 
-    2.  Check results of authentication. Custom build middleware to check results of Authentication and     to set HTTP response status to 401 in case of Unauthorized Error.
+    2.  Check results of authentication. Custom build middleware to check results of Authentication and to set HTTP response status to 401 in case of Unauthorized Error.
 
     3.  Check for custom header X-ACTION.  Custom build middleware to intercept http headers and check for presence of X-ACTION header with value "bulk".  This middleware directs processing to different controllers.
 
@@ -86,16 +86,16 @@ npm start
 
 ###### Data Model Sample Data
 
-![participants sample data](seed/participantsInfoData.json)
-![participants score data](seed/participantsScoreData.json)
-![rotation entries data](seed/rotationEntriesData.json)
+![participants sample data](seed/participantsInfoData.js)
+![participants score data](seed/participantsScoreData.js)
+![rotation entries data](seed/rotationEntriesData.js)
 
 # Web API Endpoint Reference
 Web API allows CRUD operations on 4 resources: participants, scores, rotationentries, rotationsession.
 
 ## Web API Install and Operation
 
-Please use ## Installation requirements sections for details on how to install and start the application.
+Please use #installation-requirements section for details on how to install and start the application.
 
 "npm start" command executes "nodemon -r esm index.js" script.  The nodemon runs the code and automatically restarts when code changes.  The "-r" flag is used to require "esm" module on start.
 The "esm" module is "A fast, production ready, zero-dependency ES module loader for Node 6+!". 
@@ -132,26 +132,27 @@ The "esm" module is "A fast, production ready, zero-dependency ES module loader 
 | **PUT** /api/scores/{id} |update score by id |
 | **DELETE** /api/scores/{id} |delete score by id |
 
-This information is also available through automatically generated swagger documentation http://rginvitationalapi.eu-west-1.elasticbeanstalk.com/api-docs
+This information is also available through automatically generated swagger documentation http://rginvitationalapi.eu-west-1.elasticbeanstalk.com/api-docs.
 Swagger documentation also provides the sample of request/response and allows to try out each request.
 
 ![Swagger Documentation](docs/images/rginvitational-api-swagger-view.png)
 
 ## API Configuration
-Describe the configuration approach for your endpoint. For example, contents of config file and where it should be located:
-The application uses the following environment variables which are configured for AWS Elaticbeanstalk container.  To run application locally, the same envrionment variable can be set in .env file.
 
-NODE_ENV=production
-PORT=8080
-HOST=localhost
-PRODHOST=rginvitationalapi.eu-west-1.elasticbeanstalk.com  - not needed to install locally
+The application uses the following environment variables which are configured for AWS Elaticbeanstalk container.\
+To run application locally, the same envrionment variable can be set in .env file.
 
-mongoDB=mongodb+srv://RGInvitational_API:??????????????????????????.mongodb.net/rginvitational?retryWrites=true
+NODE_ENV=production\
+PORT=8080\
+HOST=localhost\
+PRODHOST=rginvitationalapi.eu-west-1.elasticbeanstalk.com  - not needed to install locally\
+
+mongoDB=mongodb+srv://RGInvitational_API:??????????????????????????.mongodb.net/rginvitational?retryWrites=true\
 
 ##### authentication middleware
-EXPRESS_JWT_SECRET_CACHE=true
-EXPRESS_JWT_SECRET_RATELIMIT=true
-EXPRESS_JWT_SECRET_JWKSREQUESTSPERMINUTE=5
+EXPRESS_JWT_SECRET_CACHE=true\
+EXPRESS_JWT_SECRET_RATELIMIT=true\
+EXPRESS_JWT_SECRET_JWKSREQUESTSPERMINUTE=5\
         
 EXPRESS_JWT_SECRET_JWKSURI=https://**************.auth0.com/1234567/secret.json
 JWT_AUDIENCE=https://**********************.auth0.com/api/v2/
@@ -166,12 +167,11 @@ TEST_ACCESS_CLIENT_SECRET=**********************
 TEST_ACCESS_AUDIENCE=https://****************.auth0.com/api/v2/
 
 ## Security and Authentication
-. . . . Give details of any autentication/security implemented in on the API. Indicate which routes are protected.
 All application POST, PUT, DELETE REST services are protected and require calling application to be authenticated.  
 The authorization and authentication are done using external vendor Auth0. 
 Here is the sequence of interactions used to authenticate API call. 
-1.  Auth0 authenticates the user (user is authenticated when he signs in on front-end page).
-2.  Auth0 responds with Access Token.
+1.  Auth0 authenticates the user (user is authenticated when he/she signs in on front-end page).
+2.  If user is successfully identified, Auth0 responds with temporary Access Token for API application.  
 3.  Front-end application then calls this API application, passing Access Token in HTTP Authorization header.
 4.  The API application validates the Access Token using express-jwt npm package.
 
@@ -181,7 +181,6 @@ The application uses 3rd party npm packages to work with Auth0:
 3. jwks-rsa - to get public key and complete verification
 
 ## Testing
-. . . . Briefly explain any testing strategy that accompanies the project, including and example report if you have one...
 
 The tests are created for each model used in application.
 Within the test suite for each model, the following validations are done:
@@ -227,32 +226,27 @@ https://aborskiy.github.io/rginvitational_api/testRotationSessionRoute.html
 https://aborskiy.github.io/rginvitational_api/testScoresRoute.html
 https://aborskiy.github.io/rginvitational_api/unit-test.html
 
-
-![][image4]
+![mochawesome report sample](docs/images/mochawesome_report_sample.png)
 
 ## Extra features
 
-. . . . . Briefly explain any non-standard features, functional or non-functional, developed for the app. This would include user registeration and authentication, improved re-rendering policies, etc . . . . . .  
 -  Swagger Documentation - Produce REST API Swagger documentation automatically with express-swagger-generator.  
-    The documentation provides easy to read and understand view of services provided by the application.  It is available life at http://rginvitationalapi.eu-west-1.elasticbeanstalk.com/api-docs.  The Swagger page allows to view sample of requests and responses, try out calling the services with mock data, list of possible HTTP statuses.
+    The documentation provides easy to read and understand view of services provided by the application.  It is available life at http://rginvitationalapi.eu-west-1.elasticbeanstalk.com/api-docs.  The Swagger page allows to view sample of requests and responses, try out calling the services with mock data, list of possible HTTP statuses.  It also shows which services are protected.
 
--  Authentication and authorization using 3rd party provider - Auth0.  Using Auth0 allows more advanced mechanism for API       protection.  The mechanism for generating and checking JWT tokens is done outside of rginvitational-api application.
-    Additionally, with Auth0 authentication and authorization are managed for React SPA Rginvitational and REST API RGInvitational-api using the same auth0 account and console.
+-  Authentication and authorization is done by using 3rd party provider - Auth0.  Auth0 allows more advanced mechanism for API protection.  The mechanism for generating and checking JWT tokens is done outside of rginvitational-api application, which simplifies application code.  The API and ReactJS SPA authentication settings are configured through Auth0 console. 
+    
+-  Validation of incoming requests.  The validation is done with 3rd party npm package express-validator.  The validation is done to confirm that incoming request data type and structure match to what expected.  If any errors are found during validation phaze, application response with HTTP 422 and details of validation error.
 
--  Validation of incoming requests.  The validation is done with 3rd party npm package express-validator.  The package allows to validate incoming requests and report errors.
-
--  Mochawesome reports are published into github gh-pages branch and can be viewed in github pages.
+-  Mochawesome reports are published into github gh-pages branch and can be viewed in github pages.  This allows for easy review of testing reports after each build.
 
 -  Continuous Integraton using Travis.  
-    Every time when code changes are pushed to github repository, the Travis job is started, application rebuilt, tests executed, mochawesome reports published to github pages and application is deployed to AWS elasticbeanstalk.
+    Every time when code changes are pushed to github repository, the Travis job is started.  Travis job creates zip archive of the files needed to run application, executes tests, deploys mochawesome reports to gh-pages branchand deploys zip archive to AWS elasticbeanstalk.
 
--  Deployed to AWS Elastic Beanstalk.  Configured AWS Elastic Beanstalk container to host javascript application.
+-  Application is hosted on AWS Elastic Beanstalk.  AWS Elastic Beanstalk was configured with applicatoin environment variables.
 
 -  The backend database is MongoDB, which is setup on MongoDB Atlas - Global Cloud Database.
 
 ## Independent learning.
-
-. . . . . State the non-standard aspects of React (or other related technologies) that you researched and applied in this assignment . . . . .  
 
 [Express API authentication with Auth0](https://auth0.com/docs/quickstart/backend/nodejs) - how to protect backend API from unauthorized access using Auth0.
 

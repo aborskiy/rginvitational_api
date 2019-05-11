@@ -116,7 +116,6 @@ describe('rotationentries', () => {
                 //.expect(201)
                 .end((err, res) => {
                     if (err) return done(err);
-                    // HTTP status should be 201
                     console.log(`should POST one rotationentry before assertions, response header: ${res.header}`);
                     console.log(`should POST one rotationentry before assertions, response info: ${res.info}`);
                     console.log(`should POST one rotationentry before assertions, response body: ${JSON.stringify(res.body)}`);
