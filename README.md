@@ -86,9 +86,9 @@ npm start
 
 ###### Data Model Sample Data
 
-![participants sample data](seed/participantsInfoData.js)
-![participants score data](seed/participantsScoreData.js)
-![rotation entries data](seed/rotationEntriesData.js)
+[participants sample data](seed/participantsInfoData.js)
+[participants score data](seed/participantsScoreData.js)
+[rotation entries data](seed/rotationEntriesData.js)
 
 # Web API Endpoint Reference
 Web API allows CRUD operations on 4 resources: participants, scores, rotationentries, rotationsession.
@@ -135,6 +135,7 @@ The "esm" module is "A fast, production ready, zero-dependency ES module loader 
 This information is also available through automatically generated swagger documentation http://rginvitationalapi.eu-west-1.elasticbeanstalk.com/api-docs.
 Swagger documentation also provides the sample of request/response and allows to try out each request.
 
+##### Swagger Documentation view.
 ![Swagger Documentation](docs/images/rginvitational-api-swagger-view.png)
 
 ## API Configuration
@@ -145,14 +146,14 @@ To run application locally, the same envrionment variable can be set in .env fil
 NODE_ENV=production\
 PORT=8080\
 HOST=localhost\
-PRODHOST=rginvitationalapi.eu-west-1.elasticbeanstalk.com  - not needed to install locally\
+PRODHOST=rginvitationalapi.eu-west-1.elasticbeanstalk.com  - not needed to install locally
 
-mongoDB=mongodb+srv://RGInvitational_API:??????????????????????????.mongodb.net/rginvitational?retryWrites=true\
+mongoDB=mongodb+srv://RGInvitational_API:??????????????????????????.mongodb.net/rginvitational?retryWrites=true
 
 ##### authentication middleware
 EXPRESS_JWT_SECRET_CACHE=true\
 EXPRESS_JWT_SECRET_RATELIMIT=true\
-EXPRESS_JWT_SECRET_JWKSREQUESTSPERMINUTE=5\
+EXPRESS_JWT_SECRET_JWKSREQUESTSPERMINUTE=5
         
 EXPRESS_JWT_SECRET_JWKSURI=https://**************.auth0.com/1234567/secret.json
 JWT_AUDIENCE=https://**********************.auth0.com/api/v2/
@@ -226,6 +227,7 @@ https://aborskiy.github.io/rginvitational_api/testRotationSessionRoute.html
 https://aborskiy.github.io/rginvitational_api/testScoresRoute.html
 https://aborskiy.github.io/rginvitational_api/unit-test.html
 
+##### Mochawesome report sample
 ![mochawesome report sample](docs/images/mochawesome_report_sample.png)
 
 ## Extra features
