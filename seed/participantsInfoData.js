@@ -85,6 +85,7 @@ const participantInfo = [
 
 export default async function loadParticipants() {
     try {
+        console.info(`Seed participantsInfoData starts.`);
         await participantInfoModel.deleteMany();
         // insertMany & insertOne functions get around auto increment in mongoose-sequence, use create instead
         //await participantInfoModel.collection.insertMany(participantInfo);
