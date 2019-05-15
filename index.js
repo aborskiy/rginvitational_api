@@ -18,7 +18,6 @@ var corsOptions = {
     optionsSuccessStatus: 200 
   };
 
-
 dotenv.config();
 
 export const app = express();

@@ -6,6 +6,6 @@ import '../db';
 export default async () => {
     console.log(`seed function starts`);
     await loadParticipants();
-    //await loadParticipantsScores();
-    //await loadRotationEntries();
+    await loadParticipantsScores();
+    await loadRotationEntries();
 };
