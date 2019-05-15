@@ -5,9 +5,9 @@
     "passes": 9,
     "pending": 0,
     "failures": 0,
-    "start": "2019-05-15T19:32:20.904Z",
-    "end": "2019-05-15T19:32:20.962Z",
-    "duration": 58,
+    "start": "2019-05-15T20:08:15.526Z",
+    "end": "2019-05-15T20:08:15.594Z",
+    "duration": 68,
     "testsRegistered": 9,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "63d79d3c-a6b8-44dc-9af2-057bf645aaec",
+    "uuid": "d5bc0ed4-9358-4532-a6d4-49e49332b8d6",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -28,7 +28,7 @@
     "tests": [],
     "suites": [
       {
-        "uuid": "7498a2b7-1a1d-4a4a-89af-23951038ab8d",
+        "uuid": "aff8d9d8-db32-4350-a322-155254064c22",
         "title": "participantInfoModel Tests",
         "fullFile": "/home/travis/build/aborskiy/rginvitational_api/test/api/models/participantInfoModel.js",
         "file": "/test/api/models/participantInfoModel.js",
@@ -44,7 +44,7 @@
             "code": "participantInfo = {\n    \"name\": {\n        \"first\": \"Carol\",\n        \"last\": \"MacDonald\"\n    },\n    \"team\": \"USA\"\n};",
             "err": {},
             "isRoot": false,
-            "uuid": "af0e96ba-3e2b-404d-bf7a-e54166cfe592",
+            "uuid": "b18c9922-63a6-4e1b-97d9-d173dae94071",
             "isHook": true,
             "skipped": false
           }
@@ -64,7 +64,7 @@
             "code": "const model = new participantInfoModel(participantInfo);\nmodel.validate((err) => {\n    should.not.exist(err);\n    console.log(`test participantInfoModel model ${model}`);\n    model.should.have.property('name');\n    model.should.have.property('team');\n    model.should.have.property('updated');\n    should(model.name.first).be.a.String();\n    model.name.first.should.equal(participantInfo.name.first);\n    model.name.last.should.equal(participantInfo.name.last);\n    model.team.should.equal(participantInfo.team);\n    model.updated.should.be.an.instanceof(Date);\n    done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "53878d3b-7b47-403c-81f1-16e211de4940",
+            "uuid": "56bc0ea6-5f58-4095-a820-d874bcb4d0d2",
             "isHook": false,
             "skipped": false
           },
@@ -72,7 +72,7 @@
             "title": "should validate required properties",
             "fullTitle": "participantInfoModel Tests should validate required properties",
             "timedOut": false,
-            "duration": 3,
+            "duration": 6,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -81,26 +81,26 @@
             "code": "const badParticipantInfo = {\n            model: \"Not real\"\n        };\n        const model = new participantInfoModel(badParticipantInfo);\n        model.validate((err) => {\n            const errors = err.errors;\n            errors.should.have.property(\"name.first\");\n            errors.should.have.property(\"name.last\");\n            errors.should.have.property(\"team\");\n            done();\n        });",
             "err": {},
             "isRoot": false,
-            "uuid": "58366c66-bbb0-4a8b-9391-dc1520b86469",
+            "uuid": "ccd1bfbc-fd0f-429f-924f-9d7c2401bfed",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "53878d3b-7b47-403c-81f1-16e211de4940",
-          "58366c66-bbb0-4a8b-9391-dc1520b86469"
+          "56bc0ea6-5f58-4095-a820-d874bcb4d0d2",
+          "ccd1bfbc-fd0f-429f-924f-9d7c2401bfed"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 16,
+        "duration": 19,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "9cf00240-dd4f-453d-b12f-600c80abb622",
+        "uuid": "1b63898e-6232-47da-a2b1-5882fd6c7465",
         "title": "participantScoreModel Tests",
         "fullFile": "/home/travis/build/aborskiy/rginvitational_api/test/api/models/participantScoreModel.js",
         "file": "/test/api/models/participantScoreModel.js",
@@ -116,7 +116,7 @@
             "code": "participantScores = {\n    \"id\": 378,\n    \"name\": \"Carol MacDonald\",\n    \"team\": \"USA\",\n    \"scores\": [\n      {\n        \"id\": \"floor\",\n        \"diff\": 0,\n        \"exec\": 0,\n        \"deduct\": 0,\n        \"total\": 0\n      },\n      {\n        \"id\": \"rope\",\n        \"diff\": 0,\n        \"exec\": 0,\n        \"deduct\": 0,\n        \"total\": 0\n      },\n      {\n        \"id\": \"hoop\",\n        \"diff\": 0,\n        \"exec\": 0,\n        \"deduct\": 0,\n        \"total\": 0\n      },\n      {\n        \"id\": \"ribbon\",\n        \"diff\": 0,\n        \"exec\": 0,\n        \"deduct\": 0,\n        \"total\": 0\n      }\n    ],\n    \"total\": 0\n  };",
             "err": {},
             "isRoot": false,
-            "uuid": "9421ae6b-ec20-44b6-be2e-d0df5f7962da",
+            "uuid": "ffc90979-7f20-4422-86c7-e544baa9cb29",
             "isHook": true,
             "skipped": false
           }
@@ -127,7 +127,7 @@
             "title": "should validate a participantScore",
             "fullTitle": "participantScoreModel Tests should validate a participantScore",
             "timedOut": false,
-            "duration": 12,
+            "duration": 10,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -136,7 +136,7 @@
             "code": "const model = new participantScoreModel(participantScores);\nmodel.validate((err) => {\n    should.not.exist(err);\n    console.log(`test participantScoreModel model ${model}`);\n    model.should.have.property('id');\n    model.should.have.property('name');\n    model.should.have.property('team');\n    model.should.have.property('scores');\n    model.should.have.property('updated');\n    model.should.have.property('total');\n    should(model.name).be.a.String();\n    model.name.should.equal(participantScores.name);\n    model.team.should.equal(participantScores.team);\n    model.scores.should.be.an.instanceof(Array);\n    model.scores.length.should.equal(4);  \n    model.scores[0].should.have.property('id');\n    should(model.scores[0].id).be.a.String();\n    model.scores[0].id.should.equal(participantScores.scores[0].id);\n    model.updated.should.be.an.instanceof(Date);\n    done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "f31871cf-40cc-4b38-9a91-48a04ae610eb",
+            "uuid": "4bd768b6-2727-4353-a5e4-5028062d1941",
             "isHook": false,
             "skipped": false
           },
@@ -153,26 +153,26 @@
             "code": "const badParticipantScores = {\n            model: \"Not real\"\n        };\n        const model = new participantScoreModel(badParticipantScores);\n        model.validate((err) => {\n            const errors = err.errors;\n            errors.should.have.property(\"id\");\n            errors.should.have.property(\"name\");\n            errors.should.have.property(\"team\");\n            errors.should.have.property(\"total\");\n            done();\n        });",
             "err": {},
             "isRoot": false,
-            "uuid": "69a07af7-533e-49ee-bfff-7ce1717fa920",
+            "uuid": "a342fa49-0a83-4612-a864-47428b991680",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "f31871cf-40cc-4b38-9a91-48a04ae610eb",
-          "69a07af7-533e-49ee-bfff-7ce1717fa920"
+          "4bd768b6-2727-4353-a5e4-5028062d1941",
+          "a342fa49-0a83-4612-a864-47428b991680"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 14,
+        "duration": 12,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "2c508acd-d9c3-453c-a521-da901e17d98e",
+        "uuid": "14c12941-b476-421e-a912-15eb4f66e658",
         "title": "rotationEntryModel Tests",
         "fullFile": "/home/travis/build/aborskiy/rginvitational_api/test/api/models/rotationEntryModel.js",
         "file": "/test/api/models/rotationEntryModel.js",
@@ -188,7 +188,7 @@
             "code": "rotationEntry = {\n  \"rotaId\": 1,\n  \"participantId\": 908,\n  \"name\": \"Julia B\",\n  \"team\": \"RUS\",\n  \"apparatus\": {\n    \"id\": \"floor\",\n    \"imageurl\": \"images/floor-min-2.png\"\n  },\n  \"score\": {\n    \"id\": \"floor\",\n    \"diff\": 9.3,\n    \"exec\": 9,\n    \"deduct\": 0.1,\n    \"total\": 18.2\n  }\n};\nrotationEntryInvalidApparatusId = {\n    \"rotaId\": 2,\n    \"participantId\": 908,\n    \"name\": \"Julia B\",\n    \"team\": \"RUS\",\n    \"apparatus\": {\n      \"id\": \"dummy\",\n      \"imageurl\": \"images/floor-min-2.png\"\n    },\n    \"score\": {\n      \"id\": \"floor\",\n      \"diff\": 9.3,\n      \"exec\": 9,\n      \"deduct\": 0.1,\n      \"total\": 18.2\n    }\n  };",
             "err": {},
             "isRoot": false,
-            "uuid": "c2a858c6-be83-481d-9119-c9ba077ca213",
+            "uuid": "fef9d9e9-853b-4194-9642-f5207cbcbda6",
             "isHook": true,
             "skipped": false
           }
@@ -208,7 +208,7 @@
             "code": "const model = new rotationEntryModel(rotationEntry);\nconsole.log(`rotationEntryModel instance: ${model}`);\nmodel.validate((err) => {\n    should.not.exist(err);\n    console.log(`test rotationEntryModel model ${model}`);\n    model.should.have.property('rotaId');\n    model.should.have.property('participantId');\n    model.should.have.property('name');\n    model.should.have.property('team');\n    model.should.have.property('apparatus');\n    model.should.have.property('score');\n    model.should.have.property('updated');\n    should(model.rotaId).be.a.Number();\n    should(model.participantId).be.a.Number();\n    should(model.name).be.a.String();\n    model.rotaId.should.equal(rotationEntry.rotaId);\n    model.team.should.equal(rotationEntry.team);\n    model.score.should.have.property('id');\n    should(model.score.id).be.a.String();\n    model.score.id.should.equal(rotationEntry.score.id);\n    model.updated.should.be.an.instanceof(Date);\n    done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "f5827df2-bbe0-41db-a3e9-a7b28108dff4",
+            "uuid": "eaa793bc-a3ba-4203-82ab-89d78ee241f5",
             "isHook": false,
             "skipped": false
           },
@@ -225,7 +225,7 @@
             "code": "const badRotationEntry = {\n    model: \"Not real\"\n};\nconst model = new rotationEntryModel(badRotationEntry);\nmodel.validate((err) => {\n    const errors = err.errors;\n    errors.should.have.property(\"participantId\");\n    errors.should.have.property(\"name\");\n    errors.should.have.property(\"team\");\n    done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "75d33f7a-6038-4b5d-b4c6-9b48e3a906d0",
+            "uuid": "6b48d731-900a-4965-bebb-167a2a8a20bc",
             "isHook": false,
             "skipped": false
           },
@@ -233,7 +233,7 @@
             "title": "should fail when invalid apparatus id",
             "fullTitle": "rotationEntryModel Tests should fail when invalid apparatus id",
             "timedOut": false,
-            "duration": 3,
+            "duration": 16,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -242,27 +242,27 @@
             "code": "const model = new rotationEntryModel(rotationEntryInvalidApparatusId);\nmodel.validate((err) => {\n    const errors = err.errors;\n    console.log(`errors: ${errors.MongooseError}`);\n    errors.should.have.property(\"apparatus.id\");\n    errors[\"apparatus.id\"].should.have.property(\"name\");\n    errors[\"apparatus.id\"].name.should.equal('ValidatorError');\n    errors[\"apparatus.id\"].message.should.equal('`dummy` is not a valid enum value for path `id`.');\n    done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "9650f9c1-82c7-4191-a033-b78bc498883b",
+            "uuid": "8a45897b-73ae-4b7d-9b61-1f78ddbcaa60",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "f5827df2-bbe0-41db-a3e9-a7b28108dff4",
-          "75d33f7a-6038-4b5d-b4c6-9b48e3a906d0",
-          "9650f9c1-82c7-4191-a033-b78bc498883b"
+          "eaa793bc-a3ba-4203-82ab-89d78ee241f5",
+          "6b48d731-900a-4965-bebb-167a2a8a20bc",
+          "8a45897b-73ae-4b7d-9b61-1f78ddbcaa60"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 12,
+        "duration": 25,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
       },
       {
-        "uuid": "c77c2ec9-6573-4bff-acd9-90ab6b430dab",
+        "uuid": "9cc0946f-58c8-4db5-8e8c-7ddcd3d0a1c2",
         "title": "rotationSessionModel Tests",
         "fullFile": "/home/travis/build/aborskiy/rginvitational_api/test/api/models/rotationSessionModel.js",
         "file": "/test/api/models/rotationSessionModel.js",
@@ -278,7 +278,7 @@
             "code": "rotationSession = {\n  \"onFloorParticipantId\": 3,\n  \"scoreParticipantId\": 1\n};\nrotationSessionMissingParms = {\n};",
             "err": {},
             "isRoot": false,
-            "uuid": "7f47d24e-ce00-4de9-8b25-edccad72a731",
+            "uuid": "923f8c1a-250b-4675-98d1-813cb32fdf9e",
             "isHook": true,
             "skipped": false
           }
@@ -289,7 +289,7 @@
             "title": "should validate a rotationSession",
             "fullTitle": "rotationSessionModel Tests should validate a rotationSession",
             "timedOut": false,
-            "duration": 2,
+            "duration": 1,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -298,7 +298,7 @@
             "code": "const model = new rotationSessionModel(rotationSession);\nconsole.log(`rotationSessionModel instance: ${model}`);\nmodel.validate((err) => {\n    should.not.exist(err);\n    console.log(`test rotationSessionModel model ${model}`);\n    model.should.have.property('onFloorParticipantId');\n    model.should.have.property('scoreParticipantId');\n    should(model.onFloorParticipantId).be.a.Number();\n    should(model.scoreParticipantId).be.a.Number();\n    model.onFloorParticipantId.should.equal(rotationSession.onFloorParticipantId);\n    model.scoreParticipantId.should.equal(rotationSession.scoreParticipantId);\n    model.updated.should.be.an.instanceof(Date);\n    done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "60f7728d-2877-4ef9-a46b-dfbbe239cbe6",
+            "uuid": "f3263bdb-6062-482c-b74e-2470bacafb12",
             "isHook": false,
             "skipped": false
           },
@@ -315,20 +315,20 @@
             "code": "const model = new rotationSessionModel(rotationSessionMissingParms);\nmodel.validate((err) => {\n    const errors = err.errors;\n    errors.should.have.property(\"onFloorParticipantId\");\n    errors.should.have.property(\"scoreParticipantId\");\n    done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "1a72c7de-cd6d-4850-8512-af92f735a84f",
+            "uuid": "5aef0ee1-0753-4c8a-8f5c-cd70ba1e04bf",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "60f7728d-2877-4ef9-a46b-dfbbe239cbe6",
-          "1a72c7de-cd6d-4850-8512-af92f735a84f"
+          "f3263bdb-6062-482c-b74e-2470bacafb12",
+          "5aef0ee1-0753-4c8a-8f5c-cd70ba1e04bf"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 3,
+        "duration": 2,
         "root": false,
         "rootEmpty": false,
         "_timeout": 2000
