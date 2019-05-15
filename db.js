@@ -21,6 +21,8 @@ if (process.env.NODE_ENV === 'test') {
 
 console.log(`db - after connecting to db`);
 const db = mongoose.connection;
+console.log(`db connection: ${db}`);
+
 
 db.on('error', (err) => {
     console.log(`database connection error: ${err}`);

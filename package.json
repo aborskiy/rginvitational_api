@@ -14,7 +14,7 @@
     "testRotationSessionRoute": "cross-env NODE_ENV=test mocha './test/api/routes/rotationsession.js' --timeout 10000 --require esm --reporter mochawesome --reporter-options reportFilename=testRotationSessionRoute --exit",
     "unit-test": "cross-env NODE_ENV=test mocha './test/api/models/*.js' --require esm --reporter mochawesome --reporter-options reportFilename=unit-test --exit",
     "cleanup" : "cross-env NODE_ENV=clean mocha './seed/cleanup/runner.js' --timeout 30000 --require esm --exit",
-    "seed" : "cross-env NODE_ENV=seed mocha './seed/index.js' --timeout 10000 --require esm --exit",
+    "seed" : "cross-env NODE_ENV=seed mocha './seed/runner.js' --timeout 30000 --require esm --exit",
     "pretest": "eslint ./api/**/*.js ./test/api/**/*.js"
   },
   "author": "aborskiy",

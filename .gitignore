@@ -72,3 +72,4 @@ mochawesome-report
 README_BKUP*.md
 
 cleanup
+seed/runner.js
