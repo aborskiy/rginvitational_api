@@ -5,9 +5,9 @@
     "passes": 9,
     "pending": 0,
     "failures": 0,
-    "start": "2019-05-18T14:00:41.473Z",
-    "end": "2019-05-18T14:00:42.718Z",
-    "duration": 1245,
+    "start": "2019-05-18T14:13:07.053Z",
+    "end": "2019-05-18T14:13:08.330Z",
+    "duration": 1277,
     "testsRegistered": 9,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "06904076-e689-453c-b9e4-65543d056368",
+    "uuid": "c4fadd42-a864-4f5c-8435-33005276fd6c",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -28,7 +28,7 @@
     "tests": [],
     "suites": [
       {
-        "uuid": "5a1b9b76-696e-4178-8f41-f788458a3ba3",
+        "uuid": "d62ee6e8-31e4-4c75-971d-9b63151cff82",
         "title": "scores",
         "fullFile": "/home/travis/build/aborskiy/rginvitational_api/test/api/routes/scores.js",
         "file": "/test/api/routes/scores.js",
@@ -37,14 +37,14 @@
             "title": "\"before all\" hook",
             "fullTitle": "scores \"before all\" hook",
             "timedOut": false,
-            "duration": 838,
+            "duration": 830,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "try {\n    console.log(`test scores before starts`);\n    await requestTestAccessToken.getTestToken(callback);\n    await seed();\n    //console.log(`testaccesstoken: ${testAccessToken.token_type} ${testAccessToken.access_token}`);\n    console.log(`test scores before ends`);\n}\ncatch (e) {\n    console.log(`test scores before exception is caught: ${e} `);\n}",
             "err": {},
             "isRoot": false,
-            "uuid": "bbdd3fc2-9a3a-4c20-9771-20df93acbf80",
+            "uuid": "fdd58579-e77d-486b-8fa9-daa8fe52e467",
             "isHook": true,
             "skipped": false
           }
@@ -53,7 +53,7 @@
         "tests": [],
         "suites": [
           {
-            "uuid": "c172852e-1b88-4a37-b295-b00270dc9bd3",
+            "uuid": "12d31ad6-c186-4cdf-bd05-9a91203d6d72",
             "title": "GET scores",
             "fullFile": "/home/travis/build/aborskiy/rginvitational_api/test/api/routes/scores.js",
             "file": "/test/api/routes/scores.js",
@@ -64,34 +64,34 @@
                 "title": "should get all scores",
                 "fullTitle": "scores GET scores should get all scores",
                 "timedOut": false,
-                "duration": 38,
+                "duration": 37,
                 "state": "passed",
-                "speed": "medium",
+                "speed": "fast",
                 "pass": true,
                 "fail": false,
                 "pending": false,
                 "code": "request(app)\n    .get('/api/scores')\n    //.expect(200)\n    .then(res => {\n        console.log(`GET scores test is before assertions response body: ${JSON.stringify(res.body)}`);\n        // HTTP status should be 200\n        res.should.have.property('status').equal(200);\n        res.body.length.should.be.above(0);\n        //res.body.length.should.be.above(0);\n        console.log(`GET scores test is completed response body: ${JSON.stringify(res.body)}`);\n        done();\n    });;",
                 "err": {},
                 "isRoot": false,
-                "uuid": "15d67850-6bc1-47d0-9a36-55f13ea46c63",
+                "uuid": "2523b9c3-5ba0-446e-9a31-04062563a46f",
                 "isHook": false,
                 "skipped": false
               }
             ],
             "suites": [],
             "passes": [
-              "15d67850-6bc1-47d0-9a36-55f13ea46c63"
+              "2523b9c3-5ba0-446e-9a31-04062563a46f"
             ],
             "failures": [],
             "pending": [],
             "skipped": [],
-            "duration": 38,
+            "duration": 37,
             "root": false,
             "rootEmpty": false,
             "_timeout": 10000
           },
           {
-            "uuid": "a6a6b22d-e41f-4d64-a698-cce5b0aa4478",
+            "uuid": "6e9fcfc2-2440-49b9-8512-f609ee3132be",
             "title": "POST scores",
             "fullFile": "/home/travis/build/aborskiy/rginvitational_api/test/api/routes/scores.js",
             "file": "/test/api/routes/scores.js",
@@ -102,7 +102,7 @@
                 "title": "should fail with 401 UnauthorizedError when POSTing participant",
                 "fullTitle": "scores POST scores should fail with 401 UnauthorizedError when POSTing participant",
                 "timedOut": false,
-                "duration": 229,
+                "duration": 241,
                 "state": "passed",
                 "speed": "slow",
                 "pass": true,
@@ -111,7 +111,7 @@
                 "code": "request(app)\n    .post('/api/scores')\n    .send(score1)\n    .set('Accept', 'application/json')\n    .set('Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qWTFNVUkzTkVFMU16YzJNMFl6TURkRE1rUkNPREk1UkVKR00wSkNPVGN5TmpSR00wUkdPUSJ9.eyJpc3MiOiJodHRwczovL2Fib3Jza2l5LmF1dGgwLmNvbS8iLCJzdWIiOiJCWnI0V3pBTTZWbzBLSFY2YnlObDZZYlZqNVlXTTF5a0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9hYm9yc2tpeS5hdXRoMC5jb20vYXBpL3YyLyIsImlhdCI6MTU1NDk0OTM5OCwiZXhwIjoxNTU1MDM1Nzk4LCJhenAiOiJCWnI0V3pBTTZWbzBLSFY2YnlObDZZYlZqNVlXTTF5ayIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.fvhiPoafkCYU_aEaQH1D7PJFVzNc7A3bVCyhrx_qjWUEnhHwBYll8hKWiU1A5xLV_8xktGtBJ1BFxeOrKdXJssjbSCHodShOxRzqbORDGE_Eppds1yS4WSH4ecwZ0YMovnPT_j99iP0Zcw9VB9MrMmxZLHkqtbl2ObPXvwb53eJ9Tps_Il-fwSUfV-aGyO7qqRPE5k3Qk75Q9s9RelXU9xNtpdnnrK9q2mqTaXlpVlQPsg_wbaNqBpgh9RDE9smXIsQE5NH79EbZZg4YAlVOAnSzW5R1V1K-pxSXvKjUaq6asGCIqA1Q4HgYImfj-N_4J6dHffLNMgIpnXm3EYaXkg')\n    //.expect('Content-Type', /json/)\n    //.expect(201)\n    .end((err, res) => {\n        if (err) return done(err);\n        // HTTP status should be 401\n        console.log(`should POST one score before assertions, response header: ${res.header}`);\n        console.log(`should POST one score before assertions, response info: ${res.info}`);\n        console.log(`should POST one score before assertions, response body: ${JSON.stringify(res.body)}`);\n        res.should.have.property('status').equal(401);\n        res.body.should.equal('UnauthorizedError');\n        done();\n    });",
                 "err": {},
                 "isRoot": false,
-                "uuid": "fad56016-6d6c-4942-8c67-302f34fa2ce7",
+                "uuid": "fd95be53-2eb0-4927-b1d5-023a858c1cf0",
                 "isHook": false,
                 "skipped": false
               },
@@ -119,7 +119,7 @@
                 "title": "should fail validation before POSTing score with '4 scores must be present' error",
                 "fullTitle": "scores POST scores should fail validation before POSTing score with '4 scores must be present' error",
                 "timedOut": false,
-                "duration": 16,
+                "duration": 12,
                 "state": "passed",
                 "speed": "fast",
                 "pass": true,
@@ -128,7 +128,7 @@
                 "code": "request(app)\n    .post('/api/scores')\n    .send(invalidScoreNoScores)\n    .set('Accept', 'application/json')\n    .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)\n    //.expect('Content-Type', /json/)\n    //.expect(201)\n    .end((err, res) => {\n        if (err) return done(err);\n        // HTTP status should be 201\n        console.log(`should POST one score before assertions, response header: ${res.header}`);\n        console.log(`should POST one score before assertions, response info: ${res.info}`);\n        console.log(`should POST one score before assertions, response body: ${JSON.stringify(res.body)}`);\n        res.should.have.property('status').equal(422);\n        res.body[0].msg.should.equal('name does not exist');\n        res.body[3].msg.should.equal('4 scores must be present');\n        done();\n    });",
                 "err": {},
                 "isRoot": false,
-                "uuid": "31d3f4dd-4bbe-46e6-9d18-79d6ad900941",
+                "uuid": "0fa8e320-4e40-44ba-9f3a-b876a6208224",
                 "isHook": false,
                 "skipped": false
               },
@@ -136,7 +136,7 @@
                 "title": "should POST one score",
                 "fullTitle": "scores POST scores should POST one score",
                 "timedOut": false,
-                "duration": 16,
+                "duration": 21,
                 "state": "passed",
                 "speed": "fast",
                 "pass": true,
@@ -145,27 +145,27 @@
                 "code": "request(app)\n    .post('/api/scores')\n    .send(score1)\n    .set('Accept', 'application/json')\n    .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)\n    //.expect('Content-Type', /json/)\n    //.expect(201)\n    .end((err, res) => {\n        if (err) return done(err);\n        // HTTP status should be 201\n        console.log(`should POST one score before assertions, response header: ${res.header}`);\n        console.log(`should POST one score before assertions, response info: ${res.info}`);\n        console.log(`should POST one score before assertions, response body: ${JSON.stringify(res.body)}`);\n        res.should.have.property('status').equal(201);\n        res.body.should.have.property('id');\n        res.body.scores.should.be.instanceof(Array).and.have.lengthOf(4);\n        res.body.name.should.equal('Carol MacDonald');\n        done();\n    });",
                 "err": {},
                 "isRoot": false,
-                "uuid": "6a679865-2484-4a43-9268-68ccee203d27",
+                "uuid": "12964edd-dadd-45c2-85b5-48f14fa0b855",
                 "isHook": false,
                 "skipped": false
               }
             ],
             "suites": [],
             "passes": [
-              "fad56016-6d6c-4942-8c67-302f34fa2ce7",
-              "31d3f4dd-4bbe-46e6-9d18-79d6ad900941",
-              "6a679865-2484-4a43-9268-68ccee203d27"
+              "fd95be53-2eb0-4927-b1d5-023a858c1cf0",
+              "0fa8e320-4e40-44ba-9f3a-b876a6208224",
+              "12964edd-dadd-45c2-85b5-48f14fa0b855"
             ],
             "failures": [],
             "pending": [],
             "skipped": [],
-            "duration": 261,
+            "duration": 274,
             "root": false,
             "rootEmpty": false,
             "_timeout": 10000
           },
           {
-            "uuid": "67b2ab27-4650-43ff-b8cf-ff317124ae7c",
+            "uuid": "f96fcafe-09ef-4b54-ae95-87aee7fd88e4",
             "title": "PUT score",
             "fullFile": "/home/travis/build/aborskiy/rginvitational_api/test/api/routes/scores.js",
             "file": "/test/api/routes/scores.js",
@@ -176,7 +176,7 @@
                 "title": "should PUT one score",
                 "fullTitle": "scores PUT score should PUT one score",
                 "timedOut": false,
-                "duration": 42,
+                "duration": 49,
                 "state": "passed",
                 "speed": "medium",
                 "pass": true,
@@ -185,7 +185,7 @@
                 "code": "request(app)\n    .put('/api/scores/901')\n    .send(score1)\n    .set('Accept', 'application/json')\n    .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)\n    //.expect('Content-Type', /json/)\n    .end((err, res) => {\n        if (err) return done(err);\n        console.log(`should PUT one score before assertions, response header: ${res.header}`);\n        console.log(`should PUT one score before assertions, response info: ${res.info}`);\n        console.log(`should PUT one score before assertions, response body: ${JSON.stringify(res.body)}`);\n        res.should.have.property('status').equal(200);\n        res.body.should.have.property('id');\n        res.body.scores.should.be.instanceof(Array).and.have.lengthOf(4);\n        res.body.name.should.equal('Carol MacDonald');\n        done();\n    });",
                 "err": {},
                 "isRoot": false,
-                "uuid": "77246ba9-d950-4fd1-a192-b43a0420a1b6",
+                "uuid": "406dd0b3-ab83-45e4-919e-337f17977663",
                 "isHook": false,
                 "skipped": false
               },
@@ -193,7 +193,7 @@
                 "title": "should fail finding PUT request without param id with 404",
                 "fullTitle": "scores PUT score should fail finding PUT request without param id with 404",
                 "timedOut": false,
-                "duration": 7,
+                "duration": 8,
                 "state": "passed",
                 "speed": "fast",
                 "pass": true,
@@ -202,7 +202,7 @@
                 "code": "request(app)\n    .put('/api/scores')\n    .send(score1)\n    .set('Accept', 'application/json')\n    .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)\n    .end((err, res) => {\n        if (err) return done(err);\n        console.log(`should POST one score before assertions, response header: ${res.header}`);\n        console.log(`should POST one score before assertions, response info: ${res.info}`);\n        console.log(`should POST one score before assertions, response body: ${JSON.stringify(res.body)}`);\n        res.should.have.property('status').equal(404);\n        done();\n    });",
                 "err": {},
                 "isRoot": false,
-                "uuid": "daffdcdf-d093-4f46-941d-61cabc030f7d",
+                "uuid": "5d8595ec-97de-4549-aaa4-69146e2e8ac5",
                 "isHook": false,
                 "skipped": false
               },
@@ -210,7 +210,7 @@
                 "title": "should fail PUT request validation with not numeric id parameter",
                 "fullTitle": "scores PUT score should fail PUT request validation with not numeric id parameter",
                 "timedOut": false,
-                "duration": 9,
+                "duration": 6,
                 "state": "passed",
                 "speed": "fast",
                 "pass": true,
@@ -219,27 +219,27 @@
                 "code": "request(app)\n    .put('/api/scores/fake')\n    .send(score1)\n    .set('Accept', 'application/json')\n    .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)\n    .end((err, res) => {\n        if (err) return done(err);\n        console.log(`should POST one score before assertions, response header: ${res.header}`);\n        console.log(`should POST one score before assertions, response info: ${res.info}`);\n        console.log(`should POST one score before assertions, response body: ${JSON.stringify(res.body)}`);\n        res.should.have.property('status').equal(422);\n        res.body.should.be.instanceof(Array).and.have.lengthOf(1);\n        done();\n    });",
                 "err": {},
                 "isRoot": false,
-                "uuid": "fdb02bfe-baa2-4d33-ac8f-4b18c3205e48",
+                "uuid": "b5ad0a83-0602-41b7-bc8b-e0989b82de64",
                 "isHook": false,
                 "skipped": false
               }
             ],
             "suites": [],
             "passes": [
-              "77246ba9-d950-4fd1-a192-b43a0420a1b6",
-              "daffdcdf-d093-4f46-941d-61cabc030f7d",
-              "fdb02bfe-baa2-4d33-ac8f-4b18c3205e48"
+              "406dd0b3-ab83-45e4-919e-337f17977663",
+              "5d8595ec-97de-4549-aaa4-69146e2e8ac5",
+              "b5ad0a83-0602-41b7-bc8b-e0989b82de64"
             ],
             "failures": [],
             "pending": [],
             "skipped": [],
-            "duration": 58,
+            "duration": 63,
             "root": false,
             "rootEmpty": false,
             "_timeout": 10000
           },
           {
-            "uuid": "2ed3e8c5-feaa-4254-9bef-bfa17e109126",
+            "uuid": "61f27a03-d8a4-4d1a-9cc1-848a9f8b12ab",
             "title": "DELETE score",
             "fullFile": "/home/travis/build/aborskiy/rginvitational_api/test/api/routes/scores.js",
             "file": "/test/api/routes/scores.js",
@@ -250,7 +250,7 @@
                 "title": "should DELETE one score",
                 "fullTitle": "scores DELETE score should DELETE one score",
                 "timedOut": false,
-                "duration": 19,
+                "duration": 36,
                 "state": "passed",
                 "speed": "fast",
                 "pass": true,
@@ -259,25 +259,25 @@
                 "code": "request(app)\n    .delete('/api/scores/901')\n    .set('Accept', 'application/json')\n    .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)\n    //.expect('Content-Type', /json/)\n    .end((err, res) => {\n        if (err) return done(err);\n        console.log(`should DELETE one score before assertions, response header: ${res.header}`);\n        console.log(`should DELETE one score before assertions, response info: ${res.info}`);\n        console.log(`should DELETE one score before assertions, response body: ${JSON.stringify(res.body)}`);\n        res.should.have.property('status').equal(200);\n        res.body.should.have.property('id');\n        res.body.scores.should.be.instanceof(Array).and.have.lengthOf(4);\n        res.body.name.should.equal('Carol MacDonald');\n        done();\n    });",
                 "err": {},
                 "isRoot": false,
-                "uuid": "20aa4055-8454-49e3-9bfe-fcb59c8391fe",
+                "uuid": "5fe99789-9cd7-422e-a597-34981bcc34e0",
                 "isHook": false,
                 "skipped": false
               }
             ],
             "suites": [],
             "passes": [
-              "20aa4055-8454-49e3-9bfe-fcb59c8391fe"
+              "5fe99789-9cd7-422e-a597-34981bcc34e0"
             ],
             "failures": [],
             "pending": [],
             "skipped": [],
-            "duration": 19,
+            "duration": 36,
             "root": false,
             "rootEmpty": false,
             "_timeout": 10000
           },
           {
-            "uuid": "13b51ae5-a35e-4135-9569-5fe6496d1cc0",
+            "uuid": "c50b9b5d-fe7e-45e9-b434-547fb1920f47",
             "title": "DELETE scores BULK",
             "fullFile": "/home/travis/build/aborskiy/rginvitational_api/test/api/routes/scores.js",
             "file": "/test/api/routes/scores.js",
@@ -288,7 +288,7 @@
                 "title": "should DELETE BULK scores",
                 "fullTitle": "scores DELETE scores BULK should DELETE BULK scores",
                 "timedOut": false,
-                "duration": 7,
+                "duration": 15,
                 "state": "passed",
                 "speed": "fast",
                 "pass": true,
@@ -297,19 +297,19 @@
                 "code": "request(app)\n    .delete('/api/scores')\n    .set('Accept', 'application/json')\n    .set('X-Action', 'bulk')\n    .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)\n    .end((err, res) => {\n        if (err) return done(err);\n        // HTTP status should be 200\n        console.log(`in end after should DELETE BULK scores`);\n        //console.log(`should POST one rotationentry before assertions, response header: ${res.header}`);\n        //console.log(`should POST one rotationentry before assertions, response info: ${res.info}`);\n        //console.log(`should POST one rotationentry before assertions, response body: ${JSON.stringify(res.body)}`);\n        res.should.have.property('status').equal(200);\n        done();\n    });",
                 "err": {},
                 "isRoot": false,
-                "uuid": "fd261d9d-e314-459e-ba2b-7d506f515e94",
+                "uuid": "65a1ae5c-d19b-4612-a98a-cf836cb1fbec",
                 "isHook": false,
                 "skipped": false
               }
             ],
             "suites": [],
             "passes": [
-              "fd261d9d-e314-459e-ba2b-7d506f515e94"
+              "65a1ae5c-d19b-4612-a98a-cf836cb1fbec"
             ],
             "failures": [],
             "pending": [],
             "skipped": [],
-            "duration": 7,
+            "duration": 15,
             "root": false,
             "rootEmpty": false,
             "_timeout": 10000
