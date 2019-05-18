@@ -60,10 +60,10 @@ exports.delete = asyncHandler(async (req, res) => {
                 console.log(`rotationsession.controller.delete by id err: ${err} err.message: ${err.message}`);
                 handleError(err, err.message);
             }
-            if (!rotationSession) {
-                console.log(`rotationsession.controller.delete by id participant not found - returning 404`);
-                return res.sendStatus(404);
-            }
+            //if (!rotationSession) {
+            //    console.log(`rotationsession.controller.delete by id participant not found - returning 404`);
+            //    return res.sendStatus(404);
+            //}
             deleted = rotationSession;
         }
         );
