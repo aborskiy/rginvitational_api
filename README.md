@@ -9,13 +9,13 @@ The application is a web API for resources needed to support administrative func
  
  + Application provides REST services to maintain participant information, scores and rotation:
    * /api/participants
-   * /api/score 
+   * /api/scores 
    * /api/rotationentries
    * /api/rotationsession
  
  + Bulk operations
  
-    In addition to standard REST GET, POST, PUT, DELETE types, "rotationentries" service can handle bulk operations,       allowing to insert and delete multiple entries in one request using custom header "x-action" with value "bulk".
+    In addition to standard REST GET, POST, PUT, DELETE types, "rotationentries" service also have bulk POST and DELETE operations, allowing to insert and delete multiple entries in one request using custom header "x-action" with value "bulk".
 
  + API Protection
 
@@ -86,8 +86,8 @@ npm start
 
 ###### Data Model Sample Data
 
-[participants sample data](seed/participantsInfoData.js)
-[participants score data](seed/participantsScoreData.js)
+[participants sample data](seed/participantsInfoData.js)\
+[participants score data](seed/participantsScoreData.js)\
 [rotation entries data](seed/rotationEntriesData.js)
 
 # Web API Endpoint Reference
@@ -95,7 +95,7 @@ Web API allows CRUD operations on 4 resources: participants, scores, rotationent
 
 ## Web API Install and Operation
 
-Please use #installation-requirements section for details on how to install and start the application.
+Please use [installation-requirements](https://github.com/aborskiy/rginvitational_api#installation-requirements) section for details on how to install and start the application.
 
 "npm start" command executes "nodemon -r esm index.js" script.  The nodemon runs the code and automatically restarts when code changes.  The "-r" flag is used to require "esm" module on start.
 The "esm" module is "A fast, production ready, zero-dependency ES module loader for Node 6+!". 
@@ -115,8 +115,8 @@ The "esm" module is "A fast, production ready, zero-dependency ES module loader 
 | **GET** /api/rotationentries |get all rotationentries |
 | **PUT** /api/rotationentries/{id} |update rotation entry by id |
 | **DELETE** /api/rotationentries{id} |delete rotation entry by id |
-| **POST** /api/rotationentries | post all rotationentries - needs to have X-ACTION=bulk header |
-| **DELETE** /api/rotationentries | delete all rotationentries - needs to have X-ACTION=bulk header |
+| **POST** /api/rotationentries | post all rotationentries|
+| **DELETE** /api/rotationentries | delete all rotationentries|
 
 | Rotationsession Services |  Description |
 | -- | -- |
@@ -224,7 +224,7 @@ The reports can be viewed at:
 https://aborskiy.github.io/rginvitational_api/testParticipantRoute.html
 https://aborskiy.github.io/rginvitational_api/testRotationEntriesRoute.html
 https://aborskiy.github.io/rginvitational_api/testRotationSessionRoute.html
-https://aborskiy.github.io/rginvitational_api/testScoresRoute.html
+https://aborskiy.github.io/rginvitational_api/testScoresRoute.html\
 https://aborskiy.github.io/rginvitational_api/unit-test.html
 
 ##### Mochawesome report sample

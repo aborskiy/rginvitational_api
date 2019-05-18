@@ -135,7 +135,7 @@ describe('scores', () => {
         });
     });
 
-    describe('PUT participant', () => {
+    describe('PUT score', () => {
         let score1 = {
             "id": 901,
             "name": "Carol MacDonald",
