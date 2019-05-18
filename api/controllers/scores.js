@@ -61,7 +61,7 @@ exports.delete = asyncHandler(async (req, res) => {
                 handleError(err, err.message);
             }
             if (!score) {
-                console.log(`scores.controller.delete by id participant not found - returning 404`);
+                console.log(`scores.controller.delete by id ${req.params.id} participant not found - returning 404`);
                 return res.sendStatus(404);
             }
             deleted = score;

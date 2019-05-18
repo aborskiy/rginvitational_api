@@ -24,10 +24,10 @@ router.get('/',
  * Post rotation session.
  * @group rotationsession
  * @route POST /api/rotationsession
- * @param {rotationSession.model} rotationSession.body.required - the new rotation session
+ * @param {RotationSession.model} rotationSession.body.required - the new rotation session
  * @produces application/json
  * @consumes application/json
- * @returns {RotationSession} 201 - rotationSession
+ * @returns {RotationSession.model} 201 - rotationSession
  * @security JWT
  */
 router.post('/', 

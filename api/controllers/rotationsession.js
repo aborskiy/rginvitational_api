@@ -10,7 +10,7 @@ exports.readAll = asyncHandler(async (req, res) => {
 });
 
 exports.create = asyncHandler(async (req, res, next) => {
-    console.log(`rotationsession.controller.create starts`);
+    console.log(`rotationsession.controller.create starts ${JSON.stringify(req.body)}`);
     try {
         await model.create(req.body, (err, rotationSession) => {
             if (err) {

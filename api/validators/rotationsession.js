@@ -6,6 +6,7 @@ exports.validate = (method) => {
     //console.log(`rotationsession.validator validate method`);
     switch (method) {
         case 'create': {
+            console.log(`rotationsession.validator validate method create`);
             return [
                 body('onFloorParticipantId', 'onFloorParticipantId does not exist').exists(),
                 body('scoreParticipantId', 'scoreParticipantId does not exist').exists(),

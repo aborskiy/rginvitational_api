@@ -6,8 +6,22 @@ import checkAuthorized from '../../auth/checkAuthorized';
 //const controller = require('../controllers/scores');
 import controller from '../controllers/scores';
 const validator = require('../validators/scores');
-//const commonValidator = require('../validators/common');
+
 import commonValidator from '../validators/common';
+import  bulkController from '../controllers/scoresBulk.js';
+const bulkValidator = require('../validators/scoresBulk');
+
+
+function X_ACTION_NOT_BULK (req, res, next) { 
+    console.log(`X_ACTION_NOT_BULK`);
+    console.log(`req.headers['x-action']: ${req.headers['x-action']}`);
+    //console.log(`req.headers['x-action'].trim(): ${req.headers['x-action'].trim()}`);
+    //console.log(`req.headers['x-action'].trim() !== 'bulk' ${req.headers['x-action'].trim() !== 'bulk'}`);
+    //console.log(`req.headers['x-action'].trim() !== 'bulk' ? next() : next("route") ${req.headers['x-action'].trim() !== 'bulk' ? next() : next("route")}`)
+    return req.headers['x-action'] === undefined || req.headers['x-action'].trim() !== 'bulk' ? next() : next("route"); 
+}
+function X_ACTION_IS_BULK (req, res, next) { return req.headers['x-action'] !== undefined && req.headers['x-action'].trim() === 'bulk' ? next() : next("route"); }
+
 
 /**
  * Get all scores.
@@ -70,9 +84,32 @@ router.put('/:id',
 router.delete('/:id', 
             checkJwt, 
             checkAuthorized, 
+            X_ACTION_NOT_BULK,
             validator.validate('delete'), 
             commonValidator.checkValidationResults,
             controller.delete);
 
-export default router;
+
+/**
+ * DELETE all scores.
+ * @group scores bulk
+ * @route DELETE /api/scores
+ * @headers {string} X-Action - bulk, when deleting multiple entries.
+ * @produces application/json
+ * @consumes application/json
+ * @returns HTTP Status 200 
+ * @security JWT
+ */
+router.delete('/', 
+            checkJwt, 
+            checkAuthorized, 
+            X_ACTION_IS_BULK,
+            bulkValidator.validate('delete'), 
+            commonValidator.checkValidationResults,
+            bulkController.delete,
+            commonValidator.printRequest);
+
+
+
+export default router;               
 

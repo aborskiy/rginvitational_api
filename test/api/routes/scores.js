@@ -223,4 +223,25 @@ describe('scores', () => {
 
         });
     });
+
+    describe('DELETE scores BULK', () => {
+        it('should DELETE BULK scores', (done) => {
+            request(app)
+                .delete('/api/scores')
+                .set('Accept', 'application/json')
+                .set('X-Action', 'bulk')
+                .set('Authorization', `${testAccessToken.token_type} ${testAccessToken.access_token}`)
+                .end((err, res) => {
+                    if (err) return done(err);
+                    // HTTP status should be 200
+                    console.log(`in end after should DELETE BULK scores`);
+                    //console.log(`should POST one rotationentry before assertions, response header: ${res.header}`);
+                    //console.log(`should POST one rotationentry before assertions, response info: ${res.info}`);
+                    //console.log(`should POST one rotationentry before assertions, response body: ${JSON.stringify(res.body)}`);
+                    res.should.have.property('status').equal(200);
+                    done();
+                });
+        });
+
+    });
 });

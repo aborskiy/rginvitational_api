@@ -13,8 +13,8 @@ import  bulkController from '../controllers/rotationentriesBulk.js';
 const bulkValidator = require('../validators/rotationentriesBulk');
 
 function X_ACTION_NOT_BULK (req, res, next) { 
-    console.log(`X_ACTION_NOT_BULK`);
-    console.log(`req.headers['x-action']: ${req.headers['x-action']}`);
+    //console.log(`X_ACTION_NOT_BULK`);
+    //console.log(`req.headers['x-action']: ${req.headers['x-action']}`);
     //console.log(`req.headers['x-action'].trim(): ${req.headers['x-action'].trim()}`);
     //console.log(`req.headers['x-action'].trim() !== 'bulk' ${req.headers['x-action'].trim() !== 'bulk'}`);
     //console.log(`req.headers['x-action'].trim() !== 'bulk' ? next() : next("route") ${req.headers['x-action'].trim() !== 'bulk' ? next() : next("route")}`)
@@ -117,7 +117,7 @@ router.delete('/:id',
  * @headers {string} X-Action - bulk, when deleting multiple entries.
  * @produces application/json
  * @consumes application/json
- * @returns {rotationEntry} 200 - rotation Entry
+ * @returns HTTP Status 200 
  * @security JWT
  */
 router.delete('/', 

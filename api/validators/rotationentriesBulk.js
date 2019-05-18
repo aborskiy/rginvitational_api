@@ -24,6 +24,5 @@ exports.validate = (method) => {
                 header('X-Action').isIn(['bulk']).withMessage('invalid value in X-Action header')
             ];
         }
-
     }
 };
