@@ -222,9 +222,13 @@ Test reports are produced with mochawesome and are published to github pages aft
 The reports can be viewed at:
 
 https://aborskiy.github.io/rginvitational_api/testParticipantRoute.html
+
 https://aborskiy.github.io/rginvitational_api/testRotationEntriesRoute.html
+
 https://aborskiy.github.io/rginvitational_api/testRotationSessionRoute.html
-https://aborskiy.github.io/rginvitational_api/testScoresRoute.html\
+
+https://aborskiy.github.io/rginvitational_api/testScoresRoute.html
+
 https://aborskiy.github.io/rginvitational_api/unit-test.html
 
 ##### Mochawesome report sample
@@ -284,19 +288,23 @@ https://www.npmjs.com/package/express-swagger-generator
 passport with google authentication and google signin (not used in the assignment)
 -----------------------------------------------------------------
 http://www.passportjs.org/packages/passport-google-oauth20/
+
 https://github.com/passport/express-4.x-facebook-example
+
 https://www.djamware.com/post/58eba06380aca72673af8500/node-express-mongoose-and-passportjs-rest-api-authentication
+
 https://github.com/react-native-community/react-native-google-signin
+
 https://developer.okta.com/blog/2018/08/21/build-secure-rest-api-with-node
 
 express-validator 
 -------------------
 https://medium.freecodecamp.org/how-to-make-input-validation-simple-and-clean-in-your-express-js-app-ea9b5ff5a8a7
+
 https://express-validator.github.io/docs/check-api.html
 
 deploying application
 ----------------------
 https://auth0.com/blog/the-complete-guide-to-deploying-javascript-applications-part-1/
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment
-?https://www.cannyengineer.com/blog/deploying-express-typescript-elastic-beanstalk
-!https://medium.com/@vygandas/how-to-deploy-your-nodejs-app-on-amazon-elastic-beanstalk-aws-eb-with-circleci-short-tutorial-d8210d2a7f0c
+https://medium.com/@vygandas/how-to-deploy-your-nodejs-app-on-amazon-elastic-beanstalk-aws-eb-with-circleci-short-tutorial-d8210d2a7f0c
