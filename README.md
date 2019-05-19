@@ -59,6 +59,9 @@ The application is a web API for resources needed to support administrative func
     - [https://aborskiy.github.io/rginvitational_api/testScoresRoute.html](https://aborskiy.github.io/rginvitational_api/testScoresRoute.html)
     - [https://aborskiy.github.io/rginvitational_api/unit-test.html](https://aborskiy.github.io/rginvitational_api/unit-test.html)
 
++ Analytics.
+
+    Application is integrated with Google Analytics to track all incoming requests.  3rd party npm package is used to do tracking in the application (universal-analytics)[https://www.npmjs.com/package/universal-analytics].  The tracking code is encapsulated within custom express middleware - api/analytics/tracker.js 
 
 ## Installation requirements.
 Assumes that node.js is installed on your machine.  Please refer to [Node Page](https://nodejs.org/en/) if node needs to be installed.
@@ -252,6 +255,10 @@ https://aborskiy.github.io/rginvitational_api/unit-test.html
 
 -  The backend database is MongoDB, which is setup on MongoDB Atlas - Global Cloud Database.
 
+-  Application tracks usage of services with universal-analytics npm package and various reports can be viewed on Google Analytics console.  
+
+![Google Analytics report](docs/images/rginvitational-api-analytics-report.png)
+
 ## Independent learning.
 
 [Express API authentication with Auth0](https://auth0.com/docs/quickstart/backend/nodejs) - how to protect backend API from unauthorized access using Auth0.
@@ -263,6 +270,10 @@ https://aborskiy.github.io/rginvitational_api/unit-test.html
 [Publish reports to github pages](https://help.github.com/en/articles/configuring-a-publishing-source-for-github-pages) - github pages allow to provide application supporting documentation, reports, etc.  The files are hosted directly from github repository branch.  Travis jobs deploys mochawesome reports produced by unit and integration tests to github gh-pages branch.
 
 [Create mongoose field with autoincrement ](https://www.npmjs.com/package/mongoose-sequence) - it allows to auto generate application id by incrementing from initial value.
+
+[Google Analytics](https://developers.google.com/analytics/) - allows to measure usage of application services and review using Google Analytics console.
+
+
 
 
 ## Additional References
@@ -308,3 +319,7 @@ deploying application
 https://auth0.com/blog/the-complete-guide-to-deploying-javascript-applications-part-1/
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment
 https://medium.com/@vygandas/how-to-deploy-your-nodejs-app-on-amazon-elastic-beanstalk-aws-eb-with-circleci-short-tutorial-d8210d2a7f0c
+
+analytics
+--------------
+https://www.npmjs.com/package/universal-analytics
