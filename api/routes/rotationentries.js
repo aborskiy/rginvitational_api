@@ -9,18 +9,19 @@ const validator = require('../validators/rotationentries');
 //const commonValidator = require('../validators/common');
 import commonValidator from '../validators/common';
 //const bulkController = require('../controllers/rotationentriesBulk.js');
-import  bulkController from '../controllers/rotationentriesBulk.js';
+import bulkController from '../controllers/rotationentriesBulk.js';
 const bulkValidator = require('../validators/rotationentriesBulk');
+import tracker from '../analytics/tracker';
 
-function X_ACTION_NOT_BULK (req, res, next) { 
+function X_ACTION_NOT_BULK(req, res, next) {
     //console.log(`X_ACTION_NOT_BULK`);
     //console.log(`req.headers['x-action']: ${req.headers['x-action']}`);
     //console.log(`req.headers['x-action'].trim(): ${req.headers['x-action'].trim()}`);
     //console.log(`req.headers['x-action'].trim() !== 'bulk' ${req.headers['x-action'].trim() !== 'bulk'}`);
     //console.log(`req.headers['x-action'].trim() !== 'bulk' ? next() : next("route") ${req.headers['x-action'].trim() !== 'bulk' ? next() : next("route")}`)
-    return req.headers['x-action'] === undefined || req.headers['x-action'].trim() !== 'bulk' ? next() : next("route"); 
+    return req.headers['x-action'] === undefined || req.headers['x-action'].trim() !== 'bulk' ? next() : next("route");
 }
-function X_ACTION_IS_BULK (req, res, next) { return req.headers['x-action'] !== undefined && req.headers['x-action'].trim() === 'bulk' ? next() : next("route"); }
+function X_ACTION_IS_BULK(req, res, next) { return req.headers['x-action'] !== undefined && req.headers['x-action'].trim() === 'bulk' ? next() : next("route"); }
 
 
 /**
@@ -32,6 +33,7 @@ function X_ACTION_IS_BULK (req, res, next) { return req.headers['x-action'] !== 
  * @returns {Error}  default - Unexpected error
  */
 router.get('/',
+    tracker.trackRequest,
     controller.readAll);
 
 /**
@@ -44,14 +46,15 @@ router.get('/',
  * @returns {rotationEntry} 201 - rotationEntry
  * @security JWT
  */
-router.post('/', 
-            checkJwt, 
-            checkAuthorized, 
-            commonValidator.printRequest,
-            X_ACTION_NOT_BULK,
-            validator.validate('create'),
-            commonValidator.checkValidationResults, 
-            controller.create);
+router.post('/',
+    tracker.trackRequest,
+    checkJwt,
+    checkAuthorized,
+    commonValidator.printRequest,
+    X_ACTION_NOT_BULK,
+    validator.validate('create'),
+    commonValidator.checkValidationResults,
+    controller.create);
 
 /**
  * Post multiple rotation entries.
@@ -64,14 +67,15 @@ router.post('/',
  * @returns {Array.<rotationEntry>} 201 - rotationEntry
  * @security JWT
  */
-router.post('/', 
-            checkJwt, 
-            checkAuthorized, 
-            commonValidator.printRequest,
-            X_ACTION_IS_BULK,
-            bulkValidator.validate('create'),
-            commonValidator.checkValidationResults, 
-            bulkController.create);
+router.post('/',
+    tracker.trackRequest,
+    checkJwt,
+    checkAuthorized,
+    commonValidator.printRequest,
+    X_ACTION_IS_BULK,
+    bulkValidator.validate('create'),
+    commonValidator.checkValidationResults,
+    bulkController.create);
 
 
 /**
@@ -85,13 +89,14 @@ router.post('/',
  * @returns {rotationEntry} 200 - rotation Entry
  * @security JWT
  */
-router.put('/:id', 
-            checkJwt, 
-            checkAuthorized, 
-            validator.validate('update'), 
-            commonValidator.checkValidationResults,
-            controller.update);
-            
+router.put('/:id',
+    tracker.trackRequest,
+    checkJwt,
+    checkAuthorized,
+    validator.validate('update'),
+    commonValidator.checkValidationResults,
+    controller.update);
+
 /**
  * DELETE rotation Entry.
  * @group rotationentries
@@ -102,13 +107,14 @@ router.put('/:id',
  * @returns {rotationEntry} 200 - rotation Entry
  * @security JWT
  */
-router.delete('/:id', 
-            checkJwt, 
-            checkAuthorized, 
-            X_ACTION_NOT_BULK,
-            validator.validate('delete'), 
-            commonValidator.checkValidationResults,
-            controller.delete);
+router.delete('/:id',
+    tracker.trackRequest,
+    checkJwt,
+    checkAuthorized,
+    X_ACTION_NOT_BULK,
+    validator.validate('delete'),
+    commonValidator.checkValidationResults,
+    controller.delete);
 
 /**
  * DELETE multiple rotation entries.
@@ -120,14 +126,15 @@ router.delete('/:id',
  * @returns HTTP Status 200 
  * @security JWT
  */
-router.delete('/', 
-            checkJwt, 
-            checkAuthorized, 
-            X_ACTION_IS_BULK,
-            bulkValidator.validate('delete'), 
-            commonValidator.checkValidationResults,
-            bulkController.delete,
-            commonValidator.printRequest);
+router.delete('/',
+    tracker.trackRequest,
+    checkJwt,
+    checkAuthorized,
+    X_ACTION_IS_BULK,
+    bulkValidator.validate('delete'),
+    commonValidator.checkValidationResults,
+    bulkController.delete,
+    commonValidator.printRequest);
 
 
 

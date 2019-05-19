@@ -9,6 +9,7 @@ import controller from '../controllers/participants';
 const validator = require('../validators/participants');
 import commonValidator from '../validators/common';
 //const commonValidator = require('../validators/common');
+import tracker from '../analytics/tracker';
 
 /**
  * Get all participants.
@@ -18,8 +19,9 @@ import commonValidator from '../validators/common';
  * @returns {Array.<ParticipantInfo>} 200 - An array of participants
  * @returns {Error}  default - Unexpected error
  */
-router.get('/', 
-            controller.readAll);
+router.get('/',
+    tracker.trackRequest,
+    controller.readAll);
 
 /**
  * Get participant by id.
@@ -29,10 +31,11 @@ router.get('/',
  * @produces application/json
  * @returns {ParticipantInfo} 200 - Participant
  */
-router.get('/:id', 
-            validator.validate('get'), 
-            commonValidator.checkValidationResults,
-            controller.readById);
+router.get('/:id',
+    tracker.trackRequest,
+    validator.validate('get'),
+    commonValidator.checkValidationResults,
+    controller.readById);
 
 /**
  * Post participant.
@@ -44,12 +47,13 @@ router.get('/:id',
  * @returns {ParticipantInfo} 201 - Participant
  * @security JWT
  */
-router.post('/', 
-            checkJwt, 
-            checkAuthorized, 
-            validator.validate('create'), 
-            commonValidator.checkValidationResults, 
-            controller.create);
+router.post('/',
+    tracker.trackRequest,
+    checkJwt,
+    checkAuthorized,
+    validator.validate('create'),
+    commonValidator.checkValidationResults,
+    controller.create);
 
 /**
  * PUT participant.
@@ -62,15 +66,16 @@ router.post('/',
  * @returns {ParticipantInfo} 200 - Participant
  * @security JWT
  */
-router.put('/:id', 
-            commonValidator.printRequest,
-            checkJwt, 
-            checkAuthorized, 
-            validator.validate('update'), 
-            commonValidator.checkValidationResults,
-            controller.update);
+router.put('/:id',
+    tracker.trackRequest,
+    commonValidator.printRequest,
+    checkJwt,
+    checkAuthorized,
+    validator.validate('update'),
+    commonValidator.checkValidationResults,
+    controller.update);
 
-            
+
 /**
  * DELETE participant.
  * @group participants
@@ -81,11 +86,12 @@ router.put('/:id',
  * @returns {ParticipantInfo} 200 - Participant
  * @security JWT
  */
-router.delete('/:id', 
-            checkJwt, 
-            checkAuthorized, 
-            validator.validate('get'), 
-            commonValidator.checkValidationResults,
-            controller.delete);
+router.delete('/:id',
+    tracker.trackRequest,
+    checkJwt,
+    checkAuthorized,
+    validator.validate('get'),
+    commonValidator.checkValidationResults,
+    controller.delete);
 
 export default router;

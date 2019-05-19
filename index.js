@@ -9,8 +9,10 @@ import './db';
 import participantRouter from './api/routes/participants';
 import scoresRouter from './api/routes/scores';
 import rotationentriesRouter from './api/routes/rotationentries';
-import rotationentriesBulkRouter from './api/routes/rotationentriesBulk';
 import rotationsessionRouter from './api/routes/rotationsession';
+import ua from 'universal-analytics';
+
+var visitor = ua(process.env.GTAG, {http: true}, {uid: 'rginvitational-api'});
 
 var cors = require('cors');
 var corsOptions = {
@@ -33,10 +35,16 @@ app.use(express.static('public'));
 
 app.use(expressValidator());
 // routes 
+
 app.use('/api/participants', participantRouter);
 app.use('/api/scores', scoresRouter);
 app.use('/api/rotationentries', rotationentriesRouter);
 app.use('/api/rotationsession', rotationsessionRouter);
+visitor.event('API', 'Hit',  function (err) {
+  if (err){
+    console.log(`top level index - error when calling Google Analytics err: ${err}` )
+  }
+});
 
 
 // swagger generator

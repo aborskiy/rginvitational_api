@@ -4,10 +4,11 @@ const router = express.Router();
 import checkJwt from '../../auth/auth';
 import checkAuthorized from '../../auth/checkAuthorized';
 //const controller = require('../controllers/rotationsession.js');
-import  controller from '../controllers/rotationsession.js';
+import controller from '../controllers/rotationsession.js';
 const validator = require('../validators/rotationsession');
 //const commonValidator = require('../validators/common');
-import commonValidator  from '../validators/common';
+import commonValidator from '../validators/common';
+import tracker from '../analytics/tracker';
 
 /**
  * Get all rotation session.
@@ -18,6 +19,7 @@ import commonValidator  from '../validators/common';
  * @returns {Error}  default - Unexpected error
  */
 router.get('/',
+    tracker.trackRequest,
     controller.readAll);
 
 /**
@@ -30,12 +32,13 @@ router.get('/',
  * @returns {RotationSession.model} 201 - rotationSession
  * @security JWT
  */
-router.post('/', 
-            checkJwt, 
-            checkAuthorized, 
-            validator.validate('create'), 
-            commonValidator.checkValidationResults, 
-            controller.create);
+router.post('/',
+    tracker.trackRequest,
+    checkJwt,
+    checkAuthorized,
+    validator.validate('create'),
+    commonValidator.checkValidationResults,
+    controller.create);
 
 /**
  * PUT rotation session.
@@ -48,13 +51,14 @@ router.post('/',
  * @returns {RotationSession} 200 - rotation session
  * @security JWT
  */
-router.put('/:id', 
-            checkJwt, 
-            checkAuthorized, 
-            validator.validate('update'), 
-            commonValidator.checkValidationResults,
-            controller.update);
-            
+router.put('/:id',
+    tracker.trackRequest,
+    checkJwt,
+    checkAuthorized,
+    validator.validate('update'),
+    commonValidator.checkValidationResults,
+    controller.update);
+
 /**
  * DELETE rotation session.
  * @group rotationsession
@@ -65,12 +69,13 @@ router.put('/:id',
  * @returns {RotationSession} 200 - rotation session
  * @security JWT
  */
-router.delete('/:id', 
-            checkJwt, 
-            checkAuthorized, 
-            validator.validate('delete'), 
-            commonValidator.checkValidationResults,
-            controller.delete);
+router.delete('/:id',
+    tracker.trackRequest,
+    checkJwt,
+    checkAuthorized,
+    validator.validate('delete'),
+    commonValidator.checkValidationResults,
+    controller.delete);
 
 
 

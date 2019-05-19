@@ -6,15 +6,15 @@
   "esm": "auto",
   "scripts": {
     "start": "nodemon -r esm index.js",
-    "test" : "npm run unit-test && npm run testParticipantsRoute && npm run testScoresRoute && npm run testRotationEntriesRoute && npm run testRotationSessionRoute",
+    "test": "npm run unit-test && npm run testParticipantsRoute && npm run testScoresRoute && npm run testRotationEntriesRoute && npm run testRotationSessionRoute",
     "testRoutes": "cross-env NODE_ENV=test mocha './test/api/routes/*.js' --timeout 10000 --require esm --reporter mochawesome --reporter-options reportFilename=testRoutes --exit",
     "testParticipantsRoute": "cross-env NODE_ENV=test mocha './test/api/routes/participants.js' --timeout 30000 --require esm --reporter mochawesome --reporter-options reportFilename=testScoresRoute --exit",
     "testScoresRoute": "cross-env NODE_ENV=test mocha './test/api/routes/scores.js' --timeout 10000 --require esm --reporter mochawesome --reporter-options reportFilename=testScoresRoute --exit",
     "testRotationEntriesRoute": "cross-env NODE_ENV=test mocha './test/api/routes/rotationentries.js' --timeout 10000 --require esm --reporter mochawesome --reporter-options reportFilename=testRotationEntriesRoute --exit",
     "testRotationSessionRoute": "cross-env NODE_ENV=test mocha './test/api/routes/rotationsession.js' --timeout 10000 --require esm --reporter mochawesome --reporter-options reportFilename=testRotationSessionRoute --exit",
     "unit-test": "cross-env NODE_ENV=test mocha './test/api/models/*.js' --require esm --reporter mochawesome --reporter-options reportFilename=unit-test --exit",
-    "cleanup" : "cross-env NODE_ENV=clean mocha './seed/cleanup/runner.js' --timeout 30000 --require esm --exit",
-    "seed" : "cross-env NODE_ENV=seed mocha './seed/runner.js' --timeout 30000 --require esm --exit",
+    "cleanup": "cross-env NODE_ENV=clean mocha './seed/cleanup/runner.js' --timeout 30000 --require esm --exit",
+    "seed": "cross-env NODE_ENV=seed mocha './seed/runner.js' --timeout 30000 --require esm --exit",
     "pretest": "eslint ./api/**/*.js ./test/api/**/*.js"
   },
   "author": "aborskiy",
@@ -61,6 +61,7 @@
     "passport-google-oauth20": "^2.0.0",
     "passport-jwt": "^4.0.0",
     "save-dev": "^2.0.0",
-    "swagger-node-express": "^2.1.3"
+    "swagger-node-express": "^2.1.3",
+    "universal-analytics": "^0.4.20"
   }
 }
