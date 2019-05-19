@@ -90,10 +90,11 @@ exports.delete = asyncHandler(async (req, res) => {
                 return res.sendStatus(404);
             }
             deleted = participant;
+            return res.status(200).json(deleted);
         }
         );
 
-        return res.status(200).json(deleted);
+
     }
     catch (error) {
         handleError(res, error.message);
