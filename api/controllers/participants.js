@@ -22,10 +22,12 @@ exports.readById = asyncHandler(async (req, res) => {
                 return res.sendStatus(404);
             }
 
+            return res.status(200).json(participant);
+
         }
         );
 
-        return res.status(200).json(participant);
+        
     }
     catch (error) {
         handleError(res, error.message);
