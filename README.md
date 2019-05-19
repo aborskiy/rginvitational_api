@@ -170,6 +170,9 @@ TEST_ACCESS_CLIENT_ID=**************
 TEST_ACCESS_CLIENT_SECRET=**********************
 TEST_ACCESS_AUDIENCE=https://****************.auth0.com/api/v2/
 
+##### 
+GTAG=UA-#########-#
+
 ## Security and Authentication
 All application POST, PUT, DELETE REST services are protected and require calling application to be authenticated.  
 The authorization and authentication are done using external vendor Auth0. 
@@ -323,3 +326,4 @@ https://medium.com/@vygandas/how-to-deploy-your-nodejs-app-on-amazon-elastic-bea
 analytics
 --------------
 https://www.npmjs.com/package/universal-analytics
+https://developers.google.com/analytics/
